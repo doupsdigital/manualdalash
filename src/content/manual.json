@@ -1,0 +1,2317 @@
+{
+  "title": "Manual da Lash Designer",
+  "modules": [
+    {
+      "id": 1,
+      "title": "A profissão",
+      "subtitle": "Entenda o trabalho, o mercado e o que você precisa para começar.",
+      "lessons": [
+        {
+          "id": "1-1",
+          "title": "O que faz uma lash designer",
+          "minutes": 3,
+          "intro": "Antes de falar de fios e técnicas, vale entender o que essa profissão é de verdade: muito mais do que colar cílios.",
+          "blocks": [
+            {
+              "heading": "O serviço principal",
+              "text": "A lash designer aplica fios sintéticos sobre os cílios naturais da cliente, um a um ou em pequenos leques, para alongar, dar volume e realçar o olhar. Esse serviço se chama extensão de cílios. Muitas profissionais também oferecem o lash lifting, que curva os cílios naturais sem colocar fios novos."
+            },
+            {
+              "heading": "Um atendimento completo",
+              "steps": [
+                "Conversar com a cliente e entender o resultado que ela quer.",
+                "Escolher o estilo e montar o mapping (o \"desenho\" de tamanhos e curvaturas para aquele olhar).",
+                "Preparar os cílios e fazer a aplicação com calma e precisão.",
+                "Orientar os cuidados e agendar a manutenção."
+              ]
+            },
+            {
+              "heading": "As habilidades que fazem diferença",
+              "items": [
+                "Paciência e mão firme: o trabalho é delicado e minucioso.",
+                "Olhar estético: cada rosto pede um estilo diferente.",
+                "Organização e higiene: bancada limpa e materiais em ordem.",
+                "Bom atendimento: cliente bem tratada volta e indica."
+              ]
+            },
+            {
+              "heading": "Uma profissão de autônoma",
+              "text": "A maioria das lash designers trabalha por conta própria: em casa, em estúdio próprio ou dentro de um salão. Isso dá liberdade de horário, mas também significa cuidar da agenda, dos preços e da divulgação. Por isso este manual vai do primeiro fio até a agenda cheia."
+            }
+          ],
+          "tip": "Comece observando o trabalho de lash designers que você admira: repare no acabamento, na naturalidade e em como elas se comunicam com as clientes.",
+          "mistake": "Achar que basta saber aplicar. A técnica é a base, mas quem cresce na profissão também cuida do atendimento, do preço e da divulgação.",
+          "summary": "Lash designer cuida do olhar da cliente do começo ao fim: conversa, estilo, aplicação, orientação e retorno."
+        },
+        {
+          "id": "1-2",
+          "title": "Quanto dá para ganhar",
+          "minutes": 4,
+          "intro": "A renda de uma lash designer varia muito. Em vez de prometer um número, vamos te mostrar como fazer a conta, para você enxergar o seu potencial com clareza.",
+          "blocks": [
+            {
+              "heading": "Quanto se cobra hoje",
+              "text": "No Brasil, uma aplicação costuma custar de R$ 80 a R$ 250. O valor muda conforme a cidade, a técnica (volumes costumam ser mais caros que o fio a fio) e a experiência da profissional. A manutenção costuma ser mais barata e mais rápida que uma aplicação completa."
+            },
+            {
+              "heading": "O segredo da renda: a manutenção",
+              "text": "Os fios naturais caem e nascem o tempo todo, e a extensão cai junto com eles. Por isso a cliente volta em geral a cada 2 a 3 semanas para a manutenção. Uma cliente fiel é uma renda que se repete todo mês, e é isso que dá estabilidade ao seu negócio."
+            },
+            {
+              "heading": "Faça a sua conta (exemplo)",
+              "steps": [
+                "Defina seu preço de aplicação e de manutenção. Exemplo: R$ 150 e R$ 90.",
+                "Estime quantos atendimentos cabem na sua semana. Exemplo: 3 aplicações e 6 manutenções.",
+                "Multiplique: (3 × R$ 150) + (6 × R$ 90) = R$ 990 por semana.",
+                "Multiplique por 4 semanas: cerca de R$ 3.960 no mês, antes de descontar os materiais e os custos."
+              ]
+            },
+            {
+              "heading": "O que faz a renda crescer",
+              "items": [
+                "Clientes que voltam para a manutenção (fidelidade).",
+                "Preço justo, que paga seu tempo e seu material.",
+                "Agenda organizada, sem horários vagos.",
+                "Indicações de clientes satisfeitas."
+              ]
+            }
+          ],
+          "tip": "Use números reais da sua região: pesquise os preços de 5 lash designers perto de você antes de definir o seu. O Módulo 10 te ensina a calcular o preço certo.",
+          "mistake": "Olhar só para o valor da aplicação. Quem sustenta a renda é a cliente que volta: priorize a experiência e a manutenção.",
+          "summary": "A renda depende do seu preço, dos atendimentos por semana e, principalmente, das clientes que voltam."
+        },
+        {
+          "id": "1-3",
+          "title": "Onde atender: estúdio, em casa ou em salão",
+          "minutes": 3,
+          "intro": "Não existe lugar certo para começar. Existe o lugar que cabe no seu momento. Veja as opções mais comuns e o que pesa em cada uma.",
+          "blocks": [
+            {
+              "heading": "Em casa",
+              "items": [
+                "A favor: custo baixo e sem deslocamento.",
+                "Atenção: separe um cantinho só para o atendimento, limpo, iluminado e reservado.",
+                "Ideal para quem está começando e quer montar a clientela."
+              ]
+            },
+            {
+              "heading": "Dentro de um salão",
+              "items": [
+                "A favor: o salão já tem movimento e clientes que podem conhecer seu trabalho.",
+                "Atenção: combine bem como funciona a divisão (aluguel do espaço ou porcentagem por atendimento).",
+                "Ideal para quem quer ganhar visibilidade sem montar um espaço próprio."
+              ]
+            },
+            {
+              "heading": "Estúdio próprio",
+              "items": [
+                "A favor: liberdade total, sua identidade visual e mais valor percebido.",
+                "Atenção: tem custos fixos todo mês (aluguel, contas), então precisa de agenda constante.",
+                "Ideal para quem já tem clientes fiéis."
+              ]
+            },
+            {
+              "heading": "Atendimento a domicílio",
+              "text": "Funciona para algumas clientes, mas exige levar maca, iluminação e materiais, e a postura costuma ser pior. Também fica mais difícil controlar a umidade e a temperatura do ambiente, que influenciam na cola. Se oferecer, cobre o deslocamento e o tempo de montagem, e use como serviço extra, não como o principal."
+            }
+          ],
+          "tip": "Comece onde o custo é menor e mude de lugar quando a agenda pedir. Muitas lash designers começam em casa e só abrem o estúdio com a clientela formada.",
+          "mistake": "Abrir um estúdio caro antes de ter clientes. O aluguel chega todo mês, com ou sem agenda cheia.",
+          "summary": "Escolha o lugar pelo seu momento: comece com pouco custo e cresça junto com a clientela."
+        },
+        {
+          "id": "1-4",
+          "title": "O que você precisa para começar",
+          "minutes": 3,
+          "intro": "Para começar bem, você precisa de quatro coisas: conhecimento, materiais, um espaço adequado e uma forma de ser encontrada.",
+          "blocks": [
+            {
+              "heading": "1. Conhecimento e prática",
+              "text": "Um curso com prática supervisionada ajuda a pegar o jeito da pinça e do isolamento. Este manual é o seu material de apoio para estudar, revisar e consultar sempre que precisar. Treine bastante antes de atender clientes pagantes: em cabeça de treino e, depois, em modelos."
+            },
+            {
+              "heading": "2. Materiais",
+              "items": [
+                "Pinças, cola para extensão, primer e removedor.",
+                "Fios em diferentes espessuras, curvaturas e tamanhos.",
+                "Fitas, patches, escovinhas e itens de higiene.",
+                "A lista completa, com dicas de escolha, está no Módulo 2."
+              ]
+            },
+            {
+              "heading": "3. Um espaço adequado",
+              "items": [
+                "Maca confortável e um banco na altura certa para você.",
+                "Boa iluminação (luminária de LED ou ring light).",
+                "Controle do ambiente: a cola trabalha melhor com umidade em torno de 50% a 60% e temperatura entre 16 °C e 24 °C. Um higrômetro simples mostra isso.",
+                "Tudo limpo e organizado."
+              ]
+            },
+            {
+              "heading": "4. Uma forma de ser encontrada",
+              "text": "Um perfil profissional no Instagram e o WhatsApp Business já são suficientes para começar. O Módulo 11 mostra como transformar essas ferramentas em agendamentos. E, se quiser trabalhar com mais segurança, pesquise como se formalizar como MEI."
+            }
+          ],
+          "tip": "Não compre tudo de uma vez. Comece com o essencial de boa qualidade e vá completando o kit conforme as clientes chegam.",
+          "mistake": "Economizar na cola e nas pinças. São os dois itens que mais influenciam na durabilidade e no acabamento.",
+          "summary": "Conhecimento, materiais de qualidade, um espaço adequado e presença online: com isso você já pode começar."
+        },
+        {
+          "id": "1-5",
+          "title": "Como é a rotina de uma lash",
+          "minutes": 3,
+          "intro": "Saber como é o dia a dia te ajuda a se organizar e a evitar surpresas. Veja como costuma ser a rotina de quem vive de lash.",
+          "blocks": [
+            {
+              "heading": "Antes dos atendimentos",
+              "steps": [
+                "Confirmar os horários do dia com as clientes.",
+                "Conferir o ambiente: limpeza, iluminação, umidade e temperatura.",
+                "Separar os materiais de cada atendimento."
+              ]
+            },
+            {
+              "heading": "Durante o dia",
+              "text": "Uma aplicação leva em geral de 1 a 2 horas, e as técnicas de volume podem levar mais. A manutenção costuma ser mais rápida. Entre um atendimento e outro, reserve alguns minutos para limpar a bancada, responder mensagens e se alongar: o trabalho exige postura e atenção por bastante tempo."
+            },
+            {
+              "heading": "Além da maca",
+              "items": [
+                "Responder clientes no WhatsApp e no Instagram.",
+                "Fotografar os resultados (com autorização) e postar.",
+                "Controlar a agenda e lembrar as manutenções.",
+                "Repor materiais e acompanhar seus ganhos."
+              ]
+            },
+            {
+              "heading": "Cuide de você",
+              "text": "Ajuste a altura do banco e da maca para não curvar as costas, faça pausas e alongue pescoço, ombros e mãos. Beba água, faça refeições de verdade e defina um horário para encerrar o dia. Uma rotina sustentável é o que permite atender bem por muitos anos, sem cansaço acumulado."
+            }
+          ],
+          "tip": "Deixe espaço na agenda entre os atendimentos. Um intervalo de 15 minutos evita atrasos e deixa você atender cada cliente com calma.",
+          "mistake": "Encaixar atendimentos colados um no outro. Qualquer atraso vira efeito dominó e a qualidade cai no fim do dia.",
+          "summary": "A rotina vai além da maca: organização, comunicação e cuidado com você fazem parte do trabalho."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Materiais sem erro",
+      "subtitle": "O que comprar, como escolher e como cuidar de cada item.",
+      "lessons": [
+        {
+          "id": "2-1",
+          "title": "Pinças: reta, curva e de volume",
+          "minutes": 3,
+          "intro": "A pinça é a extensão da sua mão. Com a pinça certa, o trabalho fica mais rápido, mais preciso e menos cansativo.",
+          "blocks": [
+            {
+              "heading": "Os três tipos que você vai usar",
+              "items": [
+                "Pinça reta: a mais usada para isolar, ou seja, separar o cílio natural dos vizinhos.",
+                "Pinça curva: firme e precisa para pegar e aplicar o fio no fio a fio.",
+                "Pinça de volume (em L ou com ponta em ângulo): feita para montar e pegar os leques do volume russo."
+              ]
+            },
+            {
+              "heading": "Como saber se uma pinça é boa",
+              "steps": [
+                "Feche a pinça com pouca força: as pontas precisam se encontrar por inteiro, sem sobrar espaço.",
+                "Pegue um fio fino: ele não pode escorregar nem girar.",
+                "Segure por alguns minutos: ela precisa ser leve e confortável na sua mão."
+              ]
+            },
+            {
+              "heading": "Como cuidar",
+              "text": "Limpe e desinfete as pinças depois de cada cliente, seguindo as normas de higiene da sua região. Guarde cada uma com a ponta protegida, sem encostar nas outras. Uma queda no chão pode desalinhar a ponta, e uma pinça desalinhada atrapalha o isolamento e a pegada do fio."
+            }
+          ],
+          "tip": "Tenha pelo menos duas pinças de cada tipo: assim você troca entre clientes enquanto as outras estão sendo limpas.",
+          "mistake": "Comprar o kit mais barato de pinças. Ponta que não fecha por inteiro faz você perder tempo e deixa o isolamento malfeito.",
+          "summary": "Reta para isolar, curva para o fio a fio, de volume para os leques, sempre limpas e com a ponta protegida."
+        },
+        {
+          "id": "2-2",
+          "title": "Colas: como escolher e conservar",
+          "minutes": 3,
+          "intro": "A cola é o item que mais influencia na durabilidade da extensão. Escolher e conservar bem a cola é metade do caminho para um resultado que dura.",
+          "blocks": [
+            {
+              "heading": "Como escolher",
+              "items": [
+                "Secagem: colas de secagem mais lenta dão tempo para quem está começando; as rápidas são para quem já tem prática.",
+                "Ambiente: cada cola tem uma faixa ideal de umidade e temperatura indicada pelo fabricante. Escolha uma que combine com o clima do seu espaço.",
+                "Procedência: compre de marcas conhecidas, com registro e ficha técnica."
+              ]
+            },
+            {
+              "heading": "Como usar no dia a dia",
+              "steps": [
+                "Agite bem o frasco antes de usar, como indica o fabricante.",
+                "Coloque uma gota pequena no suporte (pedra de jade ou anel de cola).",
+                "Troque a gota sempre que ela começar a engrossar ou formar película.",
+                "Feche bem o frasco logo depois de usar."
+              ]
+            },
+            {
+              "heading": "Como conservar",
+              "text": "Guarde a cola bem fechada, longe da luz e do calor. Depois de aberta, ela dura pouco: siga o prazo que o fabricante indica e anote no frasco a data em que abriu. O ambiente também conta: a cola trabalha melhor com umidade em torno de 50% a 60% e temperatura entre 16 °C e 24 °C."
+            }
+          ],
+          "tip": "Anote no frasco a data de abertura com uma etiqueta. Assim você nunca usa uma cola vencida sem perceber.",
+          "mistake": "Usar a mesma gota durante todo o atendimento. A gota envelhece em minutos e cola mal, e os fios começam a cair antes do tempo.",
+          "summary": "Escolha a cola pelo seu nível e pelo seu ambiente, troque a gota com frequência e respeite o prazo depois de aberta."
+        },
+        {
+          "id": "2-3",
+          "title": "Primer, removedor e acessórios",
+          "minutes": 3,
+          "intro": "Além das pinças e da cola, alguns produtos ajudam a preparar, corrigir e finalizar cada atendimento.",
+          "blocks": [
+            {
+              "heading": "Primer",
+              "text": "O primer limpa a oleosidade e os resíduos do cílio natural antes da aplicação, para a cola aderir melhor. É aplicado com um microbrush (aquele pincel bem pequeno, descartável) e precisa secar antes de começar."
+            },
+            {
+              "heading": "Removedor",
+              "items": [
+                "Serve para tirar as extensões ou corrigir um fio colado errado.",
+                "Existe em líquido, gel e creme. Para extensão, prefira gel ou creme: são mais fáceis de controlar e não escorrem.",
+                "Aplique sempre com cuidado e sem encostar na pele."
+              ]
+            },
+            {
+              "heading": "Outros itens úteis",
+              "items": [
+                "Microbrushes e escovinhas descartáveis (uma para cada cliente).",
+                "Suporte para a cola: pedra de jade ou anéis descartáveis.",
+                "Bandeja para organizar os fios.",
+                "Um soprador pequeno (ventilador manual) para ajudar na secagem, se a sua cola indicar.",
+                "Lenço e água para limpar a região antes da aplicação."
+              ]
+            },
+            {
+              "heading": "Organize por ordem de uso",
+              "text": "Deixe os itens na ordem em que você vai usar: primeiro o que prepara (água, lenço e primer), depois o que aplica (cola e fios) e, por último, o que finaliza (escovinha). Assim o atendimento flui sem interrupções."
+            }
+          ],
+          "tip": "Monte uma bandeja com tudo o que você usa em um atendimento. Na hora, você não precisa levantar nem procurar nada.",
+          "mistake": "Pular o primer para ganhar tempo. Sem limpeza, a oleosidade natural atrapalha a cola, e a durabilidade cai.",
+          "summary": "Primer para preparar, removedor para corrigir e acessórios para deixar o atendimento organizado e higiênico."
+        },
+        {
+          "id": "2-4",
+          "title": "Fitas, patches e escovinhas",
+          "minutes": 3,
+          "intro": "São itens simples e baratos, mas fazem diferença no conforto da cliente e na qualidade do isolamento.",
+          "blocks": [
+            {
+              "heading": "Patches (protetores de olho)",
+              "text": "O patch é um adesivo em formato de meia-lua colocado embaixo dos olhos para cobrir os cílios de baixo. Assim eles não grudam nos de cima durante a aplicação. Escolha patches finos e confortáveis, que se moldem bem à pele."
+            },
+            {
+              "heading": "Fitas",
+              "items": [
+                "Ajudam a afastar cílios de baixo que escaparam do patch.",
+                "Levantam a pálpebra quando ela está muito caída, para expor melhor a linha dos cílios.",
+                "Prefira fitas próprias para a área dos olhos, que descolam com facilidade."
+              ]
+            },
+            {
+              "heading": "Escovinhas",
+              "items": [
+                "Usadas para pentear os cílios antes, durante e no final.",
+                "Uma escovinha nova por cliente.",
+                "Ofereça uma de presente no final: ela vai usar todo dia para pentear os fios."
+              ]
+            },
+            {
+              "heading": "Como posicionar sem incomodar",
+              "steps": [
+                "Peça para a cliente olhar para cima enquanto você coloca o patch.",
+                "Posicione abaixo da linha dos cílios, sem encostar no olho.",
+                "Pergunte se está confortável antes de começar."
+              ]
+            }
+          ],
+          "tip": "Dar a escovinha de presente é um gesto pequeno que a cliente lembra, e ainda ajuda a extensão a durar mais.",
+          "mistake": "Colocar o patch alto demais, encostando no olho. Incomoda a cliente e ela passa o atendimento inteiro mexendo os olhos.",
+          "summary": "Patches e fitas protegem e isolam, a escovinha organiza os fios, e tudo precisa ser confortável para a cliente."
+        },
+        {
+          "id": "2-5",
+          "title": "A lista de materiais para começar",
+          "minutes": 3,
+          "intro": "Não é preciso comprar tudo de uma vez. Veja o essencial para começar com segurança e o que pode esperar.",
+          "blocks": [
+            {
+              "heading": "Essencial para começar",
+              "items": [
+                "2 pinças retas e 2 pinças curvas.",
+                "1 cola de secagem moderada, de marca confiável.",
+                "Primer e removedor em gel ou creme.",
+                "Fios para fio a fio: espessura 0,10 e 0,15, curvaturas C e D, tamanhos variados.",
+                "Patches, fitas, microbrushes e escovinhas.",
+                "Suporte para cola e bandeja para os fios.",
+                "Higrômetro (mede umidade e temperatura) e uma boa luminária."
+              ]
+            },
+            {
+              "heading": "Pode esperar",
+              "items": [
+                "Pinças de volume e fios bem finos (0,05 e 0,07): quando for aprender volume.",
+                "Fios em todas as curvaturas e tamanhos: compre conforme a demanda.",
+                "Colas para outras estações do ano."
+              ]
+            },
+            {
+              "heading": "Como economizar sem perder qualidade",
+              "text": "Invista mais nos itens que mexem direto no resultado (pinças, cola e fios) e economize nos descartáveis, comprando em quantidade. Antes de comprar, compare as opções e leia avaliações de outras profissionais."
+            }
+          ],
+          "tip": "Comece com uma ou duas curvaturas e poucos tamanhos. Com o tempo, você vai saber exatamente o que suas clientes mais pedem.",
+          "mistake": "Comprar um kit enorme logo de cara. Muita coisa fica parada e vence, principalmente a cola.",
+          "summary": "Comece com o essencial de boa qualidade e amplie o kit conforme as clientes e as técnicas pedirem."
+        },
+        {
+          "id": "2-6",
+          "title": "Organização e higiene da bancada",
+          "minutes": 3,
+          "intro": "Uma bancada organizada passa confiança para a cliente e deixa o seu trabalho mais rápido e seguro.",
+          "blocks": [
+            {
+              "heading": "Antes de cada cliente",
+              "steps": [
+                "Limpe a bancada e a maca.",
+                "Separe os descartáveis novos daquele atendimento.",
+                "Confira se as pinças estão limpas e desinfetadas.",
+                "Lave as mãos e use luvas, se fizer parte do seu protocolo."
+              ]
+            },
+            {
+              "heading": "Durante o atendimento",
+              "items": [
+                "Deixe à mão só o que vai usar.",
+                "Mantenha a cola fechada quando não estiver usando.",
+                "Descarte na hora o que já foi usado."
+              ]
+            },
+            {
+              "heading": "Depois do atendimento",
+              "items": [
+                "Descarte todos os itens de uso único.",
+                "Limpe e desinfete as pinças e a bancada.",
+                "Troque o lençol ou a proteção da maca."
+              ]
+            },
+            {
+              "heading": "Por que isso importa",
+              "text": "A cliente percebe a organização logo que chega. Um espaço limpo e arrumado mostra cuidado e profissionalismo, e isso faz ela confiar mais em você, voltar e indicar. Siga também as regras de higiene da vigilância sanitária da sua cidade e mantenha um registro simples da limpeza dos seus materiais. Esse cuidado protege a cliente, protege você e valoriza o seu trabalho."
+            }
+          ],
+          "tip": "Deixe a desinfecção das pinças visível para a cliente. É uma forma silenciosa de mostrar o seu cuidado.",
+          "mistake": "Reaproveitar descartáveis para economizar. Escovinha, microbrush e patch são de uso único, sempre.",
+          "summary": "Bancada limpa antes, organizada durante e higienizada depois: isso passa confiança e profissionalismo."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Fios, espessuras e curvaturas",
+      "subtitle": "Como escolher o fio certo para cada cliente e cada estilo.",
+      "lessons": [
+        {
+          "id": "3-1",
+          "title": "Os tipos de fio",
+          "minutes": 3,
+          "intro": "Na loja, você vai encontrar fios chamados de seda, mink e cashmere. Todos são sintéticos, e entender a diferença ajuda a escolher.",
+          "blocks": [
+            {
+              "heading": "O que muda entre eles",
+              "items": [
+                "Brilho: alguns são mais brilhantes, outros mais foscos e naturais.",
+                "Maciez e flexibilidade: fios mais macios ficam mais confortáveis.",
+                "Peso: fios mais leves sobrecarregam menos o cílio natural.",
+                "Os nomes variam de marca para marca, então leia a descrição do fabricante."
+              ]
+            },
+            {
+              "heading": "Fios em cartela e fios prontos",
+              "items": [
+                "Fios em cartela (ou em tiras): os mais comuns, para o fio a fio.",
+                "Fios em formato de Y ou W: usados no volume brasileiro.",
+                "Leques prontos (fans): para quem faz volume e quer ganhar tempo."
+              ]
+            },
+            {
+              "heading": "Como escolher",
+              "text": "Para começar, escolha um fio de boa marca, macio, de brilho moderado e leve. Teste em algumas clientes e observe o acabamento e a durabilidade. Quando achar um fio de que goste, mantenha a marca: assim o seu resultado fica sempre parecido."
+            }
+          ],
+          "tip": "Peça amostras ou compre cartelas pequenas de marcas diferentes antes de comprar em quantidade.",
+          "mistake": "Trocar de marca toda hora atrás do mais barato. Cada fio se comporta de um jeito, e o resultado perde padrão.",
+          "summary": "Seda, mink e cashmere são sintéticos: escolha pelo brilho, pela maciez e pelo peso, e mantenha a marca que funcionar."
+        },
+        {
+          "id": "3-2",
+          "title": "Espessuras: qual usar em cada caso",
+          "minutes": 3,
+          "intro": "A espessura é o \"grosso\" do fio, medida em milímetros. Ela define o quanto o olhar fica marcado e o peso sobre o cílio natural.",
+          "blocks": [
+            {
+              "heading": "No fio a fio",
+              "items": [
+                "0,10 mm: a mais indicada para a maioria das clientes. Natural e leve.",
+                "0,12 a 0,15 mm: mais marcado, para cílios naturais mais fortes.",
+                "0,20 mm: bem marcado e pesado. Só para cílios naturais grossos e fortes."
+              ]
+            },
+            {
+              "heading": "No volume",
+              "items": [
+                "0,07 mm: para leques com poucos fios e para o volume brasileiro.",
+                "0,05 mm: para leques com mais fios, no volume russo.",
+                "0,03 mm: bem fino, usado no mega volume."
+              ]
+            },
+            {
+              "heading": "A regra de ouro: peso",
+              "text": "Quanto mais grosso o fio, mais ele pesa. Se o fio for pesado demais para o cílio natural, ele pode entortar ou até quebrar o cílio da cliente. Por isso, avalie sempre os cílios naturais: fracos e finos pedem fios finos; fortes e grossos aguentam um pouco mais."
+            }
+          ],
+          "tip": "Na dúvida entre duas espessuras, escolha a mais fina. É melhor um olhar um pouco mais leve do que cílios naturais sobrecarregados.",
+          "mistake": "Usar 0,20 em todo mundo porque \"marca mais\". Em cílios finos, o peso derruba os fios e a extensão dura menos.",
+          "summary": "0,10 para a maioria no fio a fio, fios finos no volume, e a espessura sempre de acordo com a força do cílio natural."
+        },
+        {
+          "id": "3-3",
+          "title": "Curvaturas: B, C, CC, D e L",
+          "minutes": 3,
+          "intro": "A curvatura é o quanto o fio é curvo. Ela muda completamente o efeito: do olhar natural ao olhar bem aberto.",
+          "blocks": [
+            {
+              "heading": "As curvaturas mais usadas",
+              "items": [
+                "B: curvatura suave. Efeito natural, parece o cílio da própria cliente.",
+                "C: curvatura média. A mais versátil, combina com a maioria dos olhares.",
+                "CC: entre a C e a D. Mais aberta, mas ainda delicada.",
+                "D: curvatura alta. Olhar bem aberto e marcante.",
+                "L: base reta e ponta levantada. Boa para olhos com pálpebra caída ou cílios naturais muito retos."
+              ]
+            },
+            {
+              "heading": "Outras que você pode encontrar",
+              "items": [
+                "J: quase reta, bem discreta.",
+                "LC: parecida com a L, com elevação mais suave.",
+                "M: elevação extrema, para olhares bem dramáticos."
+              ]
+            },
+            {
+              "heading": "Como escolher",
+              "steps": [
+                "Observe os cílios naturais: retos pedem curvaturas que levantem (D ou L); curvados aceitam B ou C.",
+                "Pergunte o efeito desejado: natural, marcado ou dramático.",
+                "Lembre que a curvatura das marcas pode variar um pouco: teste antes."
+              ]
+            }
+          ],
+          "tip": "Comece o seu kit com C e D. Elas resolvem a maior parte dos atendimentos.",
+          "mistake": "Usar uma curvatura alta em cílios naturais muito curvos. O fio fica \"enrolado\" e o resultado parece artificial.",
+          "summary": "B é natural, C é versátil, D abre o olhar e L ajuda em pálpebras caídas: escolha pelo cílio natural e pelo desejo da cliente."
+        },
+        {
+          "id": "3-4",
+          "title": "Tamanhos: como escolher",
+          "minutes": 3,
+          "intro": "O tamanho, em milímetros, define o comprimento do olhar. Usar vários tamanhos no mesmo olho é o que cria o desenho.",
+          "blocks": [
+            {
+              "heading": "Faixas mais usadas",
+              "items": [
+                "8 a 10 mm: efeito natural.",
+                "10 a 12 mm: olhar mais marcado.",
+                "13 a 15 mm: efeito dramático.",
+                "No canto interno, os fios costumam ser mais curtos (6 a 8 mm)."
+              ]
+            },
+            {
+              "heading": "A regra do equilíbrio",
+              "text": "O fio precisa combinar com o comprimento e a força do cílio natural. Fio longo demais em cílio curto pesa, fica artificial e cai mais rápido. Um bom ponto de partida é escolher um tamanho um pouco maior que o cílio natural, e não muito além disso."
+            },
+            {
+              "heading": "Como usar vários tamanhos",
+              "steps": [
+                "Meça (ou observe) o cílio natural no centro do olho.",
+                "Defina o tamanho maior, que vai marcar o estilo.",
+                "Vá diminuindo em direção ao canto interno.",
+                "O Módulo 6 mostra como montar esse desenho, que é o mapping."
+              ]
+            }
+          ],
+          "tip": "Tenha uma cartela mista, com vários tamanhos, para não precisar abrir muitas cartelas diferentes no mesmo atendimento.",
+          "mistake": "Usar o mesmo tamanho no olho inteiro. O olhar fica reto e sem graça, e os fios do canto interno incomodam a cliente.",
+          "summary": "8 a 10 é natural, 10 a 12 é marcado e 13 a 15 é dramático, sempre em equilíbrio com o cílio natural."
+        },
+        {
+          "id": "3-5",
+          "title": "Fios prontos (fans) ou montados na hora",
+          "minutes": 3,
+          "intro": "No volume, você aplica vários fios bem finos juntos, em formato de leque. Esses leques podem ser prontos ou montados por você.",
+          "blocks": [
+            {
+              "heading": "Leques prontos",
+              "items": [
+                "Vêm de fábrica, já abertos e com a base unida.",
+                "A favor: mais rapidez e leques sempre iguais.",
+                "Atenção: escolha marcas com a base fina, para não ficar pesado."
+              ]
+            },
+            {
+              "heading": "Leques montados na hora",
+              "items": [
+                "Você monta o leque com a pinça de volume, na hora da aplicação.",
+                "A favor: controle total da abertura e do número de fios.",
+                "Atenção: exige prática e treino para sair rápido e uniforme."
+              ]
+            },
+            {
+              "heading": "E o volume brasileiro?",
+              "text": "O volume brasileiro usa fios já prontos em formato de Y (ou W), que dão volume leve. Ele é uma ótima porta de entrada para o volume, porque é aplicado de forma parecida com o fio a fio."
+            },
+            {
+              "heading": "Qual escolher",
+              "text": "Quem está começando no volume pode usar leques prontos e, aos poucos, treinar a montagem. Com prática, montar os leques na hora te dá mais liberdade."
+            }
+          ],
+          "tip": "Treine montar leques fora do atendimento, numa fita colada na mão. Quando ficar rápido, comece a usar com as clientes.",
+          "mistake": "Montar leques fechados demais. Eles ficam pesados, parecem fios grossos e perdem o efeito leve do volume.",
+          "summary": "Leques prontos dão rapidez, montados na hora dão controle, e o volume brasileiro usa fios prontos em Y."
+        },
+        {
+          "id": "3-6",
+          "title": "Como combinar espessura, curvatura e tamanho",
+          "minutes": 3,
+          "intro": "Espessura, curvatura e tamanho não funcionam sozinhos. A combinação dos três é o que cria o estilo.",
+          "blocks": [
+            {
+              "heading": "Um raciocínio simples",
+              "steps": [
+                "Avalie os cílios naturais: força, comprimento e se são retos ou curvados.",
+                "Defina o efeito desejado: natural, marcado ou dramático.",
+                "Escolha a espessura pelo peso que o cílio aguenta.",
+                "Escolha a curvatura pelo formato do cílio e pelo efeito.",
+                "Escolha os tamanhos pelo desenho (o mapping)."
+              ]
+            },
+            {
+              "heading": "Combinações de ponto de partida",
+              "items": [
+                "Natural: fio a fio, 0,10, curvatura B ou C, 8 a 10 mm.",
+                "Marcado: fio a fio 0,12 ou 0,15 (se o cílio aguentar), curvatura C ou CC, 10 a 12 mm.",
+                "Volume leve: volume brasileiro ou 0,07, curvatura C ou D, 9 a 12 mm.",
+                "Pálpebra caída ou cílios retos: curvatura L ou D para levantar o olhar."
+              ]
+            },
+            {
+              "heading": "Ajuste sempre",
+              "text": "Essas combinações são pontos de partida, não regras fixas. Observe o resultado no espelho com a cliente e anote o que foi usado na ficha dela. Na manutenção, você já sabe o que repetir ou ajustar."
+            }
+          ],
+          "tip": "Anote o que usou em cada cliente (espessura, curvatura e tamanhos). Isso agiliza a manutenção e passa muito profissionalismo.",
+          "mistake": "Escolher pelo que está na moda, sem olhar o cílio natural. O que fica lindo numa cliente pode pesar ou não combinar em outra.",
+          "summary": "Avalie o cílio, defina o efeito e combine espessura, curvatura e tamanho a partir daí, anotando tudo."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Preparação e isolamento",
+      "subtitle": "A base de uma aplicação bonita e que dura.",
+      "lessons": [
+        {
+          "id": "4-1",
+          "title": "Antes de a cliente deitar: conversa e escolha do estilo",
+          "minutes": 3,
+          "intro": "Os primeiros minutos do atendimento definem se a cliente vai sair feliz. É na conversa que você descobre o que ela espera.",
+          "blocks": [
+            {
+              "heading": "O que perguntar",
+              "items": [
+                "Já fez extensão antes? Como foi a experiência?",
+                "Qual efeito ela quer: natural, marcado ou dramático?",
+                "Como é a rotina dela: usa óculos, pratica esportes, dorme de lado?",
+                "Tem alguma foto de referência de que gosta?"
+              ]
+            },
+            {
+              "heading": "Como alinhar a expectativa",
+              "steps": [
+                "Observe os cílios naturais dela: força, comprimento e quantidade.",
+                "Mostre o que é possível para aqueles cílios, com exemplos.",
+                "Explique o efeito, o tempo de atendimento e o valor.",
+                "Confirme o estilo antes de começar."
+              ]
+            },
+            {
+              "heading": "Por que isso evita problemas",
+              "text": "Muitas reclamações acontecem porque a cliente imaginou uma coisa e recebeu outra. Quando você alinha o estilo antes, mostra que entende do assunto e evita frustração. Se o desejo dela não combinar com os cílios naturais, explique com calma e sugira a alternativa mais próxima."
+            }
+          ],
+          "tip": "Tenha fotos dos seus trabalhos separadas por estilo no celular. Mostrar é muito mais fácil do que explicar.",
+          "mistake": "Começar a aplicação sem combinar o estilo. Se o resultado não for o que ela imaginou, é difícil corrigir depois.",
+          "summary": "Pergunte, observe, mostre exemplos e confirme o estilo antes de a cliente deitar."
+        },
+        {
+          "id": "4-2",
+          "title": "Limpeza e preparação dos cílios naturais",
+          "minutes": 3,
+          "intro": "Cola precisa de cílio limpo. Uma boa preparação é o que faz a extensão durar o tempo certo.",
+          "blocks": [
+            {
+              "heading": "Por que limpar",
+              "text": "Os cílios naturais acumulam oleosidade, resíduos de maquiagem e de produtos do dia a dia. Tudo isso forma uma camada que impede a cola de aderir bem. Sem limpeza, a extensão pode até ficar bonita no dia, mas cai antes do tempo."
+            },
+            {
+              "heading": "Passo a passo",
+              "steps": [
+                "Peça para a cliente vir sem maquiagem nos olhos.",
+                "Limpe os cílios com um produto de limpeza próprio para cílios e um pincel ou escovinha macia.",
+                "Retire o excesso com água e deixe secar bem.",
+                "Passe o primer com um microbrush, fio por fio, e espere secar.",
+                "Penteie os cílios para organizá-los antes de começar."
+              ]
+            },
+            {
+              "heading": "Na manutenção também",
+              "text": "Na manutenção, a limpeza é ainda mais importante: entre um atendimento e outro, os fios acumulam resíduos. Limpe bem antes de repor os fios novos."
+            }
+          ],
+          "tip": "Envie na véspera uma mensagem pedindo para a cliente vir sem maquiagem nos olhos. Você ganha tempo e a limpeza fica mais fácil.",
+          "mistake": "Pular a limpeza porque a cliente \"já está sem maquiagem\". A oleosidade natural continua lá e atrapalha a cola.",
+          "summary": "Limpar, secar, passar primer e pentear: cílio preparado é cílio que segura a extensão."
+        },
+        {
+          "id": "4-3",
+          "title": "Posicionamento da cliente e dos patches",
+          "minutes": 3,
+          "intro": "Uma boa posição deixa a cliente confortável e você com uma visão melhor dos cílios. Isso faz diferença na qualidade e na sua postura.",
+          "blocks": [
+            {
+              "heading": "A cliente",
+              "items": [
+                "Deitada de barriga para cima, com a cabeça apoiada e reta.",
+                "Travesseiro ou apoio para o pescoço e um cobertor leve, se estiver frio.",
+                "Peça para ela avisar se sentir qualquer incômodo. Se isso acontecer, interrompa e oriente a cliente a procurar um profissional de saúde."
+              ]
+            },
+            {
+              "heading": "Os patches",
+              "steps": [
+                "Peça para a cliente olhar para cima.",
+                "Coloque o patch embaixo dos cílios inferiores, cobrindo todos eles.",
+                "Confira se ele não encosta no olho.",
+                "Peça para fechar os olhos e veja se algum cílio de baixo escapou. Se sim, use uma fita para afastar."
+              ]
+            },
+            {
+              "heading": "Você",
+              "text": "Sente-se atrás da cabeça da cliente, com as costas retas e os braços apoiados. Ajuste a altura da maca e do banco para não curvar o pescoço. Posicione a luz de forma que ilumine bem os cílios, sem refletir nos seus olhos. Uma boa postura evita dor e deixa sua mão mais firme."
+            }
+          ],
+          "tip": "Antes de começar, pergunte: \"Está confortável?\". Uma cliente relaxada fica mais parada, e o trabalho rende mais.",
+          "mistake": "Deixar cílios de baixo soltos. Eles grudam nos de cima e a cliente sente desconforto ao abrir os olhos.",
+          "summary": "Cliente confortável, patches bem colocados e você em boa postura: assim começa uma aplicação tranquila."
+        },
+        {
+          "id": "4-4",
+          "title": "Isolamento: a base de tudo",
+          "minutes": 4,
+          "intro": "Isolar é separar um cílio natural dos vizinhos para colar a extensão só nele. É a habilidade mais importante da lash designer.",
+          "blocks": [
+            {
+              "heading": "Por que é tão importante",
+              "text": "Cada cílio natural nasce e cai no seu próprio tempo. Se a extensão grudar dois cílios naturais juntos, ela puxa o que ainda não estava pronto para cair, incomoda a cliente e deixa o resultado bagunçado. Um bom isolamento garante conforto, durabilidade e um acabamento bonito."
+            },
+            {
+              "heading": "Como fazer",
+              "steps": [
+                "Segure a pinça de isolar (reta) com a mão que não aplica.",
+                "Afaste os cílios vizinhos, deixando o cílio escolhido sozinho.",
+                "Com a outra mão, pegue o fio com a pinça curva e mergulhe a base na cola.",
+                "Encoste o fio no cílio natural, um pouco afastado da raiz (cerca de 1 mm), sem tocar na pele.",
+                "Segure por um instante e solte com cuidado."
+              ]
+            },
+            {
+              "heading": "Como conferir",
+              "items": [
+                "Passe a pinça entre os cílios: cada um precisa se mexer sozinho.",
+                "Penteie de vez em quando para ver se nada grudou.",
+                "Se dois fios grudaram, separe na hora, antes de a cola secar."
+              ]
+            }
+          ],
+          "tip": "Treine o isolamento em cabeça de treino até ele ficar natural. Velocidade vem depois: primeiro, precisão.",
+          "mistake": "Correr com o isolamento para terminar logo. Fios grudados são a principal causa de desconforto e de extensão que cai cedo.",
+          "summary": "Um fio, um cílio: isole bem, cole afastado da raiz e confira sempre se cada cílio se mexe sozinho."
+        },
+        {
+          "id": "4-5",
+          "title": "Temperatura e umidade: o ambiente certo para a cola",
+          "minutes": 3,
+          "intro": "A cola reage ao ambiente. O mesmo produto pode funcionar muito bem num dia e mal no outro, dependendo do clima da sala.",
+          "blocks": [
+            {
+              "heading": "Os valores de referência",
+              "items": [
+                "Umidade: em torno de 50% a 60% é o ideal mais citado.",
+                "Temperatura: entre 16 °C e 24 °C.",
+                "Cada cola tem a sua faixa: confira sempre a ficha do fabricante."
+              ]
+            },
+            {
+              "heading": "O que acontece fora da faixa",
+              "items": [
+                "Com o ar muito seco, a cola seca devagar e os fios podem grudar uns nos outros.",
+                "Com o ar muito úmido, a cola pode secar rápido demais e não aderir bem.",
+                "Nos dois casos, a extensão tende a durar menos."
+              ]
+            },
+            {
+              "heading": "Como controlar",
+              "steps": [
+                "Tenha um higrômetro (mede umidade e temperatura) perto da bancada.",
+                "Confira antes de cada atendimento.",
+                "Ar seco: use um umidificador.",
+                "Ar úmido: use um desumidificador ou o ar-condicionado.",
+                "Se o clima mudar muito entre as estações, tenha uma cola para cada época."
+              ]
+            }
+          ],
+          "tip": "Anote a umidade do dia na ficha da cliente. Se a extensão durar menos que o normal, você vai saber se foi o ambiente.",
+          "mistake": "Culpar a cola quando o problema é o ambiente. Antes de trocar de marca, confira a umidade e a temperatura da sua sala.",
+          "summary": "Umidade em torno de 50% a 60% e temperatura entre 16 °C e 24 °C: com o ambiente certo, a cola faz o trabalho dela."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Técnicas",
+      "subtitle": "Do fio a fio ao volume, passo a passo.",
+      "lessons": [
+        {
+          "id": "5-1",
+          "title": "Fio a fio, passo a passo",
+          "minutes": 4,
+          "intro": "O fio a fio (também chamado de clássico) é a base de tudo: um fio de extensão colado em cada cílio natural. Quem domina o fio a fio aprende qualquer outra técnica.",
+          "blocks": [
+            {
+              "heading": "O efeito",
+              "text": "Natural e alongado. Parece que a cliente nasceu com cílios bonitos. É indicado para quem quer discrição ou está fazendo extensão pela primeira vez."
+            },
+            {
+              "heading": "Passo a passo",
+              "steps": [
+                "Prepare os cílios: limpeza, primer e patches.",
+                "Desenhe o mapping no patch (Módulo 6).",
+                "Isole um cílio natural com a pinça reta.",
+                "Pegue o fio com a pinça curva e mergulhe só a base na cola.",
+                "Cole o fio no cílio natural, cerca de 1 mm afastado da raiz, acompanhando a direção do cílio natural (se ele crescer torto, corrija levemente a direção, como mostra a lição 9-3).",
+                "Repita fio por fio, alternando os olhos e as regiões, para a cola secar sem grudar.",
+                "Penteie e confira o isolamento no final."
+              ]
+            },
+            {
+              "heading": "Escolhas mais comuns",
+              "items": [
+                "Espessura: 0,10 para a maioria; 0,12 a 0,15 para cílios mais fortes.",
+                "Curvatura: B ou C para natural; D para mais abertura.",
+                "Tamanhos: 8 a 12 mm, seguindo o mapping."
+              ]
+            }
+          ],
+          "tip": "Alterne entre os olhos e entre as regiões do mesmo olho. Assim a cola de um fio seca enquanto você trabalha no outro.",
+          "mistake": "Colar o fio torto em relação ao cílio natural. Com o tempo, ele \"aponta\" para outra direção e o resultado fica bagunçado.",
+          "summary": "Um fio para cada cílio, colado afastado da raiz e na direção natural: essa é a base de todas as técnicas."
+        },
+        {
+          "id": "5-2",
+          "title": "Volume brasileiro",
+          "minutes": 3,
+          "intro": "O volume brasileiro é uma das técnicas mais pedidas no Brasil: dá mais volume que o fio a fio, mas continua leve.",
+          "blocks": [
+            {
+              "heading": "O que é",
+              "text": "Em vez de um fio simples, você aplica fios já prontos em formato de Y (ou W). Cada um tem pontas abertas, que preenchem mais o olhar. A aplicação é parecida com a do fio a fio: um fio pronto em cada cílio natural."
+            },
+            {
+              "heading": "Passo a passo",
+              "steps": [
+                "Prepare os cílios e desenhe o mapping.",
+                "Isole o cílio natural.",
+                "Pegue o fio em Y pela base, de forma que as pontas fiquem bem abertas.",
+                "Mergulhe a base na cola e cole no cílio natural, afastado da raiz.",
+                "Confira se as pontas ficaram abertas e bem posicionadas."
+              ]
+            },
+            {
+              "heading": "Escolhas mais comuns",
+              "items": [
+                "Espessura: 0,07 é a mais comum.",
+                "Curvatura: C ou D.",
+                "Tamanhos: 9 a 12 mm para um efeito marcado e leve."
+              ]
+            },
+            {
+              "heading": "Para quem indicar",
+              "text": "Para clientes que acham o fio a fio discreto demais, mas não querem um volume muito cheio."
+            }
+          ],
+          "tip": "O volume brasileiro é uma ótima segunda técnica para aprender depois do fio a fio: a lógica é a mesma e o resultado chama atenção.",
+          "mistake": "Colar o fio em Y com as pontas fechadas. O efeito de volume some e o fio parece um fio grosso comum.",
+          "summary": "Fios prontos em Y, aplicados como no fio a fio: mais volume, mas ainda leve."
+        },
+        {
+          "id": "5-3",
+          "title": "Volume russo e montagem de fans",
+          "minutes": 4,
+          "intro": "O volume russo cria um olhar cheio e marcante com leques de fios bem finos. É a técnica que mais exige prática.",
+          "blocks": [
+            {
+              "heading": "O que é",
+              "text": "Você aplica um leque (fan) de 2 a 6 fios muito finos em cada cílio natural. Como os fios são finos (0,05 ou 0,07), o leque é leve mesmo com vários fios."
+            },
+            {
+              "heading": "Como montar um leque",
+              "steps": [
+                "Pegue alguns fios da tira com a pinça de volume, pela ponta da base.",
+                "Faça um leve movimento para abrir os fios em formato de leque.",
+                "Ajuste a abertura: nem fechado demais, nem aberto demais.",
+                "Mergulhe só a base do leque na cola.",
+                "Cole no cílio natural isolado, afastado da raiz."
+              ]
+            },
+            {
+              "heading": "Escolhas mais comuns",
+              "items": [
+                "Espessura: 0,05 ou 0,07.",
+                "Número de fios por leque: de 2 a 6, conforme o efeito.",
+                "Curvatura: C, CC ou D.",
+                "Leques prontos ajudam quem ainda está treinando."
+              ]
+            }
+          ],
+          "tip": "Treine a montagem de leques numa fita colada na mão, longe da cliente, até ficar rápido e uniforme.",
+          "mistake": "Usar muitos fios por leque em cílios naturais finos. Fica pesado, os cílios não aguentam e a extensão cai antes.",
+          "summary": "Leques de fios bem finos, montados ou prontos, aplicados um por cílio: volume cheio e ainda leve."
+        },
+        {
+          "id": "5-4",
+          "title": "Efeito molhado",
+          "minutes": 3,
+          "intro": "O efeito molhado deixa os cílios com aparência de \"acabou de sair do mar\": fios unidos em pontas, bem definidos.",
+          "blocks": [
+            {
+              "heading": "O que é",
+              "text": "Os fios ficam agrupados em pequenas pontas, como cílios molhados. O resultado é marcante e moderno, sem parecer um volume cheio."
+            },
+            {
+              "heading": "Como fazer",
+              "steps": [
+                "Prepare os cílios e desenhe o mapping.",
+                "Use leques fechados de propósito (no efeito molhado, diferente do volume, as pontas ficam unidas) ou fios prontos próprios para efeito molhado.",
+                "Aplique como no volume, um por cílio natural.",
+                "Distribua as pontas de forma regular ao longo do olho.",
+                "Penteie no final para destacar as pontas."
+              ]
+            },
+            {
+              "heading": "Escolhas mais comuns",
+              "items": [
+                "Espessura: 0,07 é a mais comum.",
+                "Curvatura: C ou D.",
+                "Tamanhos alternados (um maior, um menor) ajudam a criar as pontas."
+              ]
+            },
+            {
+              "heading": "Para quem indicar",
+              "text": "Para clientes que querem um olhar diferente e moderno. É um efeito que costuma aparecer bem em fotos e combina com quem gosta de um olhar marcado sem o volume cheio. Para cílios naturais mais finos, use pontas mais delicadas, com menos fios, para não pesar."
+            }
+          ],
+          "tip": "Mostre fotos do efeito molhado antes de fazer. Algumas clientes amam; outras acham marcado demais.",
+          "mistake": "Distribuir as pontas sem padrão. O olhar fica falhado e parece que faltam fios.",
+          "summary": "Fios agrupados em pontas definidas: um efeito moderno que precisa de distribuição bem regular."
+        },
+        {
+          "id": "5-5",
+          "title": "Lash lifting: o que é e quando oferecer",
+          "minutes": 3,
+          "intro": "O lash lifting não é extensão: ele curva e organiza os cílios naturais da própria cliente. É um ótimo serviço extra para o seu cardápio.",
+          "blocks": [
+            {
+              "heading": "Como funciona",
+              "text": "Com produtos específicos e moldes de silicone, os cílios naturais ganham curvatura e ficam mais levantados. O atendimento leva em média 1h30, e o resultado dura em média de 1 a 2 meses, conforme o crescimento dos fios."
+            },
+            {
+              "heading": "Para quem indicar",
+              "items": [
+                "Clientes que querem um olhar mais aberto sem colocar fios.",
+                "Quem tem cílios naturais compridos, mas retos.",
+                "Quem não quer fazer manutenção a cada poucas semanas."
+              ]
+            },
+            {
+              "heading": "Lifting x extensão",
+              "items": [
+                "Lifting: usa só os cílios naturais. Efeito natural. Dura em média de 1 a 2 meses.",
+                "Extensão: acrescenta fios. Mais volume e comprimento. Manutenção a cada 2 a 3 semanas, em geral."
+              ]
+            },
+            {
+              "heading": "Antes de oferecer",
+              "text": "O lash lifting tem técnica e produtos próprios. Faça um treinamento específico antes de atender, e siga sempre as instruções do fabricante."
+            }
+          ],
+          "tip": "Ofereça o lash lifting para quem diz que \"não quer extensão\". É uma forma de não perder essa cliente.",
+          "mistake": "Achar que lifting e extensão são concorrentes. Eles atendem públicos diferentes e se complementam no seu cardápio.",
+          "summary": "O lifting curva os cílios naturais, dura em média de 1 a 2 meses e atrai quem não quer extensão."
+        },
+        {
+          "id": "5-6",
+          "title": "Quanto tempo leva cada técnica",
+          "minutes": 3,
+          "intro": "Saber o tempo de cada atendimento te ajuda a montar a agenda, a definir o preço e a não atrasar.",
+          "blocks": [
+            {
+              "heading": "Tempos de referência",
+              "items": [
+                "Aplicação de extensão: em geral de 1 a 2 horas.",
+                "Técnicas de volume costumam levar mais tempo que o fio a fio.",
+                "Manutenção: costuma ser mais rápida que uma aplicação completa.",
+                "Lash lifting: em média 1h30."
+              ]
+            },
+            {
+              "heading": "No começo é normal demorar mais",
+              "text": "Nos primeiros meses, você vai levar mais tempo do que esses valores, e tudo bem. Precisão vem antes da velocidade. Combine com a cliente um tempo realista e avise que você está caprichando."
+            },
+            {
+              "heading": "Como usar isso na agenda",
+              "steps": [
+                "Cronometre os seus atendimentos por algumas semanas.",
+                "Anote a média de cada técnica.",
+                "Reserve na agenda esse tempo mais 15 minutos de folga.",
+                "Use o tempo também para calcular o preço (Módulo 10)."
+              ]
+            }
+          ],
+          "tip": "Cronometre seus atendimentos sem a cliente perceber. Em um mês você sabe exatamente quanto tempo cada técnica te toma.",
+          "mistake": "Marcar horários colados achando que vai dar tempo. Um atraso estraga o dia inteiro e a qualidade cai.",
+          "summary": "Aplicação em geral de 1 a 2 horas, volume um pouco mais e manutenção menos: conheça os seus tempos e monte a agenda com folga."
+        },
+        {
+          "id": "5-7",
+          "title": "Como ganhar velocidade sem perder qualidade",
+          "minutes": 3,
+          "intro": "Ficar mais rápida é natural com a prática. O segredo é ganhar velocidade sem sacrificar o acabamento.",
+          "blocks": [
+            {
+              "heading": "O que realmente acelera",
+              "items": [
+                "Bancada organizada: tudo na ordem em que você vai usar.",
+                "Mapping desenhado antes de começar.",
+                "Fios organizados por tamanho na bandeja.",
+                "Pinças boas, que pegam o fio de primeira.",
+                "Cola certa para o seu ambiente."
+              ]
+            },
+            {
+              "heading": "Como treinar",
+              "steps": [
+                "Treine o isolamento em cabeça de treino, cronometrando.",
+                "Foque em um movimento por vez: isolar, pegar o fio, colar.",
+                "Repita até o movimento ficar automático.",
+                "Só então tente encurtar o tempo total."
+              ]
+            },
+            {
+              "heading": "Sinais de que você está correndo demais",
+              "items": [
+                "Fios grudados no isolamento.",
+                "Fios colados tortos ou muito perto da raiz.",
+                "Clientes voltando com fios caindo antes do tempo."
+              ]
+            },
+            {
+              "heading": "Lembre",
+              "text": "A cliente não mede o seu tempo no relógio: ela mede pelo resultado e pelo conforto. Um atendimento um pouco mais longo e bem feito vale muito mais do que um rápido que precisa de correção. A velocidade é consequência da prática, não um objetivo em si."
+            }
+          ],
+          "tip": "Melhore um passo de cada vez. Quando o isolamento estiver rápido, foque na pegada do fio; depois, na colagem.",
+          "mistake": "Tentar ser rápida antes de ser precisa. A pressa aparece no resultado e na manutenção.",
+          "summary": "Organização, prática e um passo de cada vez: assim a velocidade vem sem perder qualidade."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Mapping básico",
+      "subtitle": "Como desenhar o estilo certo para cada olhar.",
+      "lessons": [
+        {
+          "id": "6-1",
+          "title": "O que é mapping e por que ele muda o resultado",
+          "minutes": 3,
+          "intro": "Mapping é o desenho da extensão: o plano de quais tamanhos e curvaturas vão em cada parte do olho. É ele que transforma fios em estilo.",
+          "blocks": [
+            {
+              "heading": "O que o mapping define",
+              "items": [
+                "Onde ficam os fios mais longos e os mais curtos.",
+                "Como os tamanhos mudam do canto interno ao canto externo.",
+                "Quais curvaturas vão em cada região, se houver mistura."
+              ]
+            },
+            {
+              "heading": "Por que ele é tão importante",
+              "text": "Com os mesmos fios, dois mappings diferentes criam olhares completamente diferentes: um pode abrir o olhar, o outro pode alongar. Sem mapping, a aplicação vira um \"colar fios\" sem desenho, e o resultado fica genérico. Com mapping, cada cliente recebe um estilo pensado para ela."
+            },
+            {
+              "heading": "Como ele se encaixa no atendimento",
+              "steps": [
+                "Converse com a cliente e defina o efeito (Módulo 4).",
+                "Observe o formato do olho (próxima lição).",
+                "Escolha o estilo.",
+                "Desenhe o mapping no patch antes de aplicar."
+              ]
+            }
+          ],
+          "tip": "Fotografe o mapping de cada cliente. Na manutenção, você repete o desenho exatamente igual.",
+          "mistake": "Pular o mapping para ganhar tempo. O desenho leva poucos minutos e é o que diferencia o seu trabalho.",
+          "summary": "Mapping é o plano de tamanhos e curvaturas: o mesmo fio, com outro desenho, cria outro olhar."
+        },
+        {
+          "id": "6-2",
+          "title": "Os formatos de olho",
+          "minutes": 3,
+          "intro": "Cada formato de olho pede um cuidado diferente. Reconhecer o formato é o primeiro passo para escolher o estilo certo.",
+          "blocks": [
+            {
+              "heading": "Os formatos mais comuns",
+              "items": [
+                "Amendoado: alongado, com cantos levemente levantados. Combina com quase todos os estilos.",
+                "Redondo: mais aberto e arredondado. Estilos que alongam ficam bonitos.",
+                "Caído: o canto externo é mais baixo que o interno. Precisa levantar o olhar.",
+                "Encapuzado: a pálpebra cobre parte da linha dos cílios. Curvaturas mais altas ajudam a aparecer.",
+                "Olhos próximos: a distância entre eles é menor. Alongar o canto externo equilibra.",
+                "Olhos afastados: a distância é maior. Destacar o centro e o canto interno equilibra."
+              ]
+            },
+            {
+              "heading": "Como observar",
+              "steps": [
+                "Peça para a cliente olhar para a frente, com o rosto relaxado.",
+                "Observe a linha dos cílios e a posição dos cantos.",
+                "Veja se a pálpebra cobre parte dos cílios.",
+                "Compare a distância entre os olhos com a largura de um olho."
+              ]
+            }
+          ],
+          "tip": "Muitas clientes têm uma mistura de formatos. Observe o que mais chama atenção e foque em equilibrar isso.",
+          "mistake": "Seguir só a foto de referência da cliente, sem olhar o formato do olho dela. O que fica lindo em um olhar pode não favorecer outro.",
+          "summary": "Amendoado, redondo, caído, encapuzado, próximos ou afastados: reconheça o formato antes de escolher o estilo."
+        },
+        {
+          "id": "6-3",
+          "title": "Os estilos: natural, boneca, gatinho e esquilo",
+          "minutes": 3,
+          "intro": "Quatro estilos resolvem a maioria dos atendimentos. Entender o desenho de cada um te dá segurança para escolher.",
+          "blocks": [
+            {
+              "heading": "Os quatro estilos",
+              "items": [
+                "Natural: tamanhos que acompanham o cílio natural, crescendo suavemente em direção ao canto externo.",
+                "Boneca: os fios mais longos ficam no centro do olho. Abre e arredonda o olhar.",
+                "Gatinho: os fios crescem até o canto externo, onde ficam os mais longos. Alonga e levanta o olhar.",
+                "Esquilo: os mais longos ficam um pouco antes do canto externo, e o canto final volta a ser um pouco mais curto. Levanta sem pesar o canto."
+              ]
+            },
+            {
+              "heading": "Qual combina com cada olhar",
+              "items": [
+                "Amendoado: todos funcionam.",
+                "Redondo: gatinho ou esquilo, para alongar.",
+                "Caído: boneca ou esquilo; evite fios longos no canto externo, que puxam o olhar para baixo.",
+                "Encapuzado: boneca ou esquilo, com curvatura D ou L.",
+                "Olhos próximos: gatinho, para alongar para fora.",
+                "Olhos afastados: boneca, destacando o centro."
+              ]
+            }
+          ],
+          "tip": "Na dúvida, o esquilo é o estilo mais seguro: levanta o olhar e combina com a maioria dos formatos.",
+          "mistake": "Fazer gatinho em olho caído. Os fios longos no canto externo pesam e deixam o olhar ainda mais caído.",
+          "summary": "Natural acompanha, boneca abre, gatinho alonga e esquilo levanta: escolha pelo formato do olho."
+        },
+        {
+          "id": "6-4",
+          "title": "Como escolher o estilo junto com a cliente",
+          "minutes": 3,
+          "intro": "A melhor escolha une o que a cliente deseja e o que favorece o olhar dela. Fazer isso junto passa confiança.",
+          "blocks": [
+            {
+              "heading": "Passo a passo da escolha",
+              "steps": [
+                "Pergunte o efeito que ela quer: natural, marcado ou dramático.",
+                "Observe o formato do olho.",
+                "Mostre 2 opções de estilo que favorecem aquele olhar, com fotos.",
+                "Explique em poucas palavras por que cada uma combina.",
+                "Deixe ela escolher entre as duas."
+              ]
+            },
+            {
+              "heading": "Quando o desejo não combina",
+              "text": "Às vezes a cliente quer um estilo que não favorece o olhar dela, como um gatinho bem longo em olho caído. Nesse caso, explique com carinho o que vai acontecer e sugira a alternativa mais próxima. Ela vai valorizar a sua honestidade, e o resultado vai ser melhor."
+            },
+            {
+              "heading": "Registre a escolha",
+              "items": [
+                "Anote o estilo, os tamanhos e as curvaturas na ficha dela.",
+                "Tire uma foto do mapping desenhado.",
+                "Na próxima manutenção, pergunte se ela quer manter ou ajustar."
+              ]
+            }
+          ],
+          "tip": "Oferecer duas opções em vez de uma pergunta aberta (\"qual estilo você quer?\") facilita a decisão e evita indecisão.",
+          "mistake": "Fazer só o que a cliente pede, mesmo sabendo que não vai favorecer. Se ela não gostar do resultado, a frustração cai em você.",
+          "summary": "Una o desejo da cliente ao formato do olho, ofereça duas opções e registre a escolha."
+        },
+        {
+          "id": "6-5",
+          "title": "Como desenhar o mapping no patch",
+          "minutes": 3,
+          "intro": "Desenhar o mapping no patch é a forma mais simples de não se perder durante a aplicação.",
+          "blocks": [
+            {
+              "heading": "O que você precisa",
+              "items": [
+                "Patch já posicionado na cliente.",
+                "Uma caneta ou um lápis de ponta fina, próprios para uso no patch.",
+                "Os tamanhos e curvaturas já definidos."
+              ]
+            },
+            {
+              "heading": "Passo a passo",
+              "steps": [
+                "Divida o patch em regiões, do canto interno ao canto externo (por exemplo, 5 ou 6 regiões).",
+                "Desenhe pequenas linhas marcando cada região.",
+                "Escreva em cada região o tamanho do fio que vai ali.",
+                "Se usar curvaturas diferentes, anote também a curvatura.",
+                "Confira se o desenho dos dois olhos está igual."
+              ]
+            },
+            {
+              "heading": "Um exemplo de esquilo",
+              "text": "Do canto interno ao externo: 8 · 9 · 10 · 11 · 12 · 11 mm. Os fios crescem até perto do canto externo e diminuem um pouco no final. Adapte os números ao comprimento natural dos cílios da cliente."
+            }
+          ],
+          "tip": "Use sempre o mesmo número de regiões. Com o tempo, o desenho fica automático e rápido.",
+          "mistake": "Desenhar só em um olho e \"fazer de cabeça\" no outro. Os dois olhos ficam diferentes e a cliente percebe.",
+          "summary": "Divida o patch em regiões, anote os tamanhos e confira se os dois olhos estão iguais."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Manutenção e remoção",
+      "subtitle": "Como manter o olhar bonito e retirar do jeito certo.",
+      "lessons": [
+        {
+          "id": "7-1",
+          "title": "O ciclo dos cílios naturais",
+          "minutes": 3,
+          "intro": "Entender como os cílios naturais nascem e caem explica por que a extensão precisa de manutenção.",
+          "blocks": [
+            {
+              "heading": "Cada cílio tem o seu tempo",
+              "text": "Os cílios naturais passam por fases: crescem, param de crescer, descansam e caem, dando lugar a um novo. Como cada cílio está numa fase diferente, é normal cair alguns fios por dia, mesmo sem extensão."
+            },
+            {
+              "heading": "O que isso significa para a extensão",
+              "items": [
+                "A extensão cai junto com o cílio natural em que foi colada.",
+                "Por isso, com o passar dos dias, o olhar vai ficando com falhas.",
+                "Também por isso a extensão não \"dura para sempre\": ela acompanha o ciclo natural."
+              ]
+            },
+            {
+              "heading": "Como explicar para a cliente",
+              "text": "Muitas clientes acham que a extensão caiu por defeito. Explique com simplicidade: \"Seus cílios se renovam o tempo todo, e a extensão sai junto com eles. A manutenção repõe os fios que caíram.\" Isso evita reclamações e mostra que você entende do assunto."
+            }
+          ],
+          "tip": "Use uma comparação simples: \"É como o cabelo: cai um pouco todo dia e nasce outro no lugar.\"",
+          "mistake": "Deixar a cliente achar que a queda é culpa do seu trabalho. Explique o ciclo logo no primeiro atendimento.",
+          "summary": "Os cílios naturais se renovam o tempo todo, e a extensão cai junto: por isso a manutenção existe."
+        },
+        {
+          "id": "7-2",
+          "title": "Quando fazer a manutenção",
+          "minutes": 3,
+          "intro": "Manutenção no tempo certo mantém o olhar bonito e é o que sustenta a sua agenda.",
+          "blocks": [
+            {
+              "heading": "O intervalo ideal",
+              "text": "Em geral, a manutenção é feita a cada 2 a 3 semanas (15 a 21 dias). Algumas clientes, com cílios que se renovam mais devagar, podem ir até 4 semanas. O ideal é observar cada cliente e ajustar."
+            },
+            {
+              "heading": "Sinais de que está na hora",
+              "items": [
+                "O olhar começa a ficar com falhas.",
+                "Fios crescidos ficam afastados da raiz e mudam de direção.",
+                "A cliente sente que o efeito diminuiu."
+              ]
+            },
+            {
+              "heading": "Como garantir que ela volte",
+              "steps": [
+                "Agende a manutenção antes de ela sair do atendimento.",
+                "Envie um lembrete alguns dias antes.",
+                "Explique que, se passar muito do prazo, talvez seja preciso fazer uma nova aplicação."
+              ]
+            },
+            {
+              "heading": "Por que o intervalo certo é bom para as duas",
+              "text": "A manutenção costuma ser mais rápida e mais barata que a aplicação completa, porque você só repõe os fios que caíram. Quanto mais a cliente demora para voltar, mais falhas aparecem e mais longo fica o atendimento. Com o intervalo certo, ela fica sempre com o olhar bonito e você organiza melhor a sua agenda."
+            }
+          ],
+          "tip": "Ofereça o próximo horário ainda com a cliente na maca. É o momento em que ela está mais feliz com o resultado.",
+          "mistake": "Esperar a cliente lembrar de marcar sozinha. Quando ela lembra, muitas vezes já perdeu boa parte dos fios.",
+          "summary": "Manutenção em geral a cada 2 a 3 semanas, agendada antes de a cliente sair."
+        },
+        {
+          "id": "7-3",
+          "title": "A manutenção, passo a passo",
+          "minutes": 4,
+          "intro": "Na manutenção, você não refaz tudo: limpa, retira o que precisa sair e repõe o que caiu.",
+          "blocks": [
+            {
+              "heading": "Passo a passo",
+              "steps": [
+                "Limpe bem os cílios: na manutenção, há mais resíduos acumulados.",
+                "Penteie e avalie: veja onde há falhas e quais fios cresceram demais.",
+                "Retire os fios que cresceram muito, mudaram de direção ou estão soltos, usando removedor em gel ou creme com cuidado.",
+                "Passe o primer.",
+                "Confira o mapping da ficha da cliente.",
+                "Reponha os fios nas falhas, seguindo o mesmo desenho.",
+                "Penteie e confira o isolamento no final."
+              ]
+            },
+            {
+              "heading": "O que retirar",
+              "items": [
+                "Fios que cresceram e ficaram muito longe da raiz.",
+                "Fios tortos, que apontam para outra direção.",
+                "Fios presos em dois cílios naturais."
+              ]
+            },
+            {
+              "heading": "Quanto tempo leva",
+              "text": "A manutenção costuma ser mais rápida que uma aplicação completa, porque você só repõe as falhas. Se a cliente vier com muitas falhas, o atendimento demora mais, e vale explicar isso no valor."
+            }
+          ],
+          "tip": "Use a foto do mapping da última vez. Assim o resultado fica igual e a cliente reconhece o próprio olhar.",
+          "mistake": "Repor fios em cima de fios crescidos e tortos. O olhar fica bagunçado e a extensão pesa.",
+          "summary": "Limpar, retirar o que precisa, repor nas falhas seguindo o mesmo mapping: esse é o ciclo da manutenção."
+        },
+        {
+          "id": "7-4",
+          "title": "Remoção do jeito certo",
+          "minutes": 3,
+          "intro": "A remoção bem feita protege os cílios naturais da cliente. Nunca se arranca extensão.",
+          "blocks": [
+            {
+              "heading": "Quando remover",
+              "items": [
+                "A cliente quer dar uma pausa na extensão.",
+                "Ela vai trocar de estilo ou de técnica.",
+                "Sobraram poucos fios e uma nova aplicação é o melhor caminho."
+              ]
+            },
+            {
+              "heading": "Passo a passo",
+              "steps": [
+                "Posicione os patches, protegendo os cílios de baixo.",
+                "Aplique o removedor em gel ou creme sobre a base das extensões, com um microbrush, sem encostar na pele.",
+                "Espere o tempo indicado pelo fabricante.",
+                "Deslize os fios com cuidado, com a escovinha ou o microbrush. Eles devem sair sem força.",
+                "Limpe bem os cílios para tirar todo o removedor."
+              ]
+            },
+            {
+              "heading": "Oriente a cliente",
+              "text": "Explique que ela nunca deve tirar a extensão em casa, puxando os fios. Isso pode arrancar os cílios naturais junto e deixar falhas. A remoção é rápida, simples e deve ser feita por você."
+            }
+          ],
+          "tip": "Cobre a remoção como um serviço. Ela leva tempo, usa produto e protege os cílios da sua cliente.",
+          "mistake": "Puxar os fios que \"já estão quase saindo\". Se o fio resiste, o removedor ainda não agiu: espere mais um pouco.",
+          "summary": "Removedor em gel ou creme, tempo de ação, fios saindo sem força: nunca arranque a extensão."
+        },
+        {
+          "id": "7-5",
+          "title": "Quando recomendar uma nova aplicação",
+          "minutes": 3,
+          "intro": "Nem sempre a manutenção é o melhor caminho. Saber a hora de recomeçar mostra cuidado com o resultado.",
+          "blocks": [
+            {
+              "heading": "Sinais de que é melhor uma nova aplicação",
+              "items": [
+                "Passou muito do prazo de manutenção.",
+                "Sobrou pouca extensão, com muitas falhas ao longo do olho.",
+                "A cliente quer mudar bastante o estilo ou a técnica.",
+                "Os fios estão muito desalinhados ou com resíduos acumulados."
+              ]
+            },
+            {
+              "heading": "Como explicar para a cliente",
+              "text": "Seja transparente: \"Como passou bastante tempo e sobraram poucos fios, uma manutenção não vai deixar o resultado bonito. O melhor é fazer uma nova aplicação.\" Explique a diferença de valor com tranquilidade. A cliente entende quando percebe que você está pensando no resultado dela."
+            },
+            {
+              "heading": "Como evitar essa situação",
+              "steps": [
+                "Agende a manutenção antes de a cliente sair.",
+                "Envie lembretes perto da data.",
+                "Deixe claro, desde o primeiro atendimento, até quantos dias vale o preço da manutenção."
+              ]
+            }
+          ],
+          "tip": "Tenha uma regra clara, por exemplo: \"manutenção até 21 dias\" (ou até 28 dias para clientes cujos cílios se renovam mais devagar). Depois disso, vira nova aplicação. Regra clara evita discussão.",
+          "mistake": "Fazer manutenção em quem tem poucos fios só para não cobrar mais. O resultado fica fraco e quem leva a culpa é o seu trabalho.",
+          "summary": "Muito tempo ou poucos fios: recomende uma nova aplicação, com transparência e uma regra clara de prazo."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Cuidados da cliente",
+      "subtitle": "O que orientar para a extensão durar e ficar bonita.",
+      "lessons": [
+        {
+          "id": "8-1",
+          "title": "As primeiras 24 horas",
+          "minutes": 3,
+          "intro": "As primeiras horas depois da aplicação são as mais importantes: é quando a cola termina de firmar.",
+          "blocks": [
+            {
+              "heading": "O que orientar",
+              "items": [
+                "Não molhar os cílios nas primeiras 24 horas (algumas colas pedem menos tempo: siga o fabricante).",
+                "Evitar vapor, sauna e banho muito quente nesse período.",
+                "Não esfregar nem puxar os fios.",
+                "Evitar dormir de bruços na primeira noite."
+              ]
+            },
+            {
+              "heading": "Por que isso importa",
+              "text": "A cola continua firmando por algumas horas depois do atendimento. Se os cílios forem molhados ou amassados nesse período, a aderência fica mais fraca e a extensão tende a durar menos. Uma orientação clara agora evita reclamação lá na frente."
+            },
+            {
+              "heading": "Como orientar",
+              "steps": [
+                "Explique os cuidados ainda na maca, antes de ela ir embora.",
+                "Envie a mensagem de cuidados por WhatsApp (lição 8-4).",
+                "Entregue a escovinha de presente."
+              ]
+            },
+            {
+              "heading": "Antes de ela sair da maca",
+              "items": [
+                "Penteie os fios e confira se nenhum ficou grudado em outro.",
+                "Mostre o resultado no espelho e pergunte se ela está confortável.",
+                "Confirme a data da manutenção."
+              ]
+            }
+          ],
+          "tip": "Fale dos cuidados olhando nos olhos da cliente e depois mande por escrito. Falar e escrever juntos faz ela lembrar.",
+          "mistake": "Contar os cuidados só de boca, com a cliente já indo embora. Ela esquece, molha os cílios e acha que o problema foi a aplicação.",
+          "summary": "Nas primeiras 24 horas: sem molhar, sem vapor, sem esfregar. Oriente falando e por escrito."
+        },
+        {
+          "id": "8-2",
+          "title": "Limpeza no dia a dia",
+          "minutes": 3,
+          "intro": "Muita cliente tem medo de lavar a extensão. Mas a limpeza certa faz ela durar mais e ficar mais bonita.",
+          "blocks": [
+            {
+              "heading": "Por que limpar",
+              "text": "A oleosidade, a poeira e os resíduos do dia a dia se acumulam na base dos fios. Isso deixa a extensão com aparência opaca e enfraquece a aderência. Limpar com o produto certo mantém o olhar bonito por mais tempo."
+            },
+            {
+              "heading": "Como a cliente deve limpar",
+              "steps": [
+                "Depois das primeiras 24 horas, usar uma espuma de limpeza própria para extensão.",
+                "Aplicar com um pincel macio, com os olhos fechados, em movimentos de cima para baixo.",
+                "Enxaguar com água.",
+                "Secar com toques leves ou com ar frio, sem esfregar.",
+                "Pentear com a escovinha."
+              ]
+            },
+            {
+              "heading": "Com que frequência",
+              "text": "Uma limpeza diária, ou pelo menos algumas vezes por semana, já faz diferença. Pentear todos os dias, ao acordar, mantém os fios alinhados."
+            }
+          ],
+          "tip": "Indique (ou venda) a espuma de limpeza em que você confia. É uma renda extra e garante que a cliente use o produto certo.",
+          "mistake": "Dizer para a cliente \"não molhar nunca\". Sem limpeza, a extensão fica suja e cai antes do tempo.",
+          "summary": "Espuma própria, pincel macio, secar sem esfregar e pentear: limpeza certa faz a extensão durar mais."
+        },
+        {
+          "id": "8-3",
+          "title": "O que a cliente deve evitar",
+          "minutes": 3,
+          "intro": "Alguns hábitos do dia a dia encurtam a vida da extensão. Avisar a cliente com antecedência protege o seu trabalho.",
+          "blocks": [
+            {
+              "heading": "Evitar",
+              "items": [
+                "Rímel, principalmente à prova d'água.",
+                "Produtos oleosos na região dos olhos, como óleos e cremes muito gordurosos.",
+                "Demaquilante na área dos cílios.",
+                "Esfregar os olhos ou puxar os fios.",
+                "Curvex (curvador de cílios).",
+                "Dormir com o rosto apoiado no travesseiro (prefira dormir de barriga para cima)."
+              ]
+            },
+            {
+              "heading": "Por que esses cuidados",
+              "text": "Óleos e alguns produtos amolecem a cola. Esfregar, puxar e amassar tiram os fios do lugar ou os fazem cair com o cílio natural. Com esses cuidados, a extensão fica bonita até a próxima manutenção."
+            },
+            {
+              "heading": "E se ela quiser se maquiar?",
+              "text": "Ela pode usar maquiagem no restante do rosto normalmente. Nos olhos, prefira produtos à base de água e evite aplicar qualquer coisa na base dos fios. Na hora de tirar a maquiagem, use um produto sem óleo e passe com cuidado, longe dos cílios."
+            }
+          ],
+          "tip": "Transforme essa lista numa imagem bonita e mande para a cliente depois do atendimento. Ela salva e consulta.",
+          "mistake": "Supor que a cliente já sabe esses cuidados. Muitas fazem extensão pela primeira vez e nunca ouviram falar disso.",
+          "summary": "Sem rímel, sem óleo, sem esfregar e sem curvex: esses cuidados fazem a extensão durar até a manutenção."
+        },
+        {
+          "id": "8-4",
+          "title": "A mensagem de cuidados pronta para enviar",
+          "minutes": 2,
+          "intro": "Uma mensagem clara, enviada logo depois do atendimento, garante que a cliente tenha todos os cuidados por escrito.",
+          "blocks": [
+            {
+              "heading": "Quando enviar",
+              "text": "Logo depois que a cliente sai do atendimento, no mesmo dia. Assim ela tem a orientação à mão nas primeiras 24 horas, que são as mais importantes."
+            },
+            {
+              "heading": "Mensagem pronta (copie e personalize)",
+              "text": "Oi, [nome]! Amei fazer seu olhar hoje 💕 Seguem os cuidados para seus cílios durarem bastante:\n\n• Nas primeiras 24h, não molhe os cílios e evite vapor e sauna.\n• Depois disso, lave com a espuma própria para cílios e um pincel macio.\n• Penteie todo dia com a escovinha.\n• Evite rímel, produtos oleosos e demaquilante nos olhos.\n• Não esfregue nem puxe os fios.\n\nSua manutenção ficou marcada para [data]. Qualquer dúvida, é só me chamar! 🥰"
+            },
+            {
+              "heading": "Como personalizar",
+              "items": [
+                "Troque [nome] e [data] pelos dados da cliente.",
+                "Ajuste o tempo sem molhar conforme a cola que você usa.",
+                "Use o seu jeito de falar: a mensagem precisa soar como você."
+              ]
+            }
+          ],
+          "tip": "Salve essa mensagem nas respostas rápidas do WhatsApp Business. Na hora, é só digitar um atalho.",
+          "mistake": "Mandar os cuidados dias depois. As primeiras 24 horas já passaram e o estrago pode ter acontecido.",
+          "summary": "Envie os cuidados por escrito logo depois do atendimento, com a data da manutenção já marcada."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Erros comuns",
+      "subtitle": "Os problemas que mais aparecem e como resolver cada um.",
+      "lessons": [
+        {
+          "id": "9-1",
+          "title": "Fios descolando antes do tempo",
+          "minutes": 3,
+          "intro": "Quando a extensão cai antes da manutenção, a cliente fica frustrada e desconfia do seu trabalho. Na maioria das vezes, a causa tem solução simples.",
+          "blocks": [
+            {
+              "heading": "As causas mais comuns",
+              "items": [
+                "Cílios mal limpos: oleosidade e resíduos impedem a cola de aderir.",
+                "Ambiente fora da faixa: a cola trabalha melhor com umidade em torno de 50% a 60% e temperatura entre 16 °C e 24 °C.",
+                "Gota de cola velha: quando a gota começa a engrossar, a aderência cai.",
+                "Pouca cola ou cola demais no fio.",
+                "Fio colado na ponta do cílio natural, e não perto da base.",
+                "Cuidados ignorados nas primeiras 24 horas."
+              ]
+            },
+            {
+              "heading": "Como resolver",
+              "steps": [
+                "Capriche na limpeza antes de cada aplicação.",
+                "Tenha um termo-higrômetro e confira o ambiente antes de começar.",
+                "Troque a gota de cola sempre que ela começar a engrossar.",
+                "Encoste o fio no cílio natural ao longo de um bom trecho, a cerca de 1 mm da raiz.",
+                "Oriente os cuidados falando e por escrito."
+              ]
+            },
+            {
+              "heading": "Investigue com a cliente",
+              "text": "Pergunte com calma como foram os primeiros dias: se molhou os cílios cedo, se usou algum produto oleoso, se dorme de bruços. Sem tom de acusação. Muitas vezes a resposta aparece na conversa e você consegue orientar melhor da próxima vez."
+            }
+          ],
+          "tip": "Anote na ficha a umidade e a temperatura do dia de cada atendimento. Se uma cliente reclamar, você tem por onde começar.",
+          "mistake": "Trocar de cola na primeira reclamação. Antes, confira limpeza, ambiente e técnica: a cola costuma ser a última causa.",
+          "summary": "Limpeza, ambiente, gota fresca e boa área de contato resolvem a maioria das quedas antes do tempo."
+        },
+        {
+          "id": "9-2",
+          "title": "Fios grudados",
+          "minutes": 3,
+          "intro": "Fio grudado é quando a extensão prende dois ou mais cílios naturais juntos. Além de desconfortável, ele atrapalha o crescimento e faz os fios caírem antes.",
+          "blocks": [
+            {
+              "heading": "Por que acontece",
+              "items": [
+                "Isolamento malfeito: o cílio natural não foi bem separado dos vizinhos.",
+                "Cola demais no fio, que escorre para os cílios ao lado.",
+                "Pressa para encaixar o próximo fio antes da cola firmar.",
+                "Falta de conferência no final."
+              ]
+            },
+            {
+              "heading": "Como evitar",
+              "steps": [
+                "Isole um cílio de cada vez, com a pinça, deixando ele bem separado.",
+                "Mergulhe só a base do fio na cola.",
+                "Segure o isolamento por alguns segundos depois de encostar o fio.",
+                "A cada região terminada, passe a pinça entre os fios para conferir.",
+                "No final, penteie e confira tudo de novo com calma."
+              ]
+            },
+            {
+              "heading": "Como perceber",
+              "text": "Fios grudados costumam aparecer como pequenos tufinhos ou fios que se mexem juntos quando você passa a pinça. A cliente às vezes sente um leve repuxar ao abrir e fechar os olhos. Se perceber, separe na hora, com cuidado, antes de ela ir embora."
+            }
+          ],
+          "tip": "Reserve os últimos minutos de todo atendimento só para conferir o isolamento. Esse hábito evita a maior parte das reclamações.",
+          "mistake": "Achar que um fio grudado \"não faz diferença\". Ele incomoda a cliente e faz os cílios naturais caírem antes do tempo.",
+          "summary": "Um cílio por vez, pouca cola e conferência no final: é assim que se evita fio grudado."
+        },
+        {
+          "id": "9-3",
+          "title": "Direção desalinhada",
+          "minutes": 3,
+          "intro": "Quando os fios apontam para lados diferentes, o olhar parece bagunçado, mesmo com tamanhos e curvaturas certos.",
+          "blocks": [
+            {
+              "heading": "Por que acontece",
+              "items": [
+                "O fio seguiu um cílio natural que cresce torto, sem correção da direção.",
+                "A base do fio não ficou bem encostada no cílio natural.",
+                "A mão mudou de ângulo de uma região para outra.",
+                "Fios crescidos que não foram retirados na manutenção."
+              ]
+            },
+            {
+              "heading": "Como alinhar",
+              "steps": [
+                "Antes de começar, observe para onde os cílios naturais apontam.",
+                "Defina uma direção para cada região, do canto interno ao externo.",
+                "Ao colar, posicione a base do fio para seguir a direção que você definiu, e não a do cílio torto.",
+                "A cada região, olhe de cima e de frente para conferir.",
+                "Na manutenção, retire os fios que mudaram de direção."
+              ]
+            },
+            {
+              "heading": "Um truque simples",
+              "text": "Desenhe no patch, junto com o mapping, pequenas setas mostrando a direção de cada região. No canto interno, os fios apontam levemente para dentro; no centro, para a frente; no canto externo, levemente para fora. Assim você não se perde no meio da aplicação."
+            }
+          ],
+          "tip": "Confira o alinhamento olhando de cima, por trás da cabeça da cliente. Desse ângulo, qualquer fio torto aparece na hora.",
+          "mistake": "Corrigir só no final. Quando você percebe a bagunça depois de terminar, consertar leva muito mais tempo.",
+          "summary": "Defina a direção de cada região, marque no patch e confira enquanto aplica, não só no final."
+        },
+        {
+          "id": "9-4",
+          "title": "Aplicação pesada demais",
+          "minutes": 3,
+          "intro": "Uma extensão bonita é leve. Quando ela pesa, a cliente sente, o resultado fica artificial e os cílios naturais sofrem.",
+          "blocks": [
+            {
+              "heading": "Sinais de que ficou pesado",
+              "items": [
+                "Os fios caem para baixo em vez de manter a curvatura.",
+                "A cliente comenta que sente os cílios pesados.",
+                "Os cílios naturais caem mais do que o normal.",
+                "O olhar parece carregado, mesmo com efeito natural combinado."
+              ]
+            },
+            {
+              "heading": "As causas",
+              "text": "O fio precisa combinar com a força do cílio natural. Fio grosso demais, longo demais ou leques com fios demais para aquele cílio deixam a extensão pesada. Na técnica fio a fio, as espessuras de 0,10 a 0,15 mm são as mais usadas, e 0,10 serve para a maioria. A 0,20 fica só para cílios naturais grossos e fortes."
+            },
+            {
+              "heading": "Como acertar o peso",
+              "steps": [
+                "Observe a espessura e a força dos cílios naturais antes de escolher.",
+                "Na dúvida, escolha o fio mais fino e mais curto.",
+                "Não use um fio muito mais longo que o cílio natural.",
+                "Em volume, ajuste o número de fios do leque à força do cílio."
+              ]
+            }
+          ],
+          "tip": "Se a cliente quer mais volume e os cílios dela são finos, ofereça volume com fios bem finos em vez de fio a fio grosso.",
+          "mistake": "Aumentar a espessura para \"o efeito aparecer mais\". O efeito vem do mapping e da técnica, não do peso do fio.",
+          "summary": "O fio precisa combinar com a força do cílio natural: na dúvida, mais fino e mais curto."
+        },
+        {
+          "id": "9-5",
+          "title": "Resultado diferente do combinado",
+          "minutes": 3,
+          "intro": "A cliente imaginou uma coisa e saiu com outra. Esse é um dos motivos mais comuns de cliente que não volta, e quase sempre começa na conversa.",
+          "blocks": [
+            {
+              "heading": "Por que acontece",
+              "items": [
+                "A conversa antes da aplicação foi rápida demais.",
+                "Palavras como \"natural\" e \"marcado\" significam coisas diferentes para cada pessoa.",
+                "A foto de referência não combina com o formato do olho dela.",
+                "Não ficou claro o que é possível com os cílios naturais dela."
+              ]
+            },
+            {
+              "heading": "Como alinhar a expectativa",
+              "steps": [
+                "Peça fotos de referência e mostre fotos dos seus trabalhos.",
+                "Pergunte o que ela gosta e o que ela não quer de jeito nenhum.",
+                "Explique o que a foto vai parecer no olho dela, com sinceridade.",
+                "Mostre o mapping desenhado antes de começar.",
+                "Confirme em voz alta: \"Então vamos fazer um efeito X, com tamanhos até Y\"."
+              ]
+            },
+            {
+              "heading": "Se mesmo assim ela não gostar",
+              "text": "Escute sem se defender. Pergunte o que exatamente ela gostaria de mudar. Pequenos ajustes, como trocar alguns tamanhos ou deixar o canto mais curto, costumam resolver na hora ou num retorno rápido. Uma cliente bem atendida num momento difícil muitas vezes vira uma cliente fiel."
+            }
+          ],
+          "tip": "Monte um álbum no celular com seus trabalhos separados por efeito: natural, marcado e dramático. Fica muito mais fácil alinhar.",
+          "mistake": "Começar a aplicar sem confirmar o combinado. Cinco minutos de conversa evitam uma hora de retrabalho.",
+          "summary": "Fotos, perguntas, mapping mostrado e confirmação em voz alta: é assim que o resultado fica igual ao combinado."
+        },
+        {
+          "id": "9-6",
+          "title": "Atendimento demorado demais",
+          "minutes": 3,
+          "intro": "Uma aplicação costuma levar de 1 a 2 horas, e técnicas de volume podem levar mais. Quando o tempo passa muito disso, a cliente cansa e a sua agenda trava.",
+          "blocks": [
+            {
+              "heading": "Onde o tempo se perde",
+              "items": [
+                "Materiais fora do lugar e procura no meio do atendimento.",
+                "Mapping decidido durante a aplicação, e não antes.",
+                "Cola trabalhando mal por causa do ambiente.",
+                "Retrabalho em fios grudados ou tortos.",
+                "Conversa longa com a mão parada."
+              ]
+            },
+            {
+              "heading": "Como ganhar ritmo",
+              "steps": [
+                "Monte a bancada antes de a cliente chegar, sempre na mesma ordem.",
+                "Deixe o mapping desenhado antes do primeiro fio.",
+                "Confira umidade e temperatura antes de começar.",
+                "Trabalhe por regiões, terminando uma antes de ir para a outra.",
+                "Cronometre seus atendimentos por algumas semanas para ver onde melhorar."
+              ]
+            },
+            {
+              "heading": "Velocidade vem com prática",
+              "text": "No começo, é normal demorar mais. O que faz você ganhar tempo não é correr, é repetir sempre o mesmo processo. Com o tempo, os movimentos ficam automáticos e o atendimento encurta naturalmente, sem perder a qualidade."
+            }
+          ],
+          "tip": "Treine em cabeça de manequim com cronômetro. Tente bater o seu próprio tempo, sem abrir mão do isolamento.",
+          "mistake": "Acelerar e deixar de conferir os fios para terminar mais rápido. O tempo que você ganha volta em forma de retrabalho.",
+          "summary": "Bancada pronta, mapping antes, ambiente certo e trabalho por regiões: assim o tempo do atendimento cai."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Quanto cobrar",
+      "subtitle": "Como chegar a um preço justo para você e para a cliente.",
+      "lessons": [
+        {
+          "id": "10-1",
+          "title": "O custo real de cada aplicação",
+          "minutes": 4,
+          "intro": "Antes de definir o preço, você precisa saber quanto gasta em cada atendimento. Sem essa conta, dá para trabalhar muito e sobrar pouco.",
+          "blocks": [
+            {
+              "heading": "Custos de material",
+              "items": [
+                "Fios.",
+                "Cola.",
+                "Primer, removedor e produtos de limpeza.",
+                "Patches, microbrushes, escovinhas e descartáveis.",
+                "Itens de higiene da bancada."
+              ]
+            },
+            {
+              "heading": "Custos fixos do mês",
+              "items": [
+                "Aluguel ou parte das contas da casa, se você atende em casa.",
+                "Energia, água e internet.",
+                "Celular e aplicativos que você usa no trabalho.",
+                "Manutenção da maca, da luminária e dos equipamentos."
+              ]
+            },
+            {
+              "heading": "Como fazer a conta (exemplo)",
+              "text": "Os números abaixo são só um exemplo; use os seus. Imagine que os materiais de uma aplicação custem R$ 15. Os custos fixos do mês somam R$ 600 e você faz 40 atendimentos no mês. Então cada atendimento carrega R$ 15 de custo fixo (600 ÷ 40). Somando, o custo real dessa aplicação é R$ 30 (15 + 15). Só o que passar disso é o que sobra para você."
+            },
+            {
+              "heading": "Como descobrir o custo de material",
+              "text": "Divida o preço de cada produto pelo número de atendimentos que ele rende. Por exemplo, se uma caixa de fios rende 10 aplicações, divida o preço da caixa por 10. Faça isso com cada item e some."
+            }
+          ],
+          "tip": "Monte essa conta numa planilha simples e atualize sempre que trocar de fornecedor ou de produto.",
+          "mistake": "Considerar só o preço dos fios e esquecer os custos fixos. Eles estão em todo atendimento, mesmo sem você perceber.",
+          "summary": "Custo real = materiais da aplicação + parte dos custos fixos do mês. Só depois disso vem o seu ganho."
+        },
+        {
+          "id": "10-2",
+          "title": "Quanto vale a sua hora",
+          "minutes": 3,
+          "intro": "O seu tempo também tem preço. Saber quanto vale a sua hora ajuda a cobrar de forma justa e a comparar serviços diferentes.",
+          "blocks": [
+            {
+              "heading": "Por que pensar em hora",
+              "text": "Uma aplicação de volume leva mais tempo que uma de fio a fio. Se as duas tiverem o mesmo preço, você ganha menos por hora no volume. Pensar no valor da hora deixa isso claro e ajuda a montar a sua tabela."
+            },
+            {
+              "heading": "Como calcular (exemplo)",
+              "steps": [
+                "Defina quanto você quer ganhar no mês, sem contar os custos. Exemplo: R$ 3.000.",
+                "Defina quantas horas por mês você quer atender. Exemplo: 100 horas.",
+                "Divida um pelo outro: R$ 3.000 ÷ 100 = R$ 30 por hora.",
+                "Para cada serviço, multiplique o valor da hora pelo tempo do atendimento e some o custo real (lição 10-1)."
+              ]
+            },
+            {
+              "heading": "Juntando tudo (exemplo)",
+              "text": "Se uma aplicação leva 2 horas e custa R$ 30 de material e custos fixos, o preço mínimo seria R$ 30 × 2 + R$ 30 = R$ 90. Esses números são só um exemplo para mostrar a conta. O seu resultado vai depender dos seus custos, do seu tempo e da sua meta."
+            }
+          ],
+          "tip": "Conte também o tempo de preparo e de limpeza da bancada. Ele faz parte do atendimento, mesmo sem a cliente ver.",
+          "mistake": "Copiar o preço de outra profissional sem fazer a sua conta. Os custos e o tempo dela podem ser bem diferentes dos seus.",
+          "summary": "Valor da hora × tempo do serviço + custo real = o preço mínimo para o atendimento valer a pena."
+        },
+        {
+          "id": "10-3",
+          "title": "Preço da aplicação, da manutenção e da remoção",
+          "minutes": 3,
+          "intro": "Cada serviço tem um tempo e um custo diferente. Uma tabela clara ajuda a cliente a entender e evita discussão.",
+          "blocks": [
+            {
+              "heading": "Aplicação",
+              "text": "É o serviço mais completo e mais demorado, por isso tem o maior preço. No Brasil, em 2026, os valores variam em geral de R$ 80 a R$ 250, dependendo da cidade, da técnica e da experiência. Técnicas de volume costumam custar mais que o fio a fio, porque levam mais tempo e material."
+            },
+            {
+              "heading": "Manutenção",
+              "text": "Costuma ser mais rápida e mais barata que a aplicação, porque você repõe só o que caiu. Defina um prazo máximo para o preço de manutenção, por exemplo até 21 dias. Depois disso, conforme as falhas, o serviço vira uma nova aplicação."
+            },
+            {
+              "heading": "Remoção",
+              "items": [
+                "Cobre a remoção como um serviço: ela usa produto e tempo.",
+                "Se a cliente for fazer uma nova aplicação em seguida, você pode incluir a remoção com um valor menor.",
+                "Deixe isso escrito na sua tabela."
+              ]
+            },
+            {
+              "heading": "Monte a tabela",
+              "steps": [
+                "Liste cada serviço com o preço e o tempo médio.",
+                "Escreva as regras de prazo da manutenção.",
+                "Deixe a tabela fixada no seu Instagram e salva no WhatsApp."
+              ]
+            }
+          ],
+          "tip": "Deixe as regras escritas antes de alguém perguntar. Regra clara passa profissionalismo e evita desconforto na hora de cobrar.",
+          "mistake": "Fazer manutenção com qualquer prazo pelo mesmo preço. Você acaba fazendo uma aplicação inteira cobrando como manutenção.",
+          "summary": "Aplicação, manutenção com prazo definido e remoção cobrada: tudo escrito numa tabela clara."
+        },
+        {
+          "id": "10-4",
+          "title": "Pesquisar os preços da sua região",
+          "minutes": 3,
+          "intro": "O preço certo não depende só da sua conta. Ele também precisa fazer sentido para as clientes da sua região.",
+          "blocks": [
+            {
+              "heading": "Como pesquisar",
+              "steps": [
+                "Procure no Instagram e no Google profissionais de lash da sua cidade ou bairro.",
+                "Anote os preços de aplicação e manutenção de pelo menos 5 profissionais.",
+                "Repare na técnica, no estilo das fotos e no tipo de atendimento de cada uma.",
+                "Separe quem tem um trabalho parecido com o seu."
+              ]
+            },
+            {
+              "heading": "Como usar o resultado",
+              "text": "Compare a faixa de preços da região com o preço mínimo que você calculou nas lições anteriores. Se o seu mínimo estiver dentro da faixa, ótimo. Se estiver acima, reveja custos e tempo, ou posicione o seu serviço com um diferencial claro. Se estiver bem abaixo, você provavelmente pode cobrar mais."
+            },
+            {
+              "heading": "Onde se posicionar",
+              "items": [
+                "Começando: perto do meio da faixa da região, sem ir para o mais barato.",
+                "Com mais experiência e boas fotos: aos poucos, você sobe.",
+                "Com diferencial forte, como atendimento muito caprichado e um bom ambiente: no topo da faixa."
+              ]
+            }
+          ],
+          "tip": "Refaça essa pesquisa a cada seis meses. Os preços mudam, e você precisa saber onde está.",
+          "mistake": "Entrar com o menor preço da cidade para atrair clientes. Preço baixo atrai quem procura só preço, e depois fica difícil subir.",
+          "summary": "Pesquise pelo menos 5 profissionais, compare com o seu preço mínimo e escolha onde se posicionar."
+        },
+        {
+          "id": "10-5",
+          "title": "Reajustar o preço sem perder clientes",
+          "minutes": 3,
+          "intro": "Com o tempo, seus custos sobem e o seu trabalho melhora. Reajustar faz parte, e dá para fazer isso com tranquilidade.",
+          "blocks": [
+            {
+              "heading": "Quando reajustar",
+              "items": [
+                "Seus custos de material ou custos fixos aumentaram.",
+                "Sua agenda está cheia com frequência.",
+                "Você fez cursos, melhorou a técnica ou o ambiente.",
+                "Faz bastante tempo que o preço não muda."
+              ]
+            },
+            {
+              "heading": "Como avisar",
+              "steps": [
+                "Avise com antecedência, por exemplo 30 dias antes.",
+                "Envie uma mensagem curta e gentil para as clientes.",
+                "Explique em uma frase o motivo, sem se justificar demais.",
+                "Atualize a tabela no Instagram e no WhatsApp na data combinada."
+              ]
+            },
+            {
+              "heading": "Exemplo de mensagem",
+              "text": "\"Oi, [nome]! Passando para avisar que, a partir do dia [data], os valores dos meus serviços terão um pequeno reajuste, para eu continuar investindo em materiais e no seu atendimento. Até lá, os valores atuais continuam valendo. Obrigada por estar comigo! 💕\""
+            }
+          ],
+          "tip": "Ofereça às clientes fiéis a chance de agendar antes da data do reajuste, ainda com o valor antigo. É um gesto de carinho que elas valorizam.",
+          "mistake": "Reajustar de surpresa, na hora do pagamento. A cliente se sente pega desprevenida e a confiança fica abalada.",
+          "summary": "Reajuste com aviso antecipado, mensagem gentil e motivo em uma frase."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Como conseguir clientes",
+      "subtitle": "Os primeiros passos para encher a sua agenda.",
+      "lessons": [
+        {
+          "id": "11-1",
+          "title": "Um Instagram que atrai clientes",
+          "minutes": 3,
+          "intro": "Para muitas clientes, o seu Instagram é a primeira impressão do seu trabalho. Ele precisa mostrar, em poucos segundos, o que você faz e como agendar.",
+          "blocks": [
+            {
+              "heading": "O básico do perfil",
+              "items": [
+                "Foto de perfil nítida: você sorrindo ou um olhar bem feito.",
+                "Nome com a palavra lash e a sua cidade, para aparecer nas buscas.",
+                "Bio curta: o que você faz, onde atende e como agendar.",
+                "Link direto para o seu WhatsApp."
+              ]
+            },
+            {
+              "heading": "O que postar",
+              "items": [
+                "Fotos e vídeos dos seus trabalhos, sempre bem iluminados.",
+                "Antes e depois.",
+                "Bastidores: a sua bancada, o preparo, o cuidado com a higiene.",
+                "Respostas a dúvidas comuns, como quanto tempo dura e como cuidar.",
+                "Sua agenda da semana, com horários disponíveis."
+              ]
+            },
+            {
+              "heading": "Destaques que ajudam a vender",
+              "steps": [
+                "Crie um destaque com seus trabalhos.",
+                "Crie outro com cuidados e dúvidas.",
+                "Crie um com valores e regras de agendamento.",
+                "Crie um com avaliações reais das clientes, com autorização delas."
+              ]
+            }
+          ],
+          "tip": "Poste com constância, mesmo que seja pouco. Postar três vezes por semana, toda semana, vale mais que dez posts num dia e depois nada.",
+          "mistake": "Encher o feed de imagens bonitas da internet. A cliente quer ver o SEU trabalho, mesmo que você esteja começando.",
+          "summary": "Perfil claro, link para o WhatsApp, posts dos seus trabalhos e destaques que respondem as dúvidas."
+        },
+        {
+          "id": "11-2",
+          "title": "Fotos de antes e depois com o celular",
+          "minutes": 3,
+          "intro": "Uma boa foto vende o seu trabalho sozinha. E dá para fazer fotos bonitas só com o celular.",
+          "blocks": [
+            {
+              "heading": "Luz é o mais importante",
+              "items": [
+                "Use luz natural de janela, de frente para a cliente, ou uma luz de anel.",
+                "Evite luz amarela e sombra no rosto.",
+                "Use sempre a mesma luz no antes e no depois."
+              ]
+            },
+            {
+              "heading": "Como fotografar",
+              "steps": [
+                "Limpe a lente do celular.",
+                "Fotografe o antes no mesmo ângulo que vai usar no depois.",
+                "Peça para a cliente fechar os olhos e inclinar levemente o rosto para baixo, para mostrar os fios.",
+                "Faça também uma foto com os olhos abertos, olhando para a frente.",
+                "Toque na tela para focar nos cílios.",
+                "Grave um vídeo curto, girando levemente o rosto dela."
+              ]
+            },
+            {
+              "heading": "Cuidados importantes",
+              "text": "Peça sempre autorização da cliente antes de postar, principalmente se o rosto inteiro aparecer. Não use filtros que mudem o resultado: a cliente que agendar por causa da foto precisa encontrar o mesmo resultado no espelho. Ajustes leves de luz e corte estão ok."
+            }
+          ],
+          "tip": "Monte um cantinho fixo para fotos, com a mesma luz e o mesmo fundo. Todas as suas fotos ficam com cara de marca.",
+          "mistake": "Fotografar com a cliente ainda deitada, com luz de cima e sombra. O seu trabalho perde todo o capricho na foto.",
+          "summary": "Luz boa, mesmo ângulo no antes e depois, foco nos cílios, sem filtros e sempre com autorização."
+        },
+        {
+          "id": "11-3",
+          "title": "WhatsApp e Status",
+          "minutes": 3,
+          "intro": "O WhatsApp é onde a maioria dos agendamentos acontece. Usado do jeito certo, ele também traz novas clientes.",
+          "blocks": [
+            {
+              "heading": "Use o WhatsApp Business",
+              "items": [
+                "Perfil comercial com foto, endereço e horário de atendimento.",
+                "Catálogo com os seus serviços e preços.",
+                "Mensagem de saudação automática para quem chama pela primeira vez.",
+                "Respostas rápidas para as perguntas que mais aparecem.",
+                "Etiquetas para separar clientes, manutenções e orçamentos."
+              ]
+            },
+            {
+              "heading": "O Status como vitrine",
+              "text": "Quem tem o seu número salvo, e também está salvo nos seus contatos, pode ver o seu Status. Poste ali seus trabalhos do dia, os horários livres da semana e dicas de cuidados. Muitas clientes agendam ao ver um horário vago no Status de alguém que elas já conhecem."
+            },
+            {
+              "heading": "Uma rotina simples",
+              "steps": [
+                "De manhã, poste os horários disponíveis do dia ou da semana.",
+                "Depois de cada atendimento, poste o resultado (com autorização).",
+                "Uma vez por semana, poste uma dica ou responda uma dúvida comum."
+              ]
+            }
+          ],
+          "tip": "Salve o contato de toda cliente e peça para ela salvar o seu. Sem isso, ela não vê o seu Status.",
+          "mistake": "Demorar horas para responder quem pede valor. Quem pergunta preço geralmente está decidindo naquele momento.",
+          "summary": "WhatsApp Business organizado e Status com trabalhos e horários livres: a vitrine que a cliente já tem no bolso."
+        },
+        {
+          "id": "11-4",
+          "title": "As primeiras clientes: amigas e conhecidas",
+          "minutes": 3,
+          "intro": "Todo começo é com as pessoas mais próximas. Elas são a sua primeira vitrine e as suas primeiras indicações.",
+          "blocks": [
+            {
+              "heading": "Por onde começar",
+              "items": [
+                "Amigas, familiares e vizinhas.",
+                "Colegas de trabalho, de faculdade ou da igreja.",
+                "Grupos de mães, do condomínio ou do bairro."
+              ]
+            },
+            {
+              "heading": "Como fazer o convite",
+              "steps": [
+                "Avise com uma mensagem simples que você começou a atender.",
+                "Ofereça um valor de lançamento por tempo limitado, em vez de fazer de graça.",
+                "Peça, em troca, autorização para fotografar e uma avaliação sincera.",
+                "Combine que, se ela gostar, indique você para uma amiga."
+              ]
+            },
+            {
+              "heading": "Trate como cliente de verdade",
+              "text": "Mesmo sendo amiga, siga todo o processo: conversa, mapping, cuidados por escrito e agendamento da manutenção. Isso treina o seu atendimento e mostra para ela que você é profissional. É assim que a amiga vira cliente fixa e fala bem de você para outras pessoas."
+            }
+          ],
+          "tip": "Peça para cada uma das primeiras clientes postar uma foto e marcar o seu perfil. Cada marcação apresenta você para novas pessoas.",
+          "mistake": "Atender amigas de graça por muito tempo. Fica difícil começar a cobrar depois, e o seu trabalho passa a valer menos para elas.",
+          "summary": "Comece pelas pessoas próximas, com valor de lançamento, processo completo e pedido de indicação."
+        },
+        {
+          "id": "11-5",
+          "title": "Indicação: a melhor propaganda",
+          "minutes": 3,
+          "intro": "Cliente que chega por indicação já confia em você antes de sentar na maca. Vale a pena estimular isso de forma organizada.",
+          "blocks": [
+            {
+              "heading": "Por que a indicação funciona",
+              "text": "A pessoa viu o resultado na amiga, ouviu falar bem do atendimento e já chega querendo agendar. Ela costuma negociar menos o preço e tem mais chance de virar cliente fixa. Por isso, cada cliente satisfeita é uma porta para outras."
+            },
+            {
+              "heading": "Como pedir",
+              "steps": [
+                "Espere o momento certo: quando a cliente elogia o resultado.",
+                "Peça de forma simples: \"Se alguma amiga perguntar, me indica?\"",
+                "Envie um cartão digital com o seu contato para ela repassar.",
+                "Agradeça sempre que alguém chegar por indicação."
+              ]
+            },
+            {
+              "heading": "Um programa de indicação simples",
+              "items": [
+                "Para cada amiga indicada que fizer a aplicação, a cliente ganha um desconto na próxima manutenção.",
+                "A amiga indicada também pode ganhar um pequeno desconto na primeira aplicação.",
+                "Anote quem indicou quem para não esquecer o benefício.",
+                "Deixe as regras escritas e simples."
+              ]
+            }
+          ],
+          "tip": "Pergunte a toda cliente nova como ela conheceu o seu trabalho. Assim você descobre de onde vêm as suas clientes.",
+          "mistake": "Ter vergonha de pedir indicação. A maioria das clientes satisfeitas indica com prazer, só precisa ser lembrada.",
+          "summary": "Peça indicação no momento do elogio, facilite com um cartão digital e recompense quem indica."
+        },
+        {
+          "id": "11-6",
+          "title": "Fazer a cliente voltar",
+          "minutes": 3,
+          "intro": "Conquistar uma cliente nova dá trabalho. Fazer quem já veio voltar é mais simples e é o que deixa a agenda estável.",
+          "blocks": [
+            {
+              "heading": "O que faz a cliente voltar",
+              "items": [
+                "Um resultado bonito e igual ao combinado.",
+                "Um atendimento pontual, limpo e acolhedor.",
+                "Cuidados bem explicados, para a extensão durar.",
+                "A manutenção já agendada antes de ela sair."
+              ]
+            },
+            {
+              "heading": "Lembretes que funcionam",
+              "steps": [
+                "No dia seguinte, mande uma mensagem perguntando como ela está com os cílios.",
+                "Alguns dias antes da manutenção, envie um lembrete com a data e o horário.",
+                "Se ela sumir, mande uma mensagem gentil depois de algumas semanas, oferecendo um horário."
+              ]
+            },
+            {
+              "heading": "Pequenos gestos que marcam",
+              "text": "Anote na ficha detalhes que a cliente contou, como o aniversário ou um evento importante. Mande uma mensagem no aniversário, lembre de perguntar como foi o casamento da irmã. Esses cuidados fazem ela se sentir lembrada, e é por isso que ela escolhe voltar para você."
+            }
+          ],
+          "tip": "Use uma agenda ou planilha com a data da última visita de cada cliente. Assim você vê na hora quem está passando do prazo.",
+          "mistake": "Só falar com a cliente quando ela marca horário. Sem contato entre um atendimento e outro, ela esquece de você.",
+          "summary": "Resultado bonito, manutenção agendada, lembretes e pequenos gestos: é isso que faz a cliente voltar."
+        }
+      ]
+    }
+  ],
+  "bonuses": [
+    {
+      "id": "bonus-1",
+      "title": "Checklist do Atendimento Perfeito",
+      "subtitle": "Tudo o que conferir, da véspera ao pós-atendimento, para não esquecer nada.",
+      "intro": "Use este checklist em todo atendimento até ele virar hábito. Marque cada item e repare como o seu atendimento fica mais tranquilo, mais rápido e mais profissional.",
+      "sections": [
+        {
+          "heading": "Na véspera",
+          "items": [
+            "Confirmar o horário com a cliente por WhatsApp.",
+            "Pedir para ela vir sem maquiagem nos olhos e sem rímel.",
+            "Lembrar que, se usar lentes de contato, deve vir sem elas ou trazer o estojo.",
+            "Conferir a ficha da cliente: estilo, tamanhos e curvaturas da última vez.",
+            "Conferir o estoque: fios nos tamanhos certos, cola, primer, patches e descartáveis."
+          ]
+        },
+        {
+          "heading": "Antes de a cliente chegar",
+          "items": [
+            "Limpar e higienizar a bancada, a maca e as pinças.",
+            "Montar a bancada sempre na mesma ordem.",
+            "Conferir umidade (em torno de 50% a 60%) e temperatura (entre 16 °C e 24 °C).",
+            "Separar a gota de cola fresca só na hora de começar.",
+            "Deixar a luz, o travesseiro e a manta prontos para o conforto da cliente."
+          ]
+        },
+        {
+          "heading": "Na chegada",
+          "items": [
+            "Receber com acolhimento e oferecer água.",
+            "Conversar sobre o efeito que ela deseja e ver as fotos de referência.",
+            "Observar o formato do olho e a força dos cílios naturais.",
+            "Mostrar duas opções de estilo e deixar ela escolher.",
+            "Confirmar em voz alta o que foi combinado."
+          ]
+        },
+        {
+          "heading": "Durante a aplicação",
+          "items": [
+            "Limpar bem os cílios.",
+            "Posicionar os patches com conforto, sem encostar no olho.",
+            "Desenhar o mapping no patch, igual nos dois olhos.",
+            "Passar o primer.",
+            "Isolar um cílio por vez e colar a cerca de 1 mm da raiz.",
+            "Trabalhar por regiões e conferir o alinhamento a cada uma.",
+            "Trocar a gota de cola sempre que ela começar a engrossar.",
+            "Se a cliente sentir qualquer desconforto, interromper e orientar a procurar um profissional de saúde."
+          ]
+        },
+        {
+          "heading": "No final",
+          "items": [
+            "Pentear e conferir se nenhum fio ficou grudado.",
+            "Comparar os dois olhos.",
+            "Mostrar o resultado no espelho e perguntar se ela está confortável.",
+            "Fotografar o resultado, com autorização.",
+            "Explicar os cuidados das primeiras 24 horas.",
+            "Entregar a escovinha.",
+            "Agendar a manutenção antes de ela sair.",
+            "Receber o pagamento."
+          ]
+        },
+        {
+          "heading": "Depois do atendimento",
+          "items": [
+            "Enviar a mensagem de cuidados por WhatsApp no mesmo dia.",
+            "Salvar o contato da cliente e pedir para ela salvar o seu.",
+            "Atualizar a ficha: estilo, tamanhos, curvaturas, espessura e foto do mapping.",
+            "Anotar umidade e temperatura do dia.",
+            "Programar o lembrete da manutenção.",
+            "Postar o resultado no Instagram e no Status, com autorização."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bonus-2",
+      "title": "Guia Visual de Fios e Curvaturas",
+      "subtitle": "Espessuras, curvaturas, tamanhos e combinações prontas para consultar na hora.",
+      "intro": "Deixe este guia aberto na bancada. Ele resume as escolhas de fio mais usadas. Lembre que são pontos de partida: o fio sempre precisa combinar com a força do cílio natural da cliente.",
+      "sections": [
+        {
+          "heading": "Espessuras",
+          "rows": [
+            {
+              "label": "0,03 mm",
+              "text": "Mega volume, em leques com muitos fios bem finos."
+            },
+            {
+              "label": "0,05 mm",
+              "text": "Volume russo, em leques com mais fios (até 6)."
+            },
+            {
+              "label": "0,07 mm",
+              "text": "Volume, em leques mais leves ou fios prontos em Y (volume brasileiro)."
+            },
+            {
+              "label": "0,10 mm",
+              "text": "Fio a fio. Serve para a maioria das clientes."
+            },
+            {
+              "label": "0,12 mm",
+              "text": "Fio a fio, um pouco mais marcado."
+            },
+            {
+              "label": "0,15 mm",
+              "text": "Fio a fio marcado, para cílios naturais mais fortes."
+            },
+            {
+              "label": "0,20 mm",
+              "text": "Só para cílios naturais grossos e fortes."
+            }
+          ]
+        },
+        {
+          "heading": "Curvaturas",
+          "rows": [
+            {
+              "label": "B",
+              "text": "Curva suave. Efeito bem natural."
+            },
+            {
+              "label": "C",
+              "text": "Curva média. A mais versátil, combina com quase todos os olhares."
+            },
+            {
+              "label": "CC",
+              "text": "Curva média-alta. Mais abertura que a C."
+            },
+            {
+              "label": "D",
+              "text": "Curva alta. Olhar aberto e marcado."
+            },
+            {
+              "label": "L",
+              "text": "Base reta com elevação. Indicada para olhos encapuzados ou caídos e cílios naturais retos."
+            },
+            {
+              "label": "M",
+              "text": "Elevação extrema. Efeito bem dramático."
+            }
+          ]
+        },
+        {
+          "heading": "Tamanhos",
+          "rows": [
+            {
+              "label": "6 a 15 mm",
+              "text": "Faixa usada no dia a dia. Os menores tamanhos ficam no canto interno."
+            },
+            {
+              "label": "8 a 10 mm",
+              "text": "Efeito natural."
+            },
+            {
+              "label": "10 a 12 mm",
+              "text": "Efeito marcado."
+            },
+            {
+              "label": "13 a 15 mm",
+              "text": "Efeito dramático."
+            }
+          ]
+        },
+        {
+          "heading": "Combinações prontas",
+          "rows": [
+            {
+              "label": "Natural do dia a dia",
+              "text": "Fio a fio · 0,10 mm · curvatura C · 8 a 10 mm · estilo natural."
+            },
+            {
+              "label": "Marcado e versátil",
+              "text": "Fio a fio · 0,12 mm · curvatura C ou CC · 9 a 12 mm · estilo esquilo."
+            },
+            {
+              "label": "Olho encapuzado",
+              "text": "Fio a fio · 0,10 mm · curvatura L ou D · 9 a 11 mm · estilo boneca ou esquilo."
+            },
+            {
+              "label": "Volume leve",
+              "text": "Volume brasileiro · fios em Y de 0,07 mm · curvatura C ou D · 9 a 12 mm."
+            },
+            {
+              "label": "Volume dramático",
+              "text": "Volume russo · leques de 0,05 mm · curvatura D · 13 a 15 mm · estilo gatinho ou esquilo."
+            }
+          ]
+        }
+      ],
+      "note": "Antes de escolher, observe sempre a força dos cílios naturais. Na dúvida, prefira o fio mais fino e mais curto."
+    }
+  ]
+}

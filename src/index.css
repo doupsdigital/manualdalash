@@ -1,0 +1,76 @@
+@import 'tailwindcss';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/bodoni-moda/500.css';
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Bodoni Moda', serif;
+
+  /* Paleta do Manual da Lash Designer, fiel ao protótipo */
+  --color-night: #4a2140;
+  --color-plum: #5b2a4e;
+  --color-plum-2: #8a3f6f;
+  --color-rose: #e07a9b;
+  --color-blush: #fbe8ee;
+  --color-gold: #c9a15b;
+  --color-gold-soft: #f6ebd3;
+  --color-gold-ink: #8a6a24;
+  --color-green: #34c759;
+  --color-lilac: #ede1ea;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-night);
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+* {
+  scrollbar-width: none;
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.press:active {
+  transform: scale(0.97);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.25s ease-out both;
+}

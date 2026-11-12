@@ -1,0 +1,10 @@
+node_modules
+dist
+.env
+.env.local
+*.local
+.DS_Store
+*.tsbuildinfo
+
+# Protótipos e material de design: só de referência, não entram no app nem no deploy
+referencia/
