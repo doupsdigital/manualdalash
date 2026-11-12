@@ -2,27 +2,41 @@ import { useNavigate } from 'react-router-dom'
 import { Screen } from '../components/ui'
 import { checklistBonus, guideBonus, checklistTotal } from '../content'
 import { useProgress } from '../state/progress'
+import { useAuth } from '../state/auth'
+import { usePurchases, type ExtraKey } from '../state/purchases'
 import { EXTRAS_CHECKOUT_URLS } from '../lib/config'
+
+const EXTRAS: { key: ExtraKey; title: string; desc: string }[] = [
+  {
+    key: 'mensagens',
+    title: 'Mensagens que Fecham Horário',
+    desc: 'Textos prontos para confirmar, remarcar e fechar o agendamento.',
+  },
+  {
+    key: 'tabela-precos',
+    title: 'Tabela de Preços da Lash',
+    desc: 'Um modelo pronto para montar e apresentar os seus valores.',
+  },
+]
+
+function checkoutUrlFor(key: ExtraKey, email: string | undefined) {
+  const base = EXTRAS_CHECKOUT_URLS[key]
+  if (!base) return null
+  if (!email) return base
+  try {
+    const url = new URL(base)
+    url.searchParams.set('email', email)
+    return url.toString()
+  } catch {
+    return base
+  }
+}
 
 export default function Bonus() {
   const navigate = useNavigate()
   const { checkedCount } = useProgress()
-
-  // Nenhuma compra ainda nesta etapa (login/my_products entram na etapa 3) — extras ficam bloqueados.
-  const extras = [
-    {
-      key: 'mensagens' as const,
-      title: 'Mensagens que Fecham Horário',
-      desc: 'Textos prontos para confirmar, remarcar e fechar o agendamento.',
-      locked: true,
-    },
-    {
-      key: 'tabela-precos' as const,
-      title: 'Tabela de Preços da Lash',
-      desc: 'Um modelo pronto para montar e apresentar os seus valores.',
-      locked: true,
-    },
-  ]
+  const { user } = useAuth()
+  const { isUnlocked, refresh, loading } = usePurchases()
 
   return (
     <Screen className="px-5 pt-16 pb-[110px]">
@@ -75,13 +89,14 @@ export default function Bonus() {
 
       <div className="mt-8 text-[22px] font-bold tracking-tight">Extras</div>
       <div className="mt-3.5 flex flex-col gap-3">
-        {extras.map((x) => {
-          const checkoutUrl = EXTRAS_CHECKOUT_URLS[x.key]
+        {EXTRAS.map((x) => {
+          const unlocked = isUnlocked(x.key)
+          const checkoutUrl = checkoutUrlFor(x.key, user?.email)
           return (
             <div key={x.key} className="rounded-3xl border border-white/10 bg-white/[0.07] p-5">
               <div className="flex items-center gap-2.5">
                 <div className="flex-1 text-[18px] font-bold">{x.title}</div>
-                {x.locked && (
+                {!unlocked && (
                   <span className="flex text-white/60">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round">
                       <rect x="5" y="11" width="14" height="10" rx="3" />
@@ -91,16 +106,29 @@ export default function Bonus() {
                 )}
               </div>
               <div className="mt-1.5 text-[13px] leading-snug text-white/60">{x.desc}</div>
-              {x.locked && (
-                <a
-                  href={checkoutUrl || undefined}
-                  target="_blank"
-                  rel="noopener"
-                  aria-disabled={!checkoutUrl}
-                  className="press mt-3.5 flex h-12 items-center justify-center rounded-full bg-white/10 text-[15.5px] font-semibold text-white"
-                >
-                  Desbloquear · R$ 9,90
-                </a>
+              {unlocked ? (
+                <div className="mt-3.5 flex h-12 items-center justify-center rounded-full bg-white/10 text-[15.5px] font-semibold text-green">
+                  Liberado ✓
+                </div>
+              ) : (
+                <>
+                  <a
+                    href={checkoutUrl ?? undefined}
+                    target="_blank"
+                    rel="noopener"
+                    aria-disabled={!checkoutUrl}
+                    className="press mt-3.5 flex h-12 items-center justify-center rounded-full bg-white/10 text-[15.5px] font-semibold text-white"
+                  >
+                    Desbloquear · R$ 9,90
+                  </a>
+                  <button
+                    onClick={() => refresh()}
+                    disabled={loading}
+                    className="mt-2 h-9 w-full text-[13px] font-semibold text-white/60"
+                  >
+                    {loading ? 'Verificando…' : 'Já comprei, atualizar'}
+                  </button>
+                </>
               )}
             </div>
           )

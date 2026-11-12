@@ -1,5 +1,6 @@
 // Progresso da leitura: lições concluídas, checklist marcado, última lição vista e tamanho do texto.
-// Nesta etapa fica só no navegador; a sincronização com o Supabase entra na etapa 3 (ver CLAUDE.md).
+// Fica salvo no navegador e, quando logada, também no banco (sincronização em state/sync.ts).
+// O tamanho do texto é só preferência do aparelho: nunca sincroniza.
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 
 const STORAGE_KEY = 'manual-lash:progress:v1'
@@ -7,14 +8,24 @@ const STORAGE_KEY = 'manual-lash:progress:v1'
 export type FontSize = 0 | 1 | 2
 export const FONT_SIZES_PX: Record<FontSize, number> = { 0: 16, 1: 17, 2: 19 }
 
-interface ProgressData {
+export interface ProgressSnapshot {
   lessons: Record<string, string> // id da lição -> data de conclusão (ISO)
   checklist: Record<string, boolean>
   lastLesson: string | null
+  updatedAt: string
+}
+
+interface ProgressData extends ProgressSnapshot {
   fontSize: FontSize
 }
 
-const EMPTY: ProgressData = { lessons: {}, checklist: {}, lastLesson: null, fontSize: 0 }
+const EMPTY: ProgressData = {
+  lessons: {},
+  checklist: {},
+  lastLesson: null,
+  updatedAt: new Date(0).toISOString(),
+  fontSize: 0,
+}
 
 function load(): ProgressData {
   try {
@@ -46,6 +57,10 @@ interface ProgressStore {
   clearChecklist: () => void
   fontSize: FontSize
   cycleFontSize: () => void
+  /** Para a sincronização (state/sync.ts): o que sincroniza, sem o tamanho do texto. */
+  snapshot: () => ProgressSnapshot
+  /** Aplica o resultado já mesclado (local ∪ banco) de volta ao estado local. */
+  applyMerge: (merged: ProgressSnapshot) => void
 }
 
 const ProgressContext = createContext<ProgressStore | null>(null)
@@ -55,24 +70,40 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => save(data), [data])
 
+  const touch = <T extends Partial<ProgressData>>(patch: T) => ({ ...patch, updatedAt: new Date().toISOString() })
+
   const markLessonDone = useCallback((id: string) => {
-    setData((d) => (d.lessons[id] ? d : { ...d, lessons: { ...d.lessons, [id]: new Date().toISOString() } }))
+    setData((d) => (d.lessons[id] ? d : { ...d, ...touch({ lessons: { ...d.lessons, [id]: new Date().toISOString() } }) }))
   }, [])
 
   const setLastLesson = useCallback((id: string) => {
-    setData((d) => ({ ...d, lastLesson: id }))
+    setData((d) => ({ ...d, ...touch({ lastLesson: id }) }))
   }, [])
 
   const toggleCheck = useCallback((key: string) => {
-    setData((d) => ({ ...d, checklist: { ...d.checklist, [key]: !d.checklist[key] } }))
+    setData((d) => ({ ...d, ...touch({ checklist: { ...d.checklist, [key]: !d.checklist[key] } }) }))
   }, [])
 
   const clearChecklist = useCallback(() => {
-    setData((d) => ({ ...d, checklist: {} }))
+    setData((d) => ({ ...d, ...touch({ checklist: {} }) }))
   }, [])
 
   const cycleFontSize = useCallback(() => {
     setData((d) => ({ ...d, fontSize: (((d.fontSize + 1) % 3) as FontSize) }))
+  }, [])
+
+  const snapshot = useCallback(
+    (): ProgressSnapshot => ({
+      lessons: data.lessons,
+      checklist: data.checklist,
+      lastLesson: data.lastLesson,
+      updatedAt: data.updatedAt,
+    }),
+    [data],
+  )
+
+  const applyMerge = useCallback((merged: ProgressSnapshot) => {
+    setData((d) => ({ ...d, ...merged }))
   }, [])
 
   const value: ProgressStore = {
@@ -87,6 +118,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     clearChecklist,
     fontSize: data.fontSize,
     cycleFontSize,
+    snapshot,
+    applyMerge,
   }
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>

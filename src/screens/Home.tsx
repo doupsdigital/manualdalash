@@ -3,7 +3,9 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Screen, ProgressBar } from '../components/ui'
 import { modules, getLesson, allLessons, totalLessons, moduleCoverUrl } from '../content'
 import { useProgress } from '../state/progress'
+import { useAuth } from '../state/auth'
 import { searchLessons } from '../lib/search'
+import { SUPPORT_EMAIL } from '../lib/config'
 
 function Avatar({ name, onClick }: { name: string | null; onClick: (e: MouseEvent) => void }) {
   const initials = name
@@ -34,10 +36,11 @@ function Avatar({ name, onClick }: { name: string | null; onClick: (e: MouseEven
 export default function Home() {
   const navigate = useNavigate()
   const { isLessonDone, doneCount, lastLesson } = useProgress()
+  const { firstName, signOut } = useAuth()
   const [menuOpen, setMenuOpen] = useState(false)
   const [q, setQ] = useState('')
 
-  const buyerName: string | null = null // vem da Kiwify a partir da etapa 3 (login)
+  const buyerName = firstName
 
   const [searchParams, setSearchParams] = useSearchParams()
   const justFinished = searchParams.get('concluido') === '1'
@@ -103,9 +106,15 @@ export default function Home() {
           <div
             className="animate-fade-up absolute top-14 right-0 z-10 w-[180px] rounded-[20px] border border-white/20 bg-plum p-1.5 shadow-xl"
           >
-            <a href="mailto:suporte@manualdalash.com.br" className="block rounded-[14px] px-3.5 py-3.5 text-[15px] font-semibold text-white">
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="block rounded-[14px] px-3.5 py-3.5 text-[15px] font-semibold text-white">
               Suporte
             </a>
+            <button
+              onClick={() => signOut()}
+              className="block w-full rounded-[14px] px-3.5 py-3.5 text-left text-[15px] font-semibold text-white"
+            >
+              Sair
+            </button>
           </div>
         )}
       </div>
