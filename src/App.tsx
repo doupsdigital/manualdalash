@@ -42,7 +42,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-full items-center justify-center bg-[#1d0c19]">
-      <div className="relative h-screen max-h-[880px] w-full max-w-[430px] overflow-hidden bg-night text-white">
+      <div className="relative h-dvh max-h-[880px] w-full max-w-[430px] overflow-hidden bg-night text-white">
         {status === 'loading' ? <LoadingScreen /> : status === 'signedOut' ? <Login /> : <AppRoutes />}
         {showTabs && <TabBar />}
       </div>

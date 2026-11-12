@@ -36,7 +36,7 @@ export default function Welcome() {
 
   const start = () => {
     markWelcomeSeen()
-    navigate('/licao/1-1')
+    navigate('/inicio')
   }
 
   return (
@@ -68,7 +68,7 @@ export default function Welcome() {
         ))}
       </div>
       <div className="min-h-8 flex-1" />
-      <PrimaryButton onClick={start}>Começar pela lição 1</PrimaryButton>
+      <PrimaryButton onClick={start}>Começar</PrimaryButton>
     </Screen>
   )
 }
