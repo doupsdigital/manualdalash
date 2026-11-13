@@ -1,0 +1,267 @@
+{
+  "key": "mensagens",
+  "title": "Mensagens que Fecham Horário",
+  "subtitle": "42 mensagens prontas para transformar conversa em agendamento.",
+  "intro": "Do primeiro \"oi\" até a manutenção marcada: mensagens prontas para cada momento da conversa. Copie, troque o que está entre colchetes e envie.",
+  "howTo": [
+    "Escolha a situação que você está vivendo na conversa.",
+    "Toque em \"Copiar\".",
+    "Cole no WhatsApp e troque tudo o que está entre [colchetes].",
+    "Ajuste uma ou duas palavras para ficar com o seu jeito de falar.",
+    "Salve as que você mais usa nas respostas rápidas do WhatsApp Business."
+  ],
+  "messages": [
+    {
+      "id": "PC01",
+      "category": "Primeiro contato",
+      "title": "Quando ela chama pela primeira vez",
+      "text": "Oi, [nome]! Que bom te ver por aqui 💕 Sou a [seu nome], lash designer. Me conta: você já fez extensão de cílios antes ou vai ser a primeira vez?"
+    },
+    {
+      "id": "PC02",
+      "category": "Primeiro contato",
+      "title": "Quando ela chega pelo Instagram",
+      "text": "Oi, [nome]! Vi que você me chamou pelo Instagram 🥰 Fico muito feliz! Qual efeito você gostaria: algo mais natural, marcado ou bem poderoso?"
+    },
+    {
+      "id": "PC03",
+      "category": "Primeiro contato",
+      "title": "Quando ela chega por indicação",
+      "text": "Oi, [nome]! A [nome da amiga] me falou de você 💕 Que alegria! Vou cuidar do seu olhar com o mesmo carinho. Quer que eu te mande os horários desta semana?"
+    },
+    {
+      "id": "PC04",
+      "category": "Primeiro contato",
+      "title": "Quando ela manda só \"oi\" ou \"info\"",
+      "text": "Oi, [nome]! Tudo bem? 😊 Aqui é a [seu nome], lash designer. Posso te ajudar com valores, técnicas ou horários. O que você gostaria de saber?"
+    },
+    {
+      "id": "PC05",
+      "category": "Primeiro contato",
+      "title": "Quando ela manda uma foto de referência",
+      "text": "Que lindo esse olhar! 😍 Consigo fazer um efeito nesse estilo, adaptando ao formato do seu olho para ficar ainda mais bonito em você. Quer que eu te passe o valor e os horários?"
+    },
+    {
+      "id": "PC06",
+      "category": "Primeiro contato",
+      "title": "Mensagem de saudação automática (WhatsApp Business)",
+      "text": "Oi! Que bom que você chamou 💕 Já já eu te respondo. Enquanto isso, me conta qual efeito você procura e qual dia fica melhor para você."
+    },
+    {
+      "id": "PR01",
+      "category": "Preço",
+      "title": "Quando ela pergunta o valor",
+      "text": "A aplicação de [técnica] fica [valor] e dura em média de 1 a 2 horas. A manutenção, feita em até [prazo] dias, fica [valor da manutenção]. Quer que eu veja um horário para você?"
+    },
+    {
+      "id": "PR02",
+      "category": "Preço",
+      "title": "Enviando a tabela completa",
+      "text": "Aqui estão os meus valores 💕\n\n• Fio a fio: [valor]\n• Volume brasileiro: [valor]\n• Volume russo: [valor]\n• Manutenção (até [prazo] dias): [valor]\n• Remoção: [valor]\n\nTodas as aplicações incluem os cuidados por escrito e a escovinha de presente. Qual te interessou mais?"
+    },
+    {
+      "id": "PR03",
+      "category": "Preço",
+      "title": "Quando ela acha caro",
+      "text": "Entendo, [nome]! 😊 O valor inclui material de qualidade, cerca de [tempo] de trabalho dedicado só a você e todo o cuidado para os seus cílios naturais ficarem protegidos. Se quiser, posso te sugerir o [técnica mais em conta], que fica [valor]."
+    },
+    {
+      "id": "PR04",
+      "category": "Preço",
+      "title": "Quando ela pede desconto",
+      "text": "Que bom que você quer fazer comigo! 💕 Meus valores já são pensados para manter a qualidade do material e do atendimento. O que eu posso fazer é [benefício: ex. parcelar / um mimo na primeira manutenção]. Fica bom para você?"
+    },
+    {
+      "id": "PR05",
+      "category": "Preço",
+      "title": "Quando ela compara com outra profissional",
+      "text": "Cada profissional tem o seu jeito de trabalhar, e é ótimo você pesquisar 😊 Aqui você tem [diferencial: ex. mapping feito para o seu olho, material premium, atendimento sem pressa]. Se quiser, te mando fotos de trabalhos parecidos com o que você procura."
+    },
+    {
+      "id": "PR06",
+      "category": "Preço",
+      "title": "Formas de pagamento",
+      "text": "Aceito Pix, cartão de débito e crédito [em até X vezes] 💳 Para reservar o horário, peço um sinal de [valor do sinal], descontado no dia. Posso te mandar a chave Pix?"
+    },
+    {
+      "id": "DU01",
+      "category": "Dúvidas",
+      "title": "\"Quanto tempo dura?\"",
+      "text": "Os fios caem junto com os seus cílios naturais, que se renovam o tempo todo 😊 Por isso, a manutenção é feita em geral a cada 2 a 3 semanas, para o olhar ficar sempre cheio."
+    },
+    {
+      "id": "DU02",
+      "category": "Dúvidas",
+      "title": "\"É a minha primeira vez\"",
+      "text": "Que alegria fazer a sua primeira vez! 🥰 Antes de começar, a gente conversa sobre o efeito que você quer, eu te mostro o desenho dos fios e você fica deitada, de olhos fechados, bem confortável. Muitas clientes até cochilam!"
+    },
+    {
+      "id": "DU03",
+      "category": "Dúvidas",
+      "title": "\"Estraga os cílios naturais?\"",
+      "text": "Feita do jeito certo, não 💕 Eu escolho a espessura e o tamanho dos fios de acordo com a força dos seus cílios, para não pesar, e colo cada fio separado. Com os cuidados certos e a manutenção em dia, seus cílios naturais continuam bonitos e fortes."
+    },
+    {
+      "id": "DU04",
+      "category": "Dúvidas",
+      "title": "\"Posso molhar?\"",
+      "text": "Nas primeiras 24 horas, o ideal é não molhar, para a cola firmar bem. Depois disso, pode lavar normalmente, e é até importante: eu te ensino a limpar direitinho e te mando tudo por escrito 😊"
+    },
+    {
+      "id": "DU05",
+      "category": "Dúvidas",
+      "title": "\"Qual técnica combina comigo?\"",
+      "text": "Depende do efeito que você quer e do formato do seu olho 😊 Me manda uma foto do seu olhar, de frente e sem maquiagem, que eu te digo quais estilos vão valorizar mais você."
+    },
+    {
+      "id": "DU06",
+      "category": "Dúvidas",
+      "title": "\"Como devo ir no dia?\"",
+      "text": "No dia, venha sem maquiagem nos olhos e sem rímel 😊 Se usar lentes de contato, venha sem elas ou traga o estojo. O atendimento leva cerca de [tempo], então reserve esse tempinho só para você 💕"
+    },
+    {
+      "id": "FH01",
+      "category": "Fechando o horário",
+      "title": "Oferecendo duas opções de horário",
+      "text": "Tenho estes horários livres para você 💕\n\n• [dia] às [horário]\n• [dia] às [horário]\n\nQual fica melhor?"
+    },
+    {
+      "id": "FH02",
+      "category": "Fechando o horário",
+      "title": "Quando ela diz que vai ver e te avisa",
+      "text": "Claro, [nome]! 😊 Só te aviso que essa semana está bem procurada. Se quiser, eu seguro o horário de [dia] às [horário] até amanhã às [horário] para você decidir com calma."
+    },
+    {
+      "id": "FH03",
+      "category": "Fechando o horário",
+      "title": "Pedindo o sinal para reservar",
+      "text": "Perfeito! Para garantir o seu horário, peço um sinal de [valor do sinal], que é descontado no dia 😊 Chave Pix: [chave]. Assim que você me mandar o comprovante, sua vaga fica reservada."
+    },
+    {
+      "id": "FH04",
+      "category": "Fechando o horário",
+      "title": "Confirmando o agendamento",
+      "text": "Prontinho, [nome]! Seu horário está confirmado 💕\n\n📅 [dia], às [horário]\n📍 [endereço]\n⏱ Duração: cerca de [tempo]\n\nVenha sem maquiagem nos olhos. Qualquer dúvida, é só me chamar!"
+    },
+    {
+      "id": "FH05",
+      "category": "Fechando o horário",
+      "title": "Quando a agenda da semana está cheia",
+      "text": "Essa semana minha agenda lotou 🙈 Mas já posso reservar para você [dia] às [horário] ou [dia] às [horário]. Quer que eu também te coloque na lista de encaixe, caso alguém desmarque?"
+    },
+    {
+      "id": "FH06",
+      "category": "Fechando o horário",
+      "title": "Avisando um horário que vagou",
+      "text": "Oi, [nome]! Abriu um horário [hoje / amanhã] às [horário] 💕 Lembrei de você na hora. Quer ficar com ele?"
+    },
+    {
+      "id": "SO01",
+      "category": "Quando ela some",
+      "title": "Não respondeu depois do valor",
+      "text": "Oi, [nome]! Passando só para saber se ficou alguma dúvida sobre os valores 😊 Se quiser, te mando os horários livres desta semana."
+    },
+    {
+      "id": "SO02",
+      "category": "Quando ela some",
+      "title": "Sumiu depois de pedir horário",
+      "text": "Oi, [nome]! Ainda tenho aquele horário de [dia] às [horário] separadinho para você 💕 Quer que eu confirme?"
+    },
+    {
+      "id": "SO03",
+      "category": "Quando ela some",
+      "title": "Última tentativa, sem pressão",
+      "text": "Oi, [nome]! Não quero te incomodar 😊 Vou liberar o horário para outra cliente, mas quando quiser fazer seu olhar, é só me chamar que eu encaixo você com carinho."
+    },
+    {
+      "id": "SO04",
+      "category": "Quando ela some",
+      "title": "Cliente que não volta há um tempo",
+      "text": "Oi, [nome]! Que saudade 💕 Estava organizando minha agenda e lembrei de você. Abri alguns horários na semana que vem. Quer que eu reserve um?"
+    },
+    {
+      "id": "SO05",
+      "category": "Quando ela some",
+      "title": "Retomando a conversa com novidade",
+      "text": "Oi, [nome]! Tudo bem? 😊 Comecei a fazer [novidade: ex. efeito molhado / volume brasileiro] e lembrei de você. Quer ver umas fotos?"
+    },
+    {
+      "id": "CL01",
+      "category": "Confirmação e lembretes",
+      "title": "Lembrete na véspera",
+      "text": "Oi, [nome]! Passando para lembrar do seu horário amanhã, [dia], às [horário] 💕 Lembre de vir sem maquiagem nos olhos. Posso confirmar?"
+    },
+    {
+      "id": "CL02",
+      "category": "Confirmação e lembretes",
+      "title": "No dia, pela manhã",
+      "text": "Bom dia, [nome]! ☀️ Hoje é dia de olhar novo! Te espero às [horário] no [endereço]. Até daqui a pouco!"
+    },
+    {
+      "id": "CL03",
+      "category": "Confirmação e lembretes",
+      "title": "Quando ela está atrasada",
+      "text": "Oi, [nome]! Está tudo bem? 😊 Estou te esperando. Consigo te atender com até [X] minutos de atraso. Depois disso, precisamos remarcar para não atrasar a próxima cliente."
+    },
+    {
+      "id": "CL04",
+      "category": "Confirmação e lembretes",
+      "title": "Lembrete da manutenção",
+      "text": "Oi, [nome]! Sua manutenção está chegando 💕 Está marcada para [dia], às [horário]. Ela vale até [prazo] dias depois da aplicação, então não deixe passar! Posso confirmar?"
+    },
+    {
+      "id": "CL05",
+      "category": "Confirmação e lembretes",
+      "title": "Ela ainda não marcou a manutenção",
+      "text": "Oi, [nome]! Já faz [X] dias da sua aplicação 😊 Para manter o olhar cheio, o ideal é fazer a manutenção até [data]. Tenho [dia] às [horário] ou [dia] às [horário]. Qual prefere?"
+    },
+    {
+      "id": "RC01",
+      "category": "Remarcar e cancelar",
+      "title": "Quando ela pede para remarcar",
+      "text": "Sem problemas, [nome]! 😊 Tenho [dia] às [horário] ou [dia] às [horário]. Qual fica melhor para você?"
+    },
+    {
+      "id": "RC02",
+      "category": "Remarcar e cancelar",
+      "title": "Explicando a regra de cancelamento",
+      "text": "Para eu conseguir organizar a agenda, peço que desmarque com pelo menos [X] horas de antecedência 💕 Assim o sinal fica como crédito para o novo horário. Cancelamentos em cima da hora ou faltas perdem o sinal, tudo bem?"
+    },
+    {
+      "id": "RC03",
+      "category": "Remarcar e cancelar",
+      "title": "Quando ela falta sem avisar",
+      "text": "Oi, [nome]! Senti sua falta hoje às [horário] 😔 Espero que esteja tudo bem! Como combinado, o sinal fica para cobrir o horário reservado. Quer que eu veja uma nova data para você?"
+    },
+    {
+      "id": "RC04",
+      "category": "Remarcar e cancelar",
+      "title": "Quando você precisa remarcar",
+      "text": "Oi, [nome]! Peço mil desculpas, mas tive um imprevisto e preciso remarcar o seu horário de [dia] 🙏 Tenho [dia] às [horário] ou [dia] às [horário]. Como agradecimento pela compreensão, [mimo: ex. a escovinha de presente / um desconto na manutenção]."
+    },
+    {
+      "id": "DA01",
+      "category": "Depois do atendimento",
+      "title": "Agradecimento no mesmo dia",
+      "text": "[nome], amei fazer seu olhar hoje! 💕 Obrigada pela confiança. Já te mandei os cuidados por escrito. Qualquer dúvida, é só me chamar."
+    },
+    {
+      "id": "DA02",
+      "category": "Depois do atendimento",
+      "title": "No dia seguinte",
+      "text": "Bom dia, [nome]! ☀️ Como você acordou com os cílios novos? Se tiver qualquer dúvida sobre os cuidados, estou aqui 😊"
+    },
+    {
+      "id": "DA03",
+      "category": "Depois do atendimento",
+      "title": "Pedindo avaliação e foto",
+      "text": "[nome], posso te pedir um favor? 🥰 Se você gostou do resultado, me manda uma mensagem contando o que achou? Com a sua autorização, ela me ajuda muito a mostrar o meu trabalho para outras clientes."
+    },
+    {
+      "id": "DA04",
+      "category": "Depois do atendimento",
+      "title": "Pedindo indicação",
+      "text": "Que bom que você amou! 💕 Se alguma amiga elogiar seus cílios, me indica? Para cada amiga que fizer a aplicação, você ganha [benefício] na sua próxima manutenção."
+    }
+  ]
+}

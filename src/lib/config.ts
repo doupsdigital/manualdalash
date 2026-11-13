@@ -3,8 +3,14 @@ export const SUPPORT_EMAIL = 'suporte@manualdalash.com.br'
 
 /** Link de checkout de cada extra (order bump). Vazio até serem cadastrados na Kiwify. */
 export const EXTRAS_CHECKOUT_URLS: Record<'mensagens' | 'tabela-precos', string> = {
-  mensagens: '',
-  'tabela-precos': '',
+  mensagens: 'https://pay.kiwify.com.br/VfTSLBk',
+  'tabela-precos': 'https://pay.kiwify.com.br/MOXPj2G',
+}
+
+/** Preço mostrado no botão "Desbloquear" de cada extra. */
+export const EXTRAS_PRICE_LABELS: Record<'mensagens' | 'tabela-precos', string> = {
+  mensagens: 'R$ 12,90',
+  'tabela-precos': 'R$ 12,90',
 }
 
 export interface ForYouProduct {

@@ -9,6 +9,9 @@ import Bonus from './screens/Bonus'
 import Checklist from './screens/Checklist'
 import Guide from './screens/Guide'
 import ForYou from './screens/ForYou'
+import ExtraMessages from './screens/extras/Messages'
+import ExtraPriceTable from './screens/extras/PriceTable'
+import { RequireExtra } from './components/RequireExtra'
 import { hasSeenWelcome } from './lib/onboarding'
 import { useAuth } from './state/auth'
 
@@ -29,6 +32,22 @@ function AppRoutes() {
       <Route path="/bonus" element={<Bonus />} />
       <Route path="/bonus/checklist" element={<Checklist />} />
       <Route path="/bonus/guia" element={<Guide />} />
+      <Route
+        path="/bonus/mensagens"
+        element={
+          <RequireExtra extraKey="mensagens">
+            <ExtraMessages />
+          </RequireExtra>
+        }
+      />
+      <Route
+        path="/bonus/tabela-precos"
+        element={
+          <RequireExtra extraKey="tabela-precos">
+            <ExtraPriceTable />
+          </RequireExtra>
+        }
+      />
       <Route path="/para-voce" element={<ForYou />} />
     </Routes>
   )

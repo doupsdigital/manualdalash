@@ -1,0 +1,115 @@
+{
+  "key": "tabela-precos",
+  "title": "Tabela de Preços da Lash",
+  "subtitle": "Monte a sua tabela, com regras claras e textos prontos para divulgar.",
+  "intro": "Uma tabela clara passa profissionalismo, evita discussão e ajuda a cliente a decidir mais rápido. Aqui você encontra a conta para chegar ao seu preço, um modelo de tabela pronto para preencher, as regras que todo estúdio deveria ter e os textos para divulgar.",
+  "sections": [
+    {
+      "heading": "Como usar",
+      "steps": [
+        "Faça a conta do seu preço mínimo (próxima seção).",
+        "Pesquise os preços de pelo menos 5 profissionais da sua região.",
+        "Preencha o modelo de tabela com os seus valores.",
+        "Escolha as regras que fazem sentido para você e escreva junto da tabela.",
+        "Divulgue com os textos prontos e deixe fixada no Instagram e salva no WhatsApp."
+      ]
+    },
+    {
+      "heading": "A conta do preço mínimo",
+      "text": "Preço mínimo = (valor da sua hora × horas do atendimento) + custo de material + parte dos custos fixos.\n\nExemplo (use os seus números): valor da hora R$ 30, atendimento de 2 horas, material R$ 15 e custos fixos de R$ 15 por atendimento (R$ 600 no mês ÷ 40 atendimentos).\nR$ 30 × 2 + R$ 15 + R$ 15 = R$ 90.\n\nAbaixo desse valor, o atendimento não se paga. A partir dele, você escolhe onde se posicionar dentro da faixa da sua região."
+    },
+    {
+      "heading": "O que entra no custo de material",
+      "items": [
+        "Fios (preço da caixa ÷ número de aplicações que ela rende).",
+        "Cola (preço do frasco ÷ aplicações até o fim do prazo de uso).",
+        "Primer, removedor e espuma de limpeza.",
+        "Patches, microbrushes, escovinhas e descartáveis.",
+        "A escovinha de presente, se você dá uma para cada cliente."
+      ]
+    },
+    {
+      "heading": "Modelo de tabela (preencha com os seus valores)",
+      "rows": [
+        {
+          "label": "Fio a fio",
+          "text": "[valor] · cerca de [tempo]"
+        },
+        {
+          "label": "Volume brasileiro",
+          "text": "[valor] · cerca de [tempo]"
+        },
+        {
+          "label": "Volume russo",
+          "text": "[valor] · cerca de [tempo]"
+        },
+        {
+          "label": "Efeito molhado",
+          "text": "[valor] · cerca de [tempo]"
+        },
+        {
+          "label": "Manutenção",
+          "text": "[valor] · válida até [prazo] dias após a aplicação"
+        },
+        {
+          "label": "Remoção",
+          "text": "[valor] · menor se for seguida de nova aplicação: [valor]"
+        },
+        {
+          "label": "Lash lifting (se você faz)",
+          "text": "[valor] · cerca de 1h30"
+        }
+      ]
+    },
+    {
+      "heading": "Como os valores costumam se relacionar",
+      "items": [
+        "No Brasil, em 2026, a aplicação varia em geral de R$ 80 a R$ 250, conforme cidade, técnica e experiência.",
+        "Técnicas de volume costumam custar mais que o fio a fio, porque levam mais tempo e material.",
+        "A manutenção costuma ser mais barata que a aplicação, porque você repõe só o que caiu.",
+        "A remoção é um serviço: ela usa produto e tempo, e deve ser cobrada.",
+        "Antes de fechar os números, compare com o seu preço mínimo e com a pesquisa da sua região."
+      ]
+    },
+    {
+      "heading": "Regras para escrever junto da tabela",
+      "items": [
+        "Manutenção válida até [prazo] dias. Depois disso, ou com muitas falhas, vira nova aplicação.",
+        "Manutenção de aplicação feita por outra profissional: [valor ou \"não faço\"].",
+        "Sinal de [valor] para reservar o horário, descontado no dia.",
+        "Desmarcações com pelo menos [X] horas de antecedência: o sinal vira crédito.",
+        "Faltas ou desmarcações em cima da hora: o sinal não é devolvido.",
+        "Tolerância de atraso: [X] minutos. Depois disso, o horário é remarcado.",
+        "Formas de pagamento: [Pix, débito, crédito em até X vezes]."
+      ]
+    },
+    {
+      "heading": "Texto pronto: legenda para divulgar a tabela",
+      "text": "Valores atualizados ✨\n\nCada aplicação é feita com mapping pensado para o seu olhar, material de qualidade e todo o cuidado com os seus cílios naturais.\n\nSalve este post para consultar depois e me chame no WhatsApp para garantir o seu horário 💕\n\n📍 [bairro / cidade]"
+    },
+    {
+      "heading": "Texto pronto: resposta para \"qual o valor?\"",
+      "text": "Oi, [nome]! Aqui estão os meus valores 💕\n\n• Fio a fio: [valor]\n• Volume brasileiro: [valor]\n• Volume russo: [valor]\n• Manutenção (até [prazo] dias): [valor]\n\nQual efeito você gostaria? Te mando os horários livres desta semana 😊"
+    },
+    {
+      "heading": "Ofertas que não desvalorizam o seu trabalho",
+      "items": [
+        "Pacote aplicação + primeira manutenção, com um valor fechado um pouco menor que os dois separados.",
+        "Dia da amiga: duas amigas agendam juntas e cada uma ganha um pequeno desconto.",
+        "Mimo em vez de desconto: a escovinha personalizada ou uma espuma de limpeza na primeira manutenção.",
+        "Benefício por indicação, aplicado na próxima manutenção de quem indicou.",
+        "Evite descontos grandes e frequentes: a cliente se acostuma e passa a esperar a próxima promoção."
+      ]
+    },
+    {
+      "heading": "Revisão a cada 6 meses",
+      "steps": [
+        "Refaça a conta do custo de material com os preços atuais.",
+        "Confira se os seus custos fixos mudaram.",
+        "Pesquise de novo os preços da sua região.",
+        "Veja se a sua agenda anda cheia com frequência.",
+        "Se for reajustar, avise as clientes com cerca de 30 dias de antecedência."
+      ]
+    }
+  ]
+}

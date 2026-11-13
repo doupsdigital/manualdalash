@@ -4,18 +4,20 @@ import { checklistBonus, guideBonus, checklistTotal } from '../content'
 import { useProgress } from '../state/progress'
 import { useAuth } from '../state/auth'
 import { usePurchases, type ExtraKey } from '../state/purchases'
-import { EXTRAS_CHECKOUT_URLS } from '../lib/config'
+import { EXTRAS_CHECKOUT_URLS, EXTRAS_PRICE_LABELS } from '../lib/config'
 
-const EXTRAS: { key: ExtraKey; title: string; desc: string }[] = [
+const EXTRAS: { key: ExtraKey; title: string; desc: string; route: string }[] = [
   {
     key: 'mensagens',
     title: 'Mensagens que Fecham Horário',
     desc: 'Textos prontos para confirmar, remarcar e fechar o agendamento.',
+    route: '/bonus/mensagens',
   },
   {
     key: 'tabela-precos',
     title: 'Tabela de Preços da Lash',
     desc: 'Um modelo pronto para montar e apresentar os seus valores.',
+    route: '/bonus/tabela-precos',
   },
 ]
 
@@ -92,8 +94,8 @@ export default function Bonus() {
         {EXTRAS.map((x) => {
           const unlocked = isUnlocked(x.key)
           const checkoutUrl = checkoutUrlFor(x.key, user?.email)
-          return (
-            <div key={x.key} className="rounded-3xl border border-white/10 bg-white/[0.07] p-5">
+          const content = (
+            <>
               <div className="flex items-center gap-2.5">
                 <div className="flex-1 text-[18px] font-bold">{x.title}</div>
                 {!unlocked && (
@@ -107,9 +109,7 @@ export default function Bonus() {
               </div>
               <div className="mt-1.5 text-[13px] leading-snug text-white/60">{x.desc}</div>
               {unlocked ? (
-                <div className="mt-3.5 flex h-12 items-center justify-center rounded-full bg-white/10 text-[15.5px] font-semibold text-green">
-                  Liberado ✓
-                </div>
+                <div className="mt-3.5 text-[13px] font-semibold text-rose">Abrir →</div>
               ) : (
                 <>
                   <a
@@ -117,12 +117,16 @@ export default function Bonus() {
                     target="_blank"
                     rel="noopener"
                     aria-disabled={!checkoutUrl}
+                    onClick={(e) => e.stopPropagation()}
                     className="press mt-3.5 flex h-12 items-center justify-center rounded-full bg-white/10 text-[15.5px] font-semibold text-white"
                   >
-                    Desbloquear · R$ 9,90
+                    Desbloquear · {EXTRAS_PRICE_LABELS[x.key]}
                   </a>
                   <button
-                    onClick={() => refresh()}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      refresh()
+                    }}
                     disabled={loading}
                     className="mt-2 h-9 w-full text-[13px] font-semibold text-white/60"
                   >
@@ -130,6 +134,19 @@ export default function Bonus() {
                   </button>
                 </>
               )}
+            </>
+          )
+          return unlocked ? (
+            <button
+              key={x.key}
+              onClick={() => navigate(x.route)}
+              className="press rounded-3xl border border-white/10 bg-white/[0.07] p-5 text-left"
+            >
+              {content}
+            </button>
+          ) : (
+            <div key={x.key} className="rounded-3xl border border-white/10 bg-white/[0.07] p-5">
+              {content}
             </div>
           )
         })}
