@@ -67,9 +67,9 @@
   },
 
   "conjuntos": [
-    { "chave": "CJ-01", "nome": "CJ-01 · Gancho A · Primeiro fio à Agenda cheia", "daily_budget_centavos": 2000, "ads": ["CT-01 · O manual"] },
-    { "chave": "CJ-02", "nome": "CJ-02 · Gancho B · Manual que toda Lash queria", "daily_budget_centavos": 2000, "ads": ["CT-02 · O presente"] },
-    { "chave": "CJ-03", "nome": "CJ-03 · Gancho C · Já sabe tudo sobre ser Lash?", "daily_budget_centavos": 2000, "ads": ["CT-03 · A conversa"] }
+    { "chave": "CJ-01", "nome": "CJ-01 · Gancho A · Primeiro fio à Agenda cheia", "daily_budget_centavos": 1500, "ads": ["CT-01 · O manual"] },
+    { "chave": "CJ-02", "nome": "CJ-02 · Gancho B · Manual que toda Lash queria", "daily_budget_centavos": 1500, "ads": ["CT-02 · O presente"] },
+    { "chave": "CJ-03", "nome": "CJ-03 · Gancho C · Já sabe tudo sobre ser Lash?", "daily_budget_centavos": 1500, "ads": ["CT-03 · A conversa"] }
   ],
 
   "anuncios": {
@@ -119,7 +119,8 @@
 
   "regras_de_decisao": {
     "primeiras_48h": "Não mexer em nada.",
-    "corte": "Conjunto que gastar R$ 30 sem nenhum InitiateCheckout: pausar.",
+    "corte": "Conjunto que gastar R$ 30 sem nenhum InitiateCheckout: pausar (com R$ 15/dia, leva de 2 a 3 dias para chegar lá).",
+    "orcamento": "R$ 45/dia no total, 7 dias por semana (~R$ 315/semana + impostos). Não pausar no fim de semana: a venda é automática. A Meta pode gastar até ~75% a mais num dia e compensar em outro; manter saldo extra na conta para os anúncios não pararem.",
     "ctr": "Dia 3: CTR do link acima de 1,2% é bom; abaixo de 0,7%, o gancho não prende.",
     "vencedor": "Compra com custo de até ~R$ 27: vencedor. Aumentar o orçamento 20% a 30% a cada 2 dias.",
     "fase_2": "Com 10 a 20 vendas: duplicar o vencedor com Público Advantage+ (ver publico.fase_2)."

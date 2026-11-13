@@ -48,7 +48,7 @@ Com token, faz só leituras e mostra o plano. Conferir com a dona:
 - **Interesses encontrados:** cada nome de `publico.interesses_por_nome` deve virar um interesse
   real (nome e ID). Se algum vier com "[nome parecido]" estranho ou "não encontrado", mostrar à
   dona antes de seguir. Nunca usar "Beleza" nem "Salões de beleza".
-- 3 conjuntos de R$ 20,00/dia, 1 anúncio cada, imagens todas com ✓.
+- 3 conjuntos de R$ 15,00/dia (R$ 45,00/dia no total), 1 anúncio cada, imagens todas com ✓.
 - Largada agendada: a próxima 05:00 no fuso da conta.
 
 ## 3. Modo real
@@ -70,7 +70,8 @@ Ajustes automáticos que o script já faz (vindos do LashBox):
 ## 4. O que mostrar à dona no final
 
 1. Tabela com os IDs (campanha, conjuntos, anúncios).
-2. Orçamento de cada conjunto (R$ 20,00/dia) e a largada agendada.
+2. Orçamento de cada conjunto (R$ 15,00/dia) e a largada agendada. A campanha roda todos os dias,
+   sem pausa no fim de semana.
 3. Público usado: interesses (nome e ID), idade, gênero e se o Advantage+ ficou ligado ou desligado.
 4. Formato de criativo usado em cada anúncio e se as variações de texto entraram.
 5. Links de pré-visualização (feed do Facebook e do Instagram, Stories, Reels), salvos em
@@ -81,7 +82,11 @@ Tudo continua PAUSED. A dona ativa no Gerenciador depois de revisar as prévias.
 ## 5. Regras de decisão (depois de ativar)
 
 - Não mexer em nada nas primeiras 48h.
-- Conjunto que gastar R$ 30 sem nenhum InitiateCheckout: pausar.
+- Orçamento: R$ 15,00/dia por conjunto, R$ 45,00/dia no total, 7 dias por semana (~R$ 315/semana +
+  impostos). Sem pausa no fim de semana: a venda é automática. A Meta pode gastar até ~75% a mais
+  num dia e compensar em outro; manter saldo extra na conta para os anúncios não pararem.
+- Conjunto que gastar R$ 30 sem nenhum InitiateCheckout: pausar (com R$ 15/dia, leva de 2 a 3 dias
+  para chegar lá).
 - Dia 3: CTR do link acima de 1,2% é bom; abaixo de 0,7%, o gancho não prende.
 - Compra com custo de até ~R$ 27: vencedor. Aumentar o orçamento 20% a 30% a cada 2 dias.
 - Com 10 a 20 vendas: duplicar o conjunto vencedor com Público Advantage+ (aberto) e comparar.

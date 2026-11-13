@@ -282,7 +282,8 @@ Roteiro completo em **`marketing/campanha-manual/LEIA-ME.md`** (pré-requisitos,
 modo real, o que mostrar à dona e regras de decisão). Resumo:
 
 - **`marketing/campanha-manual/campanha.json`:** fonte de verdade da campanha (conta, página,
-  pixel, público, 3 conjuntos de R$ 20/dia, textos, títulos, imagens). Sem token.
+  pixel, público, 3 conjuntos de R$ 15,00/dia — R$ 45,00/dia no total, todos os dias, sem pausa
+  no fim de semana —, textos, títulos, imagens). Sem token.
 - **`marketing/campanha-manual/criativos-manual/`:** as 6 imagens (CT-01 a CT-03, feed 1080×1350 e
   Stories/Reels 1080×1920).
 - **`scripts/meta/criar-campanha-manual.mjs`:** cria campanha, conjuntos e anúncios **sempre
