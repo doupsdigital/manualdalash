@@ -1,0 +1,4 @@
+# Material de marketing (campanha da Meta, criativos dos anúncios): fica no GitHub, mas não vai para
+# a Vercel. Com a barra no início, vale só para a pasta da raiz — sem ela, também pegaria
+# src/marketing/ (o código da /lp) e o build quebraria.
+/marketing/

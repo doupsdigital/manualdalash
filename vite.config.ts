@@ -63,6 +63,14 @@ export default defineConfig({
         ],
       },
       workbox: {
+        // A versão nova assume na hora (com injectRegister: false o plugin deixava de incluir isso,
+        // e a versão nova ficava "esperando" para sempre atrás da antiga).
+        skipWaiting: true,
+        clientsClaim: true,
+        // /lp, /termos e /privacidade nunca são respondidas pelo app guardado em cache: sempre da rede.
+        navigateFallbackDenylist: [/^\/(lp|termos|privacidade)\/?$/],
+        // Ao assumir, recarrega as abas abertas nessas páginas (ver o arquivo).
+        importScripts: ['/sw-marketing.js'],
         // O conteúdo (módulos/lições) já vai embutido no bundle, funciona offline sozinho.
         globPatterns: ['**/*.{js,css,html,woff,woff2,png,svg,ico}'],
         // As capas dos módulos não entram no precache (senão baixaria tudo de uma vez no

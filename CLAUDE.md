@@ -208,6 +208,13 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
 - **Service worker só no app:** `injectRegister: false` no `vite.config.ts` e `registerSW()` em
   `AppRoot.tsx`. Quem chega pela /lp não baixa o app em segundo plano. `public/lp/**` fica fora
   do precache.
+  **Cuidado (bug de 13/11/2026):** com `injectRegister: false` o plugin deixou de incluir
+  `skipWaiting`/`clientsClaim` no SW, e quem já tinha aberto o app via a /lp só com o fundo ameixa
+  (o SW antigo respondia com o app antigo em cache e a versão nova ficava "esperando" para sempre).
+  Corrigido no `vite.config.ts`: `skipWaiting` e `clientsClaim` explícitos,
+  `navigateFallbackDenylist` para /lp, /termos e /privacidade (sempre da rede, nunca do cache) e
+  `importScripts: ['/sw-marketing.js']` (`public/sw-marketing.js`), que ao ativar recarrega as abas
+  abertas nessas páginas. Não remover esses itens.
 - **CSS próprio:** `src/marketing/marketing.css` (Tailwind só da pasta `marketing/`, Inter latin
   400–800 e Bodoni Moda 500). O `index.css` do app é importado só pelo `AppRoot`.
 - **`index.html`** (compartilhado): título da /lp, meta description, og:image
@@ -268,3 +275,16 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
   do briefing: texto branco no botão rosa (contraste 2,8:1, abaixo do AA — igual à /lp vencedora
   do LashBox, com a mesma sombra leve no texto; a dona testou texto ameixa e preferiu o branco),
   brilho rosa do botão, brilhos de fundo, 3 cards com ícone. Prints da entrega em `referencia/prints-lp/` (fora do Git).
+
+## 11. Marketing
+
+- **`marketing/Campanha-manual/`** (raiz do projeto; não confundir com `src/marketing/`, que é o
+  código da /lp): `meta-ads-manual-lash.json` (textos, públicos, orçamento e regras da campanha na
+  Meta) e `criativos-manual/` (6 imagens dos anúncios: CT-01 a CT-03, feed 1080×1350 e stories
+  1080×1920).
+- **Fora do build e do deploy:** não está em `public/` nem é importada pelo app, e o
+  `.vercelignore` tem `/marketing/` (com a barra no início, para não excluir `src/marketing/`).
+  Fica só no GitHub, como registro.
+- **Preço:** os textos dos anúncios citam **R$ 27**. Se o preço mudar na Kiwify, atualizar junto: o
+  JSON e os criativos da campanha, `PRODUCT_PRICE` em `src/lib/config.ts` (Pixel) e os textos da /lp
+  (`src/marketing/LandingPage.tsx`, barra fixa, FAQ e oferta) e a meta description do `index.html`.

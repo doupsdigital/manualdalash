@@ -1,0 +1,98 @@
+{
+  "versao": 1,
+  "atualizado_em": "2026-11-13",
+  "produto": {
+    "nome": "Manual da Lash Designer",
+    "preco": "R$ 27",
+    "pagamento": "único",
+    "garantia": "7 dias",
+    "pagina": "https://manualdalash.com.br/lp"
+  },
+  "regras_de_texto": [
+    "Escrever sempre 'Lash' com L maiúsculo.",
+    "Não usar termos de saúde: alergia, irritação, inflamação, infecção, doença, remédio, paciente, diagnóstico.",
+    "Sem promessa de renda, sem depoimentos inventados, sem contador regressivo e sem preço 'de/por'.",
+    "Se o preço mudar, atualizar o campo 'preco' e todos os textos que citam R$ 27."
+  ],
+  "campanha": {
+    "nome": "[MANUAL] Teste de ganchos · nov26",
+    "objetivo": "Vendas",
+    "evento_de_conversao": "Purchase (pixel Manual da Lash, ligado na Kiwify)",
+    "estrutura": "1 campanha · 3 conjuntos (1 por criativo) · 1 anúncio por conjunto",
+    "orcamento_por_conjunto": "R$ 20/dia",
+    "regra_de_corte": "Pausar o conjunto que gastar R$ 30 sem nenhum InitiateCheckout.",
+    "publico_sugerido": {
+      "local": "Brasil",
+      "idade": "20 a 45",
+      "genero": "Mulheres",
+      "segmentacao": "Advantage+ (aberto) ou interesses: extensão de cílios, lash designer, design de sobrancelhas",
+      "posicionamentos": "Advantage+ (automático)"
+    },
+    "parametros_de_url": "utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_term={{adset.name}}&utm_content={{ad.name}}"
+  },
+  "anuncios": [
+    {
+      "id": "CT-01",
+      "nome_do_anuncio": "CT-01 · O manual",
+      "nome_do_conjunto": "CJ-01 · Gancho A · Primeiro fio à Agenda cheia",
+      "arquivos": {
+        "feed_4x5": "CT-01-feed-1080x1350.jpg",
+        "stories_9x16": "CT-01-stories-1080x1920.jpg"
+      },
+      "texto_principal": [
+        "Técnicas, materiais, mapping, manutenção, quanto cobrar e como conseguir clientes. Tudo o que uma Lash Designer precisa saber, num app fácil de consultar no celular.\n\n📚 11 módulos e 60 lições curtas\n✅ Bônus: Checklist do Atendimento Perfeito\n✨ Bônus: Guia Visual de Fios e Curvaturas\n\nR$ 27, pagamento único. Acesso imediato e garantia de 7 dias.",
+        "Do Primeiro fio à Agenda cheia: o manual da Lash Designer em lições de 2 a 4 minutos, direto no seu celular. R$ 27, acesso imediato."
+      ],
+      "titulo": [
+        "Manual da Lash Designer",
+        "Do Primeiro fio à Agenda cheia",
+        "11 módulos e 60 lições por R$ 27"
+      ],
+      "descricao": "Acesso imediato · Garantia de 7 dias",
+      "botao": "Saiba mais",
+      "url": "https://manualdalash.com.br/lp"
+    },
+    {
+      "id": "CT-02",
+      "nome_do_anuncio": "CT-02 · O presente",
+      "nome_do_conjunto": "CJ-02 · Gancho B · Manual que toda Lash queria",
+      "arquivos": {
+        "feed_4x5": "CT-02-feed-1080x1350.jpg",
+        "stories_9x16": "CT-02-stories-1080x1920.jpg"
+      },
+      "texto_principal": [
+        "Sabe aquelas dúvidas que ninguém te explicou direito? Qual curvatura usar, por que os fios caem antes do tempo, quanto cobrar…\n\nO Manual da Lash Designer reúne tudo isso em lições curtas, com passo a passo, dicas e os erros mais comuns. É o manual que toda Lash queria ter recebido quando começou.\n\nR$ 27, pagamento único. Acesso imediato no celular e garantia de 7 dias.",
+        "O manual que toda Lash queria ter recebido 💕 60 lições curtas, do Primeiro fio à Agenda cheia, direto no seu celular por R$ 27."
+      ],
+      "titulo": [
+        "O manual que toda Lash queria ter recebido",
+        "Manual da Lash Designer",
+        "60 lições curtas por R$ 27"
+      ],
+      "descricao": "Acesso imediato · Garantia de 7 dias",
+      "botao": "Saiba mais",
+      "url": "https://manualdalash.com.br/lp"
+    },
+    {
+      "id": "CT-03",
+      "nome_do_anuncio": "CT-03 · A conversa",
+      "nome_do_conjunto": "CJ-03 · Gancho C · Já sabe tudo sobre ser Lash?",
+      "arquivos": {
+        "feed_4x5": "CT-03-feed-1080x1350.jpg",
+        "stories_9x16": "CT-03-stories-1080x1920.jpg"
+      },
+      "texto_principal": [
+        "Qual curvatura combina com cada olhar? Quanto cobrar pela manutenção? Como conseguir as primeiras clientes?\n\nSe alguma dessas perguntas já te travou, o Manual da Lash Designer responde, em lições de 2 a 4 minutos, direto no seu celular.\n\n📚 11 módulos e 60 lições\n🎁 2 bônus\n💳 R$ 27, pagamento único\n✅ Garantia de 7 dias",
+        "Teste rápido: você sabe qual curvatura usar num olho caído? 👀 Se ficou na dúvida, o Manual da Lash Designer responde, junto com mais 59 lições. R$ 27, acesso imediato."
+      ],
+      "titulo": [
+        "Será que você já sabe tudo sobre ser Lash?",
+        "Manual da Lash Designer",
+        "Tá tudo aqui, por R$ 27"
+      ],
+      "descricao": "Acesso imediato · Garantia de 7 dias",
+      "botao": "Saiba mais",
+      "url": "https://manualdalash.com.br/lp"
+    }
+  ]
+}
