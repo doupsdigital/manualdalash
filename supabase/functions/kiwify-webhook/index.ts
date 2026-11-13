@@ -15,6 +15,15 @@
 //   KIWIFY_PRODUCT_MAP        "id_do_produto:product_key,id_do_produto:product_key,..."
 //                             product_key é 'manual' | 'mensagens' | 'tabela-precos' (obrigatório;
 //                             sem isso, a função recusa tudo)
+//   RESEND_API_KEY            chave de API do Resend, para mandar o e-mail de boas-vindas
+//                              (a mesma usada no SMTP do Supabase)
+//
+// Na primeira vez que o manual é liberado para um e-mail, a função cria a conta (sem mandar
+// nenhum e-mail de login — isso só acontece quando ela mesma pedir, em /entrar) e manda um
+// e-mail de boas-vindas à parte, pelo Resend, com o link fixo do app e a explicação de como
+// entrar (supabase/templates/boas-vindas.html).
+
+const APP_URL = 'https://manualdalash.com.br/'
 
 export interface PurchaseRow {
   email: string
@@ -44,6 +53,8 @@ export interface Deps {
   upsertPurchase: (row: PurchaseRow) => Promise<void>
   /** Revoga todas as linhas de purchases com esse kiwify_order_id. Devolve quantas mudaram. */
   revokeOrder: (orderId: string) => Promise<number>
+  /** Cria a conta se precisar e manda o e-mail de boas-vindas (link fixo do app). */
+  sendWelcomeEmail: (email: string, buyerName: string | null) => Promise<void>
   log: (row: LogRow) => Promise<void>
 }
 
@@ -197,6 +208,7 @@ export async function handle(req: Request, deps: Deps): Promise<Response> {
   try {
     if (isApproved) {
       const parts: string[] = []
+      let newManualAccess = false
       for (const m of matched) {
         const existing = await deps.findPurchase(orderId, m.productKey)
         // Reenvio atrasado de "aprovada" depois de um reembolso não devolve o acesso
@@ -213,6 +225,15 @@ export async function handle(req: Request, deps: Deps): Promise<Response> {
           buyer_name: buyerName,
         })
         parts.push(`${m.productKey}: liberado`)
+        if (!existing && m.productKey === 'manual') newManualAccess = true
+      }
+      if (newManualAccess) {
+        try {
+          await deps.sendWelcomeEmail(email, buyerName)
+          parts.push('e-mail de boas-vindas enviado')
+        } catch (e) {
+          parts.push(`e-mail de boas-vindas falhou: ${e instanceof Error ? e.message : String(e)}`)
+        }
       }
       return done('processed', `${email} (pedido ${orderId}): ${parts.join('; ')}`)
     }
@@ -262,6 +283,46 @@ if (D) {
         .select('product_key')
       if (error) throw error
       return data?.length ?? 0
+    },
+    sendWelcomeEmail: async (email: string, buyerName: string | null) => {
+      // Cria a conta se ainda não existir (igual ao request-login, sem mandar nenhum e-mail
+      // de login — isso só acontece quando ela mesma pedir, em /entrar).
+      const { error: cErr } = await db.auth.admin.createUser({
+        email,
+        email_confirm: true,
+        user_metadata: buyerName ? { full_name: buyerName } : undefined,
+      })
+      if (cErr && cErr.code !== 'email_exists' && !/already/i.test(cErr.message)) throw cErr
+
+      const apiKey = env('RESEND_API_KEY')
+      if (!apiKey) throw new Error('RESEND_API_KEY não configurado')
+      const html = `<div style="background:#FBE8EE;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;color:#2A1E27">
+  <div style="max-width:440px;margin:0 auto;background:#ffffff;border-radius:24px;padding:28px 24px;text-align:center">
+    <div style="font-size:20px;font-weight:900;margin-bottom:18px;color:#5B2A4E">Manual da Lash Designer</div>
+    <div style="font-size:24px;font-weight:900;line-height:1.2;margin-bottom:10px">Sua compra foi aprovada 🎉</div>
+    <div style="font-size:16px;line-height:1.5;color:#5E5468;margin-bottom:24px">
+      A partir de agora você tem acesso completo ao manual, direto do seu celular. Toque no
+      botão abaixo e guarde este link — é por ele que você sempre vai entrar.
+    </div>
+    <a href="${APP_URL}" style="display:inline-block;background:#E07A9B;color:#ffffff;text-decoration:none;font-weight:800;font-size:17px;padding:16px 32px;border-radius:999px">Abrir o Manual</a>
+    <div style="font-size:14px;line-height:1.6;color:#5E5468;margin:28px 0 0">
+      Sempre que quiser entrar, abra esse link e digite o e-mail da sua compra
+      (<b>${email}</b>) — a gente manda um código na hora, sem senha para decorar.
+    </div>
+    <div style="font-size:12px;color:#8A7F92;margin-top:24px">Dúvidas? Responda este e-mail.</div>
+  </div>
+</div>`
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'Manual da Lash Designer <acesso@manualdalash.com.br>',
+          to: [email],
+          subject: 'Sua compra foi aprovada 🎉',
+          html,
+        }),
+      })
+      if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`)
     },
     log: async (row) => {
       const { error } = await db.from('webhook_logs').insert(row)

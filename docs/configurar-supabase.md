@@ -216,6 +216,9 @@ Em **Edge Functions → Secrets**, adicione:
   `docs/configurar-kiwify.md`, passo 3).
 - `KIWIFY_PRODUCT_MAP`: no formato `id1:manual,id2:mensagens,id3:tabela-precos` — os ids vêm
   da Kiwify (veja `docs/configurar-kiwify.md`, passo 2).
+- `RESEND_API_KEY`: a mesma chave de API do Resend usada no SMTP (passo 6) — é com ela que a
+  função manda o e-mail de boas-vindas (`supabase/templates/boas-vindas.html`) assim que uma
+  compra do manual é aprovada pela primeira vez.
 
 `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` já existem automaticamente em toda Edge Function,
 não precisa cadastrar.
