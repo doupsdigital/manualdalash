@@ -1,7 +1,8 @@
 # Manual da Lash Designer: contexto completo do projeto
 
 Este arquivo é lido automaticamente pelo Claude Code ao abrir o projeto. Resume tudo o que
-foi feito até 13/11/2026 (Fases 1 a 5: app completo, Supabase, Kiwify, extras e PWA), para
+foi feito até 13/11/2026 (Fases 1 a 5: app completo, Supabase, Kiwify, extras e PWA; Fase 6:
+página de vendas /lp, termos e privacidade — seção 10), para
 continuar o trabalho em qualquer computador.
 
 ## 1. O produto
@@ -55,13 +56,16 @@ npm install
 | `npm run build` | Checa os tipos (`tsc -b`) e gera o build em `dist/` |
 | `npm run preview` | Build final em http://localhost:4200 |
 | `npm run icons` | Gera os ícones do PWA a partir de `scripts/icon-master.svg` (+ a versão maskable) |
+| `npm run lp-imagens` | Gera as imagens da /lp em `public/lp/` (livro em .webp, miniaturas dos módulos + 6 prints do app, ver seção 10) |
 
 ## 4. Arquitetura
 
 ```
 src/
+  main.tsx                Escolhe pela URL: /lp, /termos, /privacidade → marketing/; resto → AppRoot
+  AppRoot.tsx             O app: providers (Auth, Purchases, Progress) + registro do PWA
   App.tsx                 Rotas e o Gate (loading → login → app)
-  main.tsx                Providers: AuthProvider, PurchasesProvider, ProgressProvider
+  marketing/              Página de vendas e páginas legais (pacote separado, ver seção 10)
   screens/                Login, Welcome, Home, Module, Lesson, Bonus, Checklist, Guide, ForYou
     extras/                Messages, PriceTable, PriceBuilder (ferramenta de montar a tabela)
   components/             ui.tsx, TabBar.tsx, CopyButton.tsx, RequireExtra.tsx
@@ -191,3 +195,76 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
 1. Testar uma compra real com os order bumps marcados juntos (seção 6) — ou simplesmente
    aguardar a primeira venda de verdade com bump e conferir o `webhook_logs` nesse momento.
 2. Revisão final de conteúdo/preços antes de abrir para tráfego pago, se for o caso.
+3. **/lp:** preencher `META_PIXEL_ID` quando tiver o pixel; na Kiwify, apontar a página de vendas
+   do produto para `https://manualdalash.com.br/lp`.
+
+## 10. Página de vendas (/lp), termos e privacidade
+
+- **Pacote separado do app.** `src/main.tsx` olha a URL **antes** de importar qualquer coisa:
+  `/lp`, `/termos`, `/privacidade` carregam `src/marketing/MarketingRoot.tsx`; qualquer outra
+  rota carrega `src/AppRoot.tsx` (o app de sempre). Cada `import()` fica numa função própria —
+  com os dois no mesmo ternário, o Vite juntava os pré-carregamentos e a /lp baixava o app junto.
+  Resultado: a /lp não baixa Supabase, conteúdo do manual nem o JS/CSS do app (~95 KB de JS gzip).
+- **Service worker só no app:** `injectRegister: false` no `vite.config.ts` e `registerSW()` em
+  `AppRoot.tsx`. Quem chega pela /lp não baixa o app em segundo plano. `public/lp/**` fica fora
+  do precache.
+- **CSS próprio:** `src/marketing/marketing.css` (Tailwind só da pasta `marketing/`, Inter latin
+  400–800 e Bodoni Moda 500). O `index.css` do app é importado só pelo `AppRoot`.
+- **`index.html`** (compartilhado): título da /lp, meta description, og:image
+  `/lp/banner.jpg` (1200×400). Um script inline pré-carrega `screen-inicio.webp` e
+  `livro.webp` quando a URL é /lp (antes do JS chegar). O app troca o título para "Manual da Lash
+  Designer" no `AppRoot`.
+- **Arquivos:** `LandingPage.tsx` (seções 1 a 6 + rodapé + barra fixa, textos exatamente os do
+  briefing), `Terms.tsx`/`Privacy.tsx`/`LegalLayout.tsx` (adaptados do Agenda Lotada para
+  pagamento único; responsável: "Manual da Lash Designer - Um produto Doup - Soluções Digitais";
+  `noindex`), `pixel.ts`, `CookieNotice.tsx`, `MarketingLayout.tsx`, `LashMark.tsx` (o cílio
+  dourado do ícone).
+- **Checkout:** `KIWIFY_CHECKOUT_URL` em `src/lib/config.ts` (`https://pay.kiwify.com.br/Ug94J6b`),
+  com a query string da página (UTMs, fbclid) colada no final (`src/lib/checkoutUrl.ts`).
+- **Pixel da Meta:** `META_PIXEL_ID` em `config.ts`, **vazio por enquanto** — vazio, nada é
+  carregado e o aviso de cookies nem aparece (não há cookie de anúncio). Eventos: `PageView`;
+  `ViewContent` uma vez quando a seção `#oferta` aparece; `AddToCart` (value 27, BRL) no clique
+  de qualquer botão de compra, com no máximo 250ms antes de ir ao checkout. `InitiateCheckout`
+  e `Purchase` ficam com a Kiwify. Ao preencher o ID: cadastrar o mesmo pixel no produto na
+  Kiwify com "Disparar Purchase ao gerar Pix" **desligado** (mesma regra do LashBox).
+- **Lista dos 11 módulos:** título dourado "Tudo o que tem dentro do manual" (mesmo estilo do "Não é
+  um PDF") e cards com miniatura da capa (`public/lp/modulos/`, 144×144, ~3 KB cada,
+  gerados por `npm run lp-imagens` a partir de `public/modulos/`), número em Bodoni dourado, título e,
+  sempre embaixo dele, "N lições · M min". Esses números vêm do módulo virtual `virtual:modulos-resumo` (plugin
+  `modulosResumo` no `vite.config.ts`), calculado do `manual.json` no build — a /lp não baixa o
+  conteúdo do manual. Entrada em sequência (`data-stagger`, 60ms entre cards).
+- **Pulsação dos botões de compra** (topo, oferta, chamada final; não na barra fixa): `pulse` no
+  `BuyButton` + `.lp-pulse` no CSS — scale 1→1,04 e anel rosa expandindo, ciclo de 2,4s (movimento
+  nos primeiros 40%), só enquanto o botão está na tela (IntersectionObserver). Hover (desktop):
+  para e fica em 1,03 com brilho fixo; toque: 0,97. Sem pulsação com movimento reduzido.
+- **Barra fixa do celular:** aparece quando o botão do topo sai da tela (por cima ou por baixo) e some enquanto o botão da
+  oferta **ou** o da chamada final está na tela (nunca dois botões iguais juntos, e sem trecho da
+  oferta sem botão). Fica abaixo do aviso de cookies (`z-40` × `z-50`).
+- **Imagens** (`public/lp/`): `livro.webp`/`livro-titulo.webp` (convertidos dos PNG, que ficam como
+  original), `banner.jpg` (só og:image), `selo-garantia.webp` (selo da garantia, esfumado pela
+  máscara elíptica `.lp-seal-mask` — sem ela a névoa do selo formava uma caixa) e 6 prints gerados
+  por `scripts/gerar-imagens-lp.mjs` (`npm run lp-imagens`): sobe o Vite em modo local na porta
+  5299 (sem Supabase), grava progresso de demonstração (módulos 1–3 completos, parou na 4-4, 4 itens
+  do checklist marcados), dia fixo 15/10/2026, 390×844. `screen-inicio` sai em escala 3 (é o print
+  do topo, mostrado maior); os outros em @2x: módulo, lição, guia (curvaturas, no carrossel),
+  checklist e guia-combinacoes (os dois da seção de bônus). O livro tem fundo magenta opaco: na capa
+  ele é esfumado por máscara radial (`.lp-book-mask`).
+- **Ajustes de 13/11/2026:** seção "E ainda leva 2 bônus" (entre os módulos e a oferta, mesmo fundo
+  ameixa; cards em `bg-night`, igual ao fundo dos prints, para o degradê da base não manchar);
+  cards do "Não é um PDF" com números 1/2/3 em Bodoni dourado no lugar dos ícones; celular do topo
+  maior no celular (60% da largura).
+- **Primeira dobra e identificação (13/11/2026, ajustes 2 e 3):** sem a pílula "Ei, Lash Designer"
+  e sem o subtítulo branco; headline ~12% maior. Ordem no celular: headline → linha dourada → etiquetas
+  (Técnicas · Mapping · Manutenção · Preço · Clientes) → imagem → botão → linha do preço (no desktop,
+  texto e botão à esquerda, imagem à direita). No celular a composição celular + livro é a mesma do
+  desktop, só menor (`min(76vw,300px)`), inteira, para o botão caber na primeira tela em 390×844.
+  Identificação: "Já travou em alguma dessas?" + 3 balões de conversa + "O manual responde, em lições
+  de 2 a 4 minutos." (balões de chat sólidos — blush à esquerda, rosa à direita — que chegam um a um
+  com pontinhos "digitando", em `ChatQuestions`; só transform/opacity; com movimento reduzido tudo
+  aparece direto); os cards do "Não é um PDF" viraram uma frase cada. "Lash" sempre com L
+  maiúsculo nos textos da /lp; na headline, "Primeiro" e "Agenda" também (pedido da dona).
+- **Revisão Impeccable** (critique + audit, 13/11/2026): `PRODUCT.md`, `DESIGN.md` e
+  `.impeccable/` registram produto, visual e relatórios. Itens que ficaram de propósito por serem
+  do briefing: texto branco no botão rosa (contraste 2,8:1, abaixo do AA — igual à /lp vencedora
+  do LashBox, com a mesma sombra leve no texto; a dona testou texto ameixa e preferiu o branco),
+  brilho rosa do botão, brilhos de fundo, 3 cards com ícone. Prints da entrega em `referencia/prints-lp/` (fora do Git).

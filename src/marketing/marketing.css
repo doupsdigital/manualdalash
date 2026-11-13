@@ -1,0 +1,248 @@
+/* Estilos só da /lp, /termos e /privacidade. O Tailwind olha só esta pasta, e as fontes são só as
+   usadas aqui (Inter + Bodoni Moda, subconjunto latino) — nada das fontes da ferramenta de tabela. */
+@import 'tailwindcss' source('./');
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource/inter/latin-800.css';
+@import '@fontsource/bodoni-moda/latin-500.css';
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Bodoni Moda', Georgia, serif;
+
+  --color-night: #4a2140;
+  --color-plum: #5b2a4e;
+  --color-plum-glow: #7a3a66;
+  --color-rose: #e07a9b;
+  --color-blush: #fbe8ee;
+  --color-gold: #c9a15b;
+  --color-gold-light: #e8c27e;
+  --color-gold-ink: #8a6a24;
+  --color-ink: #2a1e27;
+}
+
+html {
+  background: var(--color-night);
+  scrollbar-color: rgba(255, 255, 255, 0.22) var(--color-night);
+}
+
+body {
+  margin: 0;
+  background: var(--color-night);
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(224, 122, 155, 0.45);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 3px;
+}
+
+.press {
+  transition:
+    transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* Pulsação dos 3 botões grandes de compra (não a barra fixa). A escala é só visual (transform), não
+   empurra nada em volta. O anel rosa fica num ::after por cima do botão, mas uma sombra externa só
+   pinta fora da borda, então ele aparece "atrás" sem cobrir o texto, e a sombra própria do botão
+   continua intacta. Sobe e desce nos primeiros 40% do ciclo de 2,4s e fica parado no resto. A
+   classe .is-pulsing só entra enquanto o botão está na tela. */
+.lp-pulse {
+  position: relative;
+}
+.lp-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 0 0 rgba(224, 122, 155, 0);
+  transition: box-shadow 0.2s ease;
+}
+.lp-pulse.is-pulsing {
+  animation: lp-pulse 2.4s ease-in-out infinite;
+}
+.lp-pulse.is-pulsing::after {
+  animation: lp-pulse-ring 2.4s ease-in-out infinite;
+}
+@keyframes lp-pulse {
+  0%,
+  40%,
+  100% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.04);
+  }
+}
+@keyframes lp-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(224, 122, 155, 0.55);
+  }
+  40%,
+  100% {
+    box-shadow: 0 0 0 14px rgba(224, 122, 155, 0);
+  }
+}
+@media (hover: hover) {
+  .lp-pulse:hover {
+    animation: none;
+    transform: scale(1.03);
+  }
+  .lp-pulse:hover::after {
+    animation: none;
+    box-shadow: 0 0 0 6px rgba(224, 122, 155, 0.3);
+  }
+}
+.lp-pulse:active {
+  animation: none;
+  transform: scale(0.97);
+}
+
+/* Seções sobem 24px com fade ao entrar na tela, uma vez. O estado escondido só vale quando o JS
+   marca o <html> com .lp-motion (sem JS ou com movimento reduzido, tudo aparece normal). */
+.lp-motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lp-motion [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Carrossel: rolagem com encaixe e sem barra visível */
+.lp-rail {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.lp-rail::-webkit-scrollbar {
+  display: none;
+}
+
+/* Barra fixa do celular entra deslizando de baixo */
+.lp-sticky {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Livro da capa: a imagem tem fundo magenta próprio — a máscara dissolve as bordas no ameixa */
+.lp-book-mask {
+  -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+}
+
+/* Selo da garantia: a névoa em volta tem um tom diferente do ameixa e formava uma caixa com
+   bordas retas; a elipse esfuma as laterais e o topo para o selo assentar no fundo. */
+.lp-seal-mask {
+  -webkit-mask-image: radial-gradient(ellipse closest-side, #000 74%, transparent 100%);
+  mask-image: radial-gradient(ellipse closest-side, #000 74%, transparent 100%);
+}
+
+/* Balões "Já travou em alguma dessas?": chegam como mensagens (ver ChatQuestions). */
+.lp-bubble {
+  transition:
+    opacity 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lp-bubble.is-waiting {
+  opacity: 0;
+  transform: translateY(12px) scale(0.92);
+}
+.lp-answer {
+  transition: opacity 500ms ease-out;
+}
+.lp-answer.is-waiting {
+  opacity: 0;
+}
+.lp-typing {
+  height: 20px;
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+.lp-typing.is-on {
+  opacity: 1;
+}
+.lp-typing > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: lp-typing-dot 900ms ease-in-out infinite;
+}
+.lp-typing > span:nth-child(2) {
+  animation-delay: 150ms;
+}
+.lp-typing > span:nth-child(3) {
+  animation-delay: 300ms;
+}
+@keyframes lp-typing-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+/* Lista de módulos: cada card entra 60ms depois do anterior (--d, no style do <li>), uma vez. */
+.lp-motion [data-stagger] > li {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms),
+    border-color 0.2s ease;
+}
+.lp-motion [data-stagger].is-in > li {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp-bubble,
+  .lp-answer {
+    transition: none;
+  }
+  .lp-typing {
+    display: none;
+  }
+  .press,
+  .lp-sticky {
+    transition: none;
+  }
+  .lp-pulse.is-pulsing,
+  .lp-pulse.is-pulsing::after {
+    animation: none;
+  }
+  .lp-pulse:hover {
+    transform: none;
+  }
+  .lp-motion [data-reveal],
+  .lp-motion [data-stagger] > li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

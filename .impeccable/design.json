@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T12:00:00-03:00",
+  "title": "Design System: Manual da Lash Designer",
+  "extensions": {
+    "colorMeta": {
+      "night": { "role": "neutral", "displayName": "Ameixa Noite" },
+      "plum": { "role": "neutral", "displayName": "Ameixa" },
+      "plum-glow": { "role": "neutral", "displayName": "Ameixa Brilho" },
+      "rose": { "role": "primary", "displayName": "Rosa Cílio" },
+      "gold": { "role": "secondary", "displayName": "Dourado Envelhecido" },
+      "gold-light": { "role": "secondary", "displayName": "Dourado Luz" },
+      "blush": { "role": "neutral", "displayName": "Blush" }
+    },
+    "shadows": [
+      { "name": "float", "value": "0 24px 50px rgba(0,0,0,.45)", "purpose": "Mockups e menus flutuantes." },
+      { "name": "cta-glow", "value": "0 12px 30px rgba(224,122,155,.45)", "purpose": "Brilho do botão principal na página de vendas." }
+    ],
+    "motion": [
+      { "name": "fade-up", "value": "0.25s ease-out", "purpose": "Entrada de tela no app (16px)." },
+      { "name": "press", "value": "scale(0.97)", "purpose": "Toque em botões e cards." }
+    ],
+    "breakpoints": [{ "name": "md", "value": "768px" }]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal, em pílula rosa.",
+      "html": "<button class=\"ds-btn-primary\">Quero o meu manual</button>",
+      "css": ".ds-btn-primary{height:52px;padding:0 28px;border:0;border-radius:999px;background:#E07A9B;color:#fff;font:600 15.5px Inter,sans-serif;cursor:pointer;transition:transform .15s}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:2px solid #E8C27E;outline-offset:3px}"
+    },
+    {
+      "name": "Translucent Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card padrão sobre o fundo ameixa.",
+      "html": "<div class=\"ds-card\"><b>06</b> Mapping básico</div>",
+      "css": ".ds-card{padding:18px;border-radius:24px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#fff;font:600 16px Inter,sans-serif}.ds-card b{font-family:'Bodoni Moda',serif;color:#E07A9B;font-size:28px;margin-right:10px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O caderno de veludo",
+    "rules": [
+      { "name": "The Velvet Floor Rule", "body": "O fundo é sempre ameixa; a única superfície clara é o blush, um destaque por tela.", "section": "colors" },
+      { "name": "The Gold Means Special Rule", "body": "Dourado nunca é botão. É selo, check, rótulo ou ícone.", "section": "colors" },
+      { "name": "The Jewel Serif Rule", "body": "Bodoni só em números grandes e no nome do produto.", "section": "typography" },
+      { "name": "The Tonal Layer Rule", "body": "Um card sobe por transparência e borda clara, não por sombra.", "section": "elevation" }
+    ]
+  }
+}

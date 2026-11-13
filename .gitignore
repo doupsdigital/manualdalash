@@ -8,3 +8,16 @@ dist
 
 # Protótipos e material de design: só de referência, não entram no app nem no deploy
 referencia/
+
+# Ferramentas de IA instaladas só neste computador (skill Impeccable etc., ~24 MB cada)
+.agent/
+.agents/
+.claude/
+.codex/
+.cursor/
+.gemini/
+.opencode/
+# Estado local do Impeccable (os relatórios já se ignoram sozinhos)
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/live/

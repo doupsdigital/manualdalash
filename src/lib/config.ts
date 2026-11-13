@@ -1,6 +1,15 @@
 // Links externos editáveis sem precisar tocar nas telas.
 export const SUPPORT_EMAIL = 'suporte@manualdalash.com.br'
 
+/** Checkout do produto principal (Manual da Lash Designer), usado pela página de vendas /lp. */
+export const KIWIFY_CHECKOUT_URL = 'https://pay.kiwify.com.br/Ug94J6b'
+
+/** Preço do manual, usado no evento AddToCart do Pixel. */
+export const PRODUCT_PRICE = 27
+
+/** Pixel da Meta da /lp. Vazio = o pixel não é carregado. */
+export const META_PIXEL_ID = ''
+
 /** Link de checkout de cada extra (order bump). Vazio até serem cadastrados na Kiwify. */
 export const EXTRAS_CHECKOUT_URLS: Record<'mensagens' | 'tabela-precos', string> = {
   mensagens: 'https://pay.kiwify.com.br/VfTSLBk',

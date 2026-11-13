@@ -11,7 +11,31 @@
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <title>Manual da Lash Designer</title>
+    <title>Manual da Lash Designer · Do primeiro fio à agenda cheia</title>
+    <meta name="description" content="Técnicas, materiais, mapping, manutenção, quanto cobrar e como conseguir clientes, num app fácil de consultar no celular. R$ 27, pagamento único, acesso imediato e garantia de 7 dias." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Manual da Lash Designer" />
+    <meta property="og:title" content="Manual da Lash Designer · Do primeiro fio à agenda cheia" />
+    <meta property="og:description" content="O manual que toda Lash Designer queria ter recebido. 11 módulos e 60 lições curtas, no seu celular." />
+    <meta property="og:url" content="https://manualdalash.com.br/lp" />
+    <meta property="og:image" content="https://manualdalash.com.br/lp/banner.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="400" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      // /lp: começa a baixar as imagens do topo antes do JavaScript da página chegar (4G).
+      if (location.pathname.replace(/\/+$/, '') === '/lp') {
+        ['/lp/screen-inicio.webp', '/lp/livro.webp'].forEach(function (href) {
+          var l = document.createElement('link')
+          l.rel = 'preload'
+          l.as = 'image'
+          l.href = href
+          l.setAttribute('fetchpriority', 'high')
+          document.head.appendChild(l)
+        })
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
