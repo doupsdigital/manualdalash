@@ -11,6 +11,7 @@ import Guide from './screens/Guide'
 import ForYou from './screens/ForYou'
 import ExtraMessages from './screens/extras/Messages'
 import ExtraPriceTable from './screens/extras/PriceTable'
+import ExtraPriceBuilder from './screens/extras/PriceBuilder'
 import { RequireExtra } from './components/RequireExtra'
 import { hasSeenWelcome } from './lib/onboarding'
 import { useAuth } from './state/auth'
@@ -45,6 +46,14 @@ function AppRoutes() {
         element={
           <RequireExtra extraKey="tabela-precos">
             <ExtraPriceTable />
+          </RequireExtra>
+        }
+      />
+      <Route
+        path="/bonus/tabela-precos/montar"
+        element={
+          <RequireExtra extraKey="tabela-precos">
+            <ExtraPriceBuilder />
           </RequireExtra>
         }
       />

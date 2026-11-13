@@ -19,7 +19,6 @@ export interface PriceSection {
   text?: string
   steps?: string[]
   items?: string[]
-  rows?: { label: string; text: string }[]
 }
 
 export interface TabelaPrecosExtra {

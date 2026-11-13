@@ -2,14 +2,14 @@
   "key": "tabela-precos",
   "title": "Tabela de Preços da Lash",
   "subtitle": "Monte a sua tabela, com regras claras e textos prontos para divulgar.",
-  "intro": "Uma tabela clara passa profissionalismo, evita discussão e ajuda a cliente a decidir mais rápido. Aqui você encontra a conta para chegar ao seu preço, um modelo de tabela pronto para preencher, as regras que todo estúdio deveria ter e os textos para divulgar.",
+  "intro": "Uma tabela clara passa profissionalismo, evita discussão e ajuda a cliente a decidir mais rápido. Aqui você encontra a conta para chegar ao seu preço, a ferramenta para montar e baixar a sua tabela em imagem, as regras que todo estúdio deveria ter e os textos para divulgar.",
   "sections": [
     {
       "heading": "Como usar",
       "steps": [
         "Faça a conta do seu preço mínimo (próxima seção).",
         "Pesquise os preços de pelo menos 5 profissionais da sua região.",
-        "Preencha o modelo de tabela com os seus valores.",
+        "Monte a sua tabela aqui em cima e baixe a imagem pronta.",
         "Escolha as regras que fazem sentido para você e escreva junto da tabela.",
         "Divulgue com os textos prontos e deixe fixada no Instagram e salva no WhatsApp."
       ]
@@ -26,39 +26,6 @@
         "Primer, removedor e espuma de limpeza.",
         "Patches, microbrushes, escovinhas e descartáveis.",
         "A escovinha de presente, se você dá uma para cada cliente."
-      ]
-    },
-    {
-      "heading": "Modelo de tabela (preencha com os seus valores)",
-      "rows": [
-        {
-          "label": "Fio a fio",
-          "text": "[valor] · cerca de [tempo]"
-        },
-        {
-          "label": "Volume brasileiro",
-          "text": "[valor] · cerca de [tempo]"
-        },
-        {
-          "label": "Volume russo",
-          "text": "[valor] · cerca de [tempo]"
-        },
-        {
-          "label": "Efeito molhado",
-          "text": "[valor] · cerca de [tempo]"
-        },
-        {
-          "label": "Manutenção",
-          "text": "[valor] · válida até [prazo] dias após a aplicação"
-        },
-        {
-          "label": "Remoção",
-          "text": "[valor] · menor se for seguida de nova aplicação: [valor]"
-        },
-        {
-          "label": "Lash lifting (se você faz)",
-          "text": "[valor] · cerca de 1h30"
-        }
       ]
     },
     {
