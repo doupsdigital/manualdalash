@@ -1,0 +1,134 @@
+{
+  "_comentario": "Configuração da primeira campanha do Manual da Lash Designer no Meta Ads. Lida por scripts/meta/criar-campanha-manual.mjs. Não tem token aqui: o token (META_ACCESS_TOKEN) fica só no .env, fora do Git.",
+
+  "conta_de_anuncios": {
+    "id": "act_1626088674941828",
+    "nome": "Conta de Anúncios - 01",
+    "observacao": "Mesma conta do LashBox. Confirmar o nome na simulação."
+  },
+  "pagina_facebook": {
+    "id": "1184875188046307",
+    "nome": "Vida de Lash Designer",
+    "instagram_user_id_da_pagina": "17841446712499043",
+    "observacao": "Mesma página do LashBox, sem conta de Instagram vinculada. No Instagram, o anúncio usa a identidade automática da página."
+  },
+  "pixel": {
+    "id": "PREENCHER_ID_DO_PIXEL",
+    "nome": "Manual da Lash",
+    "observacao": "Pixel NOVO, só do Manual. Criado no Gerenciador de Eventos, instalado na /lp (META_PIXEL_ID em src/lib/config.ts) e cadastrado no produto da Kiwify. O script não roda em modo real enquanto este campo estiver com PREENCHER."
+  },
+
+  "campanha": {
+    "nome": "[MANUAL] Teste de ganchos · nov26",
+    "objective": "OUTCOME_SALES",
+    "special_ad_categories": [],
+    "status": "PAUSED",
+    "observacao_orcamento": "Orçamento nos conjuntos (ABO). Enviar is_adset_budget_sharing_enabled=false na criação da campanha."
+  },
+
+  "agendamento": {
+    "regra": "Os 3 conjuntos só começam a entregar a partir das 05:00 (fuso da conta de anúncios). Depois disso, rodam sem parar.",
+    "como_o_script_calcula": "Próxima 05:00 no fuso da conta no momento da criação real. O valor é salvo uma vez em resultado.json e usado nos 3 conjuntos."
+  },
+
+  "link_final": "https://manualdalash.com.br/lp",
+  "call_to_action": "LEARN_MORE",
+  "descricao_padrao": "Acesso imediato · Garantia de 7 dias",
+  "url_tags": "utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_term={{adset.name}}&utm_content={{ad.name}}",
+  "advantage_creative_desligado": true,
+
+  "publico": {
+    "mesmo_nos_3_conjuntos": true,
+    "fase": "1 · teste de criativos",
+    "geo_locations": { "countries": ["BR"] },
+    "genders": [2],
+    "age_min": 18,
+    "age_max": 45,
+    "interesses_por_nome": [
+      "Extensão de cílios",
+      "Lash lifting",
+      "Cílios postiços",
+      "Design de sobrancelhas",
+      "Micropigmentação"
+    ],
+    "nao_usar": ["Beleza", "Salões de beleza"],
+    "advantage_audience": 0,
+    "observacao": "O script busca o ID de cada interesse pelo nome (API /search?type=adinterest). Interesse que não for encontrado é pulado e listado no relatório. Se a Meta recusar advantage_audience=0 para este objetivo, o script tenta de novo com 1 e avisa.",
+    "fase_2_depois_de_10_a_20_vendas": "Não é criada por este script. Depois de definir o criativo vencedor: duplicar o conjunto vencedor e, na cópia, usar Público Advantage+ (aberto, Brasil, idade e gênero como sugestão). Rodar lado a lado alguns dias e comparar o custo por compra."
+  },
+
+  "configuracao_comum_dos_conjuntos": {
+    "optimization_goal": "OFFSITE_CONVERSIONS",
+    "promoted_object": { "custom_event_type": "PURCHASE" },
+    "bid_strategy": "LOWEST_COST_WITHOUT_CAP",
+    "billing_event": "IMPRESSIONS",
+    "placements": "advantage_plus",
+    "status": "PAUSED"
+  },
+
+  "conjuntos": [
+    { "chave": "CJ-01", "nome": "CJ-01 · Gancho A · Primeiro fio à Agenda cheia", "daily_budget_centavos": 2000, "ads": ["CT-01 · O manual"] },
+    { "chave": "CJ-02", "nome": "CJ-02 · Gancho B · Manual que toda Lash queria", "daily_budget_centavos": 2000, "ads": ["CT-02 · O presente"] },
+    { "chave": "CJ-03", "nome": "CJ-03 · Gancho C · Já sabe tudo sobre ser Lash?", "daily_budget_centavos": 2000, "ads": ["CT-03 · A conversa"] }
+  ],
+
+  "anuncios": {
+    "CT-01 · O manual": {
+      "conjunto": "CJ-01",
+      "imagem_4x5": "criativos-manual/CT-01-feed-1080x1350.jpg",
+      "imagem_9x16": "criativos-manual/CT-01-stories-1080x1920.jpg",
+      "textos_principais": [
+        "Técnicas, materiais, mapping, manutenção, quanto cobrar e como conseguir clientes. Tudo o que uma Lash Designer precisa saber, num app fácil de consultar no celular.\n\n📚 11 módulos e 60 lições curtas\n✅ Bônus: Checklist do Atendimento Perfeito\n✨ Bônus: Guia Visual de Fios e Curvaturas\n\nR$ 27, pagamento único. Acesso imediato e garantia de 7 dias.",
+        "Do Primeiro fio à Agenda cheia: o manual da Lash Designer em lições de 2 a 4 minutos, direto no seu celular. R$ 27, acesso imediato."
+      ],
+      "titulos": [
+        "Manual da Lash Designer",
+        "Do Primeiro fio à Agenda cheia",
+        "11 módulos e 60 lições por R$ 27"
+      ]
+    },
+    "CT-02 · O presente": {
+      "conjunto": "CJ-02",
+      "imagem_4x5": "criativos-manual/CT-02-feed-1080x1350.jpg",
+      "imagem_9x16": "criativos-manual/CT-02-stories-1080x1920.jpg",
+      "textos_principais": [
+        "Sabe aquelas dúvidas que ninguém te explicou direito? Qual curvatura usar, por que os fios caem antes do tempo, quanto cobrar…\n\nO Manual da Lash Designer reúne tudo isso em lições curtas, com passo a passo, dicas e os erros mais comuns. É o manual que toda Lash queria ter recebido quando começou.\n\nR$ 27, pagamento único. Acesso imediato no celular e garantia de 7 dias.",
+        "O manual que toda Lash queria ter recebido 💕 60 lições curtas, do Primeiro fio à Agenda cheia, direto no seu celular por R$ 27."
+      ],
+      "titulos": [
+        "O manual que toda Lash queria ter recebido",
+        "Manual da Lash Designer",
+        "60 lições curtas por R$ 27"
+      ]
+    },
+    "CT-03 · A conversa": {
+      "conjunto": "CJ-03",
+      "imagem_4x5": "criativos-manual/CT-03-feed-1080x1350.jpg",
+      "imagem_9x16": "criativos-manual/CT-03-stories-1080x1920.jpg",
+      "textos_principais": [
+        "Qual curvatura combina com cada olhar? Quanto cobrar pela manutenção? Como conseguir as primeiras clientes?\n\nSe alguma dessas perguntas já te travou, o Manual da Lash Designer responde, em lições de 2 a 4 minutos, direto no seu celular.\n\n📚 11 módulos e 60 lições\n🎁 2 bônus\n💳 R$ 27, pagamento único\n✅ Garantia de 7 dias",
+        "Teste rápido: você sabe qual curvatura usar num olho caído? 👀 Se ficou na dúvida, o Manual da Lash Designer responde, junto com mais 59 lições. R$ 27, acesso imediato."
+      ],
+      "titulos": [
+        "Será que você já sabe tudo sobre ser Lash?",
+        "Manual da Lash Designer",
+        "Tá tudo aqui, por R$ 27"
+      ]
+    }
+  },
+
+  "regras_de_decisao": {
+    "primeiras_48h": "Não mexer em nada.",
+    "corte": "Conjunto que gastar R$ 30 sem nenhum InitiateCheckout: pausar.",
+    "ctr": "Dia 3: CTR do link acima de 1,2% é bom; abaixo de 0,7%, o gancho não prende.",
+    "vencedor": "Compra com custo de até ~R$ 27: vencedor. Aumentar o orçamento 20% a 30% a cada 2 dias.",
+    "fase_2": "Com 10 a 20 vendas: duplicar o vencedor com Público Advantage+ (ver publico.fase_2)."
+  },
+
+  "regras_de_texto": [
+    "Escrever sempre 'Lash' com L maiúsculo.",
+    "Não usar termos de saúde: alergia, irritação, inflamação, infecção, doença, remédio, paciente, diagnóstico.",
+    "Sem promessa de renda, sem depoimentos inventados, sem contador regressivo e sem preço 'de/por'.",
+    "Se o preço mudar (Kiwify e /lp), trocar todos os 'R$ 27' deste arquivo antes de criar ou editar anúncios."
+  ]
+}

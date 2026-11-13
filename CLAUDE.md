@@ -276,15 +276,25 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
   do LashBox, com a mesma sombra leve no texto; a dona testou texto ameixa e preferiu o branco),
   brilho rosa do botão, brilhos de fundo, 3 cards com ícone. Prints da entrega em `referencia/prints-lp/` (fora do Git).
 
-## 11. Marketing
+## 11. Marketing: campanha no Meta Ads
 
-- **`marketing/Campanha-manual/`** (raiz do projeto; não confundir com `src/marketing/`, que é o
-  código da /lp): `meta-ads-manual-lash.json` (textos, públicos, orçamento e regras da campanha na
-  Meta) e `criativos-manual/` (6 imagens dos anúncios: CT-01 a CT-03, feed 1080×1350 e stories
-  1080×1920).
-- **Fora do build e do deploy:** não está em `public/` nem é importada pelo app, e o
+Roteiro completo em **`marketing/campanha-manual/LEIA-ME.md`** (pré-requisitos, token, simulação,
+modo real, o que mostrar à dona e regras de decisão). Resumo:
+
+- **`marketing/campanha-manual/campanha.json`:** fonte de verdade da campanha (conta, página,
+  pixel, público, 3 conjuntos de R$ 20/dia, textos, títulos, imagens). Sem token.
+- **`marketing/campanha-manual/criativos-manual/`:** as 6 imagens (CT-01 a CT-03, feed 1080×1350 e
+  Stories/Reels 1080×1920).
+- **`scripts/meta/criar-campanha-manual.mjs`:** cria campanha, conjuntos e anúncios **sempre
+  PAUSED**; só cria coisas novas e nunca mexe em outras campanhas da conta. `--simular` não cria
+  nada (sem token, nem chama a API). Token em `META_ACCESS_TOKEN` no `.env` (fora do Git, nunca
+  imprimir). Este computador (trabalho) não tem token; o modo real roda no de casa.
+- **`marketing/campanha-manual/resultado.json`:** IDs criados pelo script; no `.gitignore`.
+- **Pendente antes do modo real:** pixel novo "Manual da Lash" (ID em `campanha.json` → `pixel.id`
+  e em `META_PIXEL_ID` no `src/lib/config.ts`), domínio verificado no Business Manager e pixel
+  cadastrado na Kiwify com "Disparar Purchase ao gerar Pix" desligado.
+- **Fora do build e do deploy:** `marketing/` não está em `public/` nem é importada pelo app, e o
   `.vercelignore` tem `/marketing/` (com a barra no início, para não excluir `src/marketing/`).
-  Fica só no GitHub, como registro.
-- **Preço:** os textos dos anúncios citam **R$ 27**. Se o preço mudar na Kiwify, atualizar junto: o
-  JSON e os criativos da campanha, `PRODUCT_PRICE` em `src/lib/config.ts` (Pixel) e os textos da /lp
-  (`src/marketing/LandingPage.tsx`, barra fixa, FAQ e oferta) e a meta description do `index.html`.
+- **Preço:** os textos citam **R$ 27**. Se o preço mudar na Kiwify, atualizar junto: `campanha.json`
+  e os criativos, `PRODUCT_PRICE` em `src/lib/config.ts` (Pixel), os textos da /lp
+  (`src/marketing/LandingPage.tsx`: oferta, FAQ, barra fixa) e a meta description do `index.html`.

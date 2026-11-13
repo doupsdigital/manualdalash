@@ -21,3 +21,6 @@ referencia/
 .impeccable/config.local.json
 .impeccable/hook.cache.json
 .impeccable/live/
+
+# Campanha do Meta Ads: IDs gerados pelo script (scripts/meta/criar-campanha-manual.mjs)
+marketing/campanha-manual/resultado.json
