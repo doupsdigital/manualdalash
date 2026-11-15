@@ -8,7 +8,7 @@ export const KIWIFY_CHECKOUT_URL = 'https://pay.kiwify.com.br/Ug94J6b'
 export const PRODUCT_PRICE = 27
 
 /** Pixel da Meta da /lp. Vazio = o pixel não é carregado. */
-export const META_PIXEL_ID = ''
+export const META_PIXEL_ID = '1015955554886103'
 
 /** Link de checkout de cada extra (order bump). Vazio até serem cadastrados na Kiwify. */
 export const EXTRAS_CHECKOUT_URLS: Record<'mensagens' | 'tabela-precos', string> = {

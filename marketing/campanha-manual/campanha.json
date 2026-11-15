@@ -13,7 +13,7 @@
     "observacao": "Mesma página do LashBox, sem conta de Instagram vinculada. No Instagram, o anúncio usa a identidade automática da página."
   },
   "pixel": {
-    "id": "PREENCHER_ID_DO_PIXEL",
+    "id": "1015955554886103",
     "nome": "Manual da Lash",
     "observacao": "Pixel NOVO, só do Manual. Criado no Gerenciador de Eventos, instalado na /lp (META_PIXEL_ID em src/lib/config.ts) e cadastrado no produto da Kiwify. O script não roda em modo real enquanto este campo estiver com PREENCHER."
   },
