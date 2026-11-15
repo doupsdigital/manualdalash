@@ -45,9 +45,9 @@ node scripts/meta/criar-campanha-manual.mjs --simular
 Com token, faz só leituras e mostra o plano. Conferir com a dona:
 
 - Conta, página e pixel certos (nome, moeda BRL, fuso).
-- **Interesses encontrados:** cada nome de `publico.interesses_por_nome` deve virar um interesse
-  real (nome e ID). Se algum vier com "[nome parecido]" estranho ou "não encontrado", mostrar à
-  dona antes de seguir. Nunca usar "Beleza" nem "Salões de beleza".
+- **Interesses:** `publico.interesses` tem os IDs fixos (a busca da Meta por nome em português
+  não acha nada, só pelo nome em inglês). Cada um deve sair com "✓ válido"; se algum vier
+  "inválido", mostrar à dona antes de seguir. Nunca usar "Beleza" nem "Salões de beleza".
 - 3 conjuntos de R$ 15,00/dia (R$ 45,00/dia no total), 1 anúncio cada, imagens todas com ✓.
 - Largada agendada: a próxima 05:00 no fuso da conta.
 

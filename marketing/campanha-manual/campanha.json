@@ -44,13 +44,12 @@
     "genders": [2],
     "age_min": 18,
     "age_max": 45,
-    "interesses_por_nome": [
-      "Extensão de cílios",
-      "Lash lifting",
-      "Cílios postiços",
-      "Design de sobrancelhas",
-      "Micropigmentação"
+    "interesses": [
+      { "id": "6003335445971", "nome": "Extensão de cílios (cosméticos)" },
+      { "id": "6003029057785", "nome": "Maquiagem permanente" },
+      { "id": "186006308422447", "nome": "Microblading" }
     ],
+    "interesses_obs": "IDs fixos (15/11/2026): a busca da Meta por nome em português não acha nada (só acha pelo nome em inglês). O script confere cada ID antes de usar (search?type=adinterestvalid). Lash lifting e Cílios postiços não existem como interesse; Sobrancelha (partes e funções do corpo) ficou de fora por ser genérico demais.",
     "nao_usar": ["Beleza", "Salões de beleza"],
     "advantage_audience": 0,
     "observacao": "O script busca o ID de cada interesse pelo nome (API /search?type=adinterest). Interesse que não for encontrado é pulado e listado no relatório. Se a Meta recusar advantage_audience=0 para este objetivo, o script tenta de novo com 1 e avisa.",

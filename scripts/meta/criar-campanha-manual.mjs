@@ -161,12 +161,27 @@ async function checkPixelRecentEvents(cfg) {
 const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim()
 
 async function resolveAudience(cfg) {
-  console.log('\n[3] Montando o público e buscando os interesses pelo nome…')
+  console.log('\n[3] Montando o público e conferindo os interesses…')
   const p = cfg.publico
   const banned = new Set((p.nao_usar || []).map(norm))
   const interests = []
   const notFound = []
-  for (const name of p.interesses_por_nome) {
+  // Interesses com ID fixo em campanha.json → publico.interesses: confere cada um na Meta.
+  if (p.interesses?.length) {
+    const resp = await graphGet('search', { type: 'adinterestvalid', interest_fbid_list: p.interesses.map((i) => String(i.id)), locale: 'pt_BR' })
+    const byId = new Map((resp.data || []).map((i) => [String(i.id), i]))
+    for (const want of p.interesses) {
+      const got = byId.get(String(want.id))
+      if (got?.valid && !banned.has(norm(got.name))) {
+        interests.push({ id: String(got.id), name: got.name })
+        console.log(`  ${got.name} (${got.id}) ✓ válido`)
+      } else {
+        notFound.push(`${want.nome} (${want.id})`)
+        console.log(`  ${want.nome} (${want.id}) → inválido ou não encontrado (pulado)`)
+      }
+    }
+  }
+  for (const name of p.interesses_por_nome || []) {
     const resp = await graphGet('search', { type: 'adinterest', q: name, limit: '10', locale: 'pt_BR' }).catch((err) => {
       console.log(`  Busca de "${name}" falhou: ${err.message}`)
       return { data: [] }
@@ -183,7 +198,7 @@ async function resolveAudience(cfg) {
       console.log(`  "${name}" → não encontrado (pulado)`)
     }
   }
-  if (interests.length === 0) throw new Error('Nenhum interesse encontrado. Confira os nomes em campanha.json → publico.interesses_por_nome.')
+  if (interests.length === 0) throw new Error('Nenhum interesse válido. Confira campanha.json → publico.interesses.')
   const targeting = {
     geo_locations: p.geo_locations,
     genders: p.genders,
@@ -444,7 +459,7 @@ async function main() {
     const p = cfg.publico
     printDryRunPlan(
       cfg,
-      { source: 'interesses por nome (IDs só são buscados com token)', targeting: { geo_locations: p.geo_locations, genders: p.genders, age_min: p.age_min, age_max: p.age_max, interesses: p.interesses_por_nome, targeting_automation: { advantage_audience: p.advantage_audience } } },
+      { source: 'interesses (só conferidos na Meta com token)', targeting: { geo_locations: p.geo_locations, genders: p.genders, age_min: p.age_min, age_max: p.age_max, interesses: [...(p.interesses || []).map((i) => `${i.nome} (${i.id})`), ...(p.interesses_por_nome || [])], targeting_automation: { advantage_audience: p.advantage_audience } } },
       `${computeNext5amIso('America/Sao_Paulo')} (exemplo; com token usa o fuso real da conta)`,
     )
     return
