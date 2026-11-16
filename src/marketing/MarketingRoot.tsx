@@ -3,7 +3,11 @@ import { LandingPage } from './LandingPage'
 import { Terms } from './Terms'
 import { Privacy } from './Privacy'
 import { MarketingLayout } from './MarketingLayout'
+import { initAnalytics } from '../lib/analytics'
 import './marketing.css'
+
+// PostHog (só em produção): na /lp, com gravação de sessão.
+initAnalytics({ recordSessions: true })
 
 /**
  * Raiz leve de /lp, /termos e /privacidade — carregada sozinha, sem o app (sem Supabase, sem o

@@ -66,7 +66,7 @@ export default function Messages() {
             <div className="text-[13px] font-semibold text-white/60">{m.category}</div>
             <div className="mt-1 text-[16px] font-bold leading-snug">{m.title}</div>
             <MarkerText text={m.text} className="mt-2.5 text-[14.5px] leading-[1.55] text-white/85" />
-            <CopyButton text={m.text} className="mt-3 w-full" />
+            <CopyButton text={m.text} item={`mensagem:${m.id}`} className="mt-3 w-full" />
           </div>
         ))}
       </div>

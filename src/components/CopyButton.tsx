@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import { copyText } from '../lib/clipboard'
+import { track } from '../lib/analytics'
 
-export function CopyButton({ text, className = '' }: { text: string; className?: string }) {
+/** `item`: o que foi copiado, para o PostHog (ex.: id da mensagem). */
+export function CopyButton({ text, item, className = '' }: { text: string; item: string; className?: string }) {
   const [copied, setCopied] = useState(false)
   const t = useRef<number | undefined>(undefined)
   useEffect(() => () => window.clearTimeout(t.current), [])
 
   const onCopy = async () => {
     await copyText(text)
+    track('text_copied', { item })
     setCopied(true)
     window.clearTimeout(t.current)
     t.current = window.setTimeout(() => setCopied(false), 1800)

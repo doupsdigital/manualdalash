@@ -76,13 +76,14 @@ src/
                           progress.tsx (lições concluídas/checklist/última lição/tamanho de
                           texto), sync.ts + ProgressSync.tsx (sincronização com o Supabase)
   lib/                    supabase.ts, config.ts (links externos, preços, vitrine),
-                          search.ts, clipboard.ts, onboarding.ts, artPalettes.ts, exportBoard.ts
+                          search.ts, clipboard.ts, onboarding.ts, artPalettes.ts, exportBoard.ts,
+                          analytics.ts + consent.ts (PostHog, seção 12)
 supabase/                 migrations/ (aplicadas), functions/ (request-login e
                           kiwify-webhook, publicadas), templates/ (link-magico.html,
                           boas-vindas.html)
 scripts/                  gerar-icones.mjs, icon-master.svg, icon-master-maskable.svg
 docs/                     configurar-supabase.md, configurar-kiwify.md, configurar-vercel.md
-vercel.json               Rewrite de SPA (toda rota cai no index.html — sem isso, abrir uma
+vercel.json               /ingest → PostHog US (seção 12) e rewrite de SPA (toda rota cai no index.html — sem isso, abrir uma
                           rota direto pela URL, como /entrar vindo da Kiwify, dava 404)
 ```
 
@@ -299,3 +300,38 @@ modo real, o que mostrar à dona e regras de decisão). Resumo:
 - **Preço:** os textos citam **R$ 27**. Se o preço mudar na Kiwify, atualizar junto: `campanha.json`
   e os criativos, `PRODUCT_PRICE` em `src/lib/config.ts` (Pixel), os textos da /lp
   (`src/marketing/LandingPage.tsx`: oferta, FAQ, barra fixa) e a meta description do `index.html`.
+
+## 12. PostHog (análise de uso da /lp e do app)
+
+- **Projeto PostHog na região US.** Key em `VITE_POSTHOG_KEY` (Vercel → Environment Variables; é a
+  key pública `phc_...`, mas segue a regra de não colar no chat). Código todo em `src/lib/analytics.ts`.
+- **Só em produção:** liga apenas com build de produção + key + hostname `manualdalash.com.br`.
+  localhost, `npm run preview` e deploys de teste da Vercel não registram nada (pedido da dona). Sem
+  a key no build, o Vite descarta o PostHog inteiro.
+- **Carregamento:** `posthog-js` vai num pacote separado (~118 KB gzip), importado só depois do `load`
+  da página (requestIdleCallback). Eventos chamados antes disso ficam numa fila.
+- **/ingest:** `vercel.json` repassa `/ingest/static/*` → `us-assets.i.posthog.com` e `/ingest/*` →
+  `us.i.posthog.com` (contra bloqueador de anúncio). Esses rewrites têm de ficar **antes** do rewrite de SPA.
+- **Cookies (LGPD):** sem o "Ok" do aviso (`lib/consent.ts`, mesma chave do aviso do Pixel), a
+  persistência é `memory` — registra, mas não guarda nada no aparelho. Com o "Ok", passa a
+  `localStorage+cookie` (`enableAnalyticsPersistence`), e a mesma pessoa é reconhecida da /lp até o app.
+  O aviso aparece se houver Pixel **ou** PostHog ligado. A Política de Privacidade cita o PostHog.
+- **Gravação de sessão:** só na /lp, `maskAllInputs`. Precisa estar ligada no painel do PostHog.
+- **Identificação:** depois do login, `identify(user.id)` (id do Supabase, **nunca o e-mail**);
+  `reset()` só no evento `SIGNED_OUT`.
+- **Eventos** (além de `$pageview`/`$pageleave` automáticos, inclusive nas trocas de tela do app):
+  - /lp: `lp_section_viewed` {section: identificacao, modulos, bonus, oferta, garantia, perguntas,
+    chamada_final — atributo `data-track` nas seções, conta quando o topo passa do meio da tela},
+    `lp_buy_clicked` {position: topo, oferta, final, barra — por sendBeacon, antes de ir ao checkout},
+    `lp_faq_opened` {question}.
+  - App: `lesson_opened` {lesson_id, title}, `lesson_completed` {lesson_id, module_id}, `search`
+    {query, results — após 1,2s sem digitar}, `checklist_item_checked` {item}, `text_copied` {item:
+    `mensagem:<id>` ou `tabela-precos:<seção>`}, `price_table_exported` {format, palette, items},
+    `extra_unlock_clicked` {extra}.
+- **Testar sem sujar os dados:** build com key falsa numa pasta temporária, `vite preview` com
+  `__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=manualdalash.com.br`, Chromium com
+  `--host-resolver-rules=MAP manualdalash.com.br 127.0.0.1:<porta>` e `page.route('**/ingest/**')`
+  interceptando. O PostHog descarta navegador automático: usar user agent normal e
+  `navigator.webdriver = false`.
+- **Possível próximo passo:** mandar a compra (`order_approved`) do `kiwify-webhook` para o PostHog,
+  fechando o funil até a venda.

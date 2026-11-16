@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { KIWIFY_CHECKOUT_URL, SUPPORT_EMAIL } from '../lib/config'
 import { withForwardedParams } from '../lib/checkoutUrl'
 import { trackAddToCart, trackViewContentOnceVisible } from './pixel'
+import { track, trackBeforeLeave } from '../lib/analytics'
 import { LashMark } from './LashMark'
 // Título, nº de lições e minutos de cada módulo, calculados do manual.json no build (vite.config.ts).
 import MODULES from 'virtual:modulos-resumo'
@@ -112,11 +113,14 @@ function BuyButton({
   className = '',
   btnRef,
   pulse = false,
+  position,
 }: {
   children: ReactNode
   className?: string
   btnRef?: React.RefObject<HTMLAnchorElement | null>
   pulse?: boolean
+  /** Qual botão foi clicado, no PostHog: topo, oferta, final ou barra. */
+  position: 'topo' | 'oferta' | 'final' | 'barra'
 }) {
   const url = withForwardedParams(KIWIFY_CHECKOUT_URL)
   const ownRef = useRef<HTMLAnchorElement>(null)
@@ -141,6 +145,7 @@ function BuyButton({
       onClick={(e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return
         e.preventDefault()
+        trackBeforeLeave('lp_buy_clicked', { position })
         trackAddToCart(go)
       }}
       className={`press inline-flex h-14 cursor-pointer items-center justify-center rounded-full bg-rose px-9 text-[17px] font-bold text-white no-underline [text-shadow:0_1px_0_rgba(91,42,78,.35)] shadow-[0_12px_30px_rgba(224,122,155,.38)] hover:bg-[#e68aa8] md:h-16 md:px-11 md:text-[19px] ${
@@ -323,6 +328,27 @@ export function LandingPage() {
   // Pixel: ViewContent uma vez, quando a oferta aparece.
   useEffect(() => trackViewContentOnceVisible(offerRef.current), [])
 
+  // PostHog: cada seção com data-track conta uma vez como vista quando o topo dela passa do meio
+  // da tela — mostra até onde as pessoas rolam antes de desistir.
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return
+    const seen = new Set<string>()
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const name = (e.target as HTMLElement).dataset.track
+          if (!e.isIntersecting || !name || seen.has(name)) continue
+          seen.add(name)
+          track('lp_section_viewed', { section: name })
+          obs.unobserve(e.target)
+        }
+      },
+      { rootMargin: '0px 0px -50% 0px' },
+    )
+    document.querySelectorAll('[data-track]').forEach((el) => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
   // Seções sobem 24px com fade ao entrar na tela, uma vez (sem isso com movimento reduzido).
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -413,7 +439,7 @@ export function LandingPage() {
           </div>
 
           <div className="relative flex flex-col items-center md:col-start-1 md:row-start-2 md:items-start md:self-start">
-            <BuyButton pulse btnRef={heroBtnRef} className="mt-6 w-full max-w-[340px] md:mt-8 md:w-auto">
+            <BuyButton pulse position="topo" btnRef={heroBtnRef} className="mt-6 w-full max-w-[340px] md:mt-8 md:w-auto">
               Quero o meu manual
             </BuyButton>
             <p className="mt-3 text-center text-[13px] text-white/75 md:text-left md:text-[14px]">
@@ -427,7 +453,7 @@ export function LandingPage() {
 
       <main>
         {/* 2. IDENTIFICAÇÃO + NÃO É PDF ------------------------------------------------------ */}
-        <section className="bg-night">
+        <section data-track="identificacao" className="bg-night">
           <div data-reveal className="mx-auto flex max-w-[1040px] flex-col items-center px-5 py-20 md:py-28">
             <SectionTitle>Já travou em alguma dessas?</SectionTitle>
             <ChatQuestions />
@@ -450,7 +476,7 @@ export function LandingPage() {
         </section>
 
         {/* 3. O QUE TEM DENTRO ------------------------------------------------------------------ */}
-        <section className="bg-plum">
+        <section data-track="modulos" className="bg-plum">
           <div className="mx-auto max-w-[1120px] py-20 md:py-28">
             <div data-reveal className="px-5">
               <h2 className="text-center text-[clamp(30px,6.4vw,46px)] leading-[1.1] font-extrabold tracking-[-.025em] text-white">
@@ -512,7 +538,7 @@ export function LandingPage() {
         </section>
 
         {/* 3b. BÔNUS -------------------------------------------------------------------------- */}
-        <section className="bg-plum">
+        <section data-track="bonus" className="bg-plum">
           <div className="mx-auto max-w-[880px] px-5 pb-20 md:pb-28">
             <h2 data-reveal className="text-center text-[clamp(30px,6.4vw,46px)] leading-[1.1] font-extrabold tracking-[-.025em] text-white">
               E ainda leva <span className="font-display text-[1.55em] font-medium tracking-normal text-rose">2</span> bônus
@@ -546,7 +572,7 @@ export function LandingPage() {
         </section>
 
         {/* 4. OFERTA -------------------------------------------------------------------------- */}
-        <section id="oferta" ref={offerRef} className="relative scroll-mt-4 bg-night">
+        <section id="oferta" data-track="oferta" ref={offerRef} className="relative scroll-mt-4 bg-night">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute top-16 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full"
@@ -584,7 +610,7 @@ export function LandingPage() {
                     sem mensalidade
                   </span>
                 </div>
-                <BuyButton pulse btnRef={offerBtnRef} className="mt-6 w-full !shadow-[0_14px_30px_rgba(91,42,78,.3)]">
+                <BuyButton pulse position="oferta" btnRef={offerBtnRef} className="mt-6 w-full !shadow-[0_14px_30px_rgba(91,42,78,.3)]">
                   Quero o meu manual
                 </BuyButton>
                 <p className="mt-4 text-center text-[15px] font-semibold text-balance text-plum">Uma única manutenção paga esse manual.</p>
@@ -596,7 +622,7 @@ export function LandingPage() {
         {/* 5. GARANTIA + PERGUNTAS ------------------------------------------------------------ */}
         <section className="bg-plum">
           <div className="mx-auto flex max-w-[760px] flex-col gap-16 px-5 py-20 md:py-28">
-            <div data-reveal className="flex flex-col items-center gap-5 text-center">
+            <div data-reveal data-track="garantia" className="flex flex-col items-center gap-5 text-center">
               <img
                 src="/lp/selo-garantia.webp"
                 alt="Selo de garantia de 7 dias"
@@ -615,7 +641,7 @@ export function LandingPage() {
               </div>
             </div>
 
-            <div data-reveal>
+            <div data-reveal data-track="perguntas">
               <h2 className="text-center text-[clamp(26px,5vw,34px)] font-extrabold tracking-[-.02em] text-white">Perguntas frequentes</h2>
               <div className="mt-7 flex flex-col gap-2.5">
                 {FAQ.map(([q, a], i) => {
@@ -627,7 +653,10 @@ export function LandingPage() {
                           type="button"
                           aria-expanded={isOpen}
                           aria-controls={`faq-${i}`}
-                          onClick={() => setOpen(isOpen ? -1 : i)}
+                          onClick={() => {
+                            if (!isOpen) track('lp_faq_opened', { question: q })
+                            setOpen(isOpen ? -1 : i)
+                          }}
                           className="flex min-h-[60px] w-full cursor-pointer items-center justify-between gap-3 px-5 py-4 text-left text-[17px] font-semibold text-white"
                         >
                           {q}
@@ -651,7 +680,7 @@ export function LandingPage() {
         </section>
 
         {/* 6. CHAMADA FINAL ------------------------------------------------------------------- */}
-        <section className="relative overflow-hidden bg-night">
+        <section data-track="chamada_final" className="relative overflow-hidden bg-night">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute bottom-[-180px] left-1/2 h-[420px] w-[760px] -translate-x-1/2 rounded-full"
@@ -661,7 +690,7 @@ export function LandingPage() {
             <h2 className="text-[clamp(28px,6vw,44px)] leading-[1.12] font-extrabold tracking-[-.025em] text-balance text-white">
               O manual que você queria ter recebido está a um clique.
             </h2>
-            <BuyButton pulse btnRef={finalBtnRef} className="mt-8 w-full max-w-[340px] md:w-auto">
+            <BuyButton pulse position="final" btnRef={finalBtnRef} className="mt-8 w-full max-w-[340px] md:w-auto">
               Quero o meu manual
             </BuyButton>
             <p className="mt-3 text-[13px] text-white/70 md:text-[14px]">R$ 27 · acesso imediato · garantia de 7 dias</p>
@@ -693,7 +722,7 @@ export function LandingPage() {
           Manual da Lash Designer
           <span className="block text-[14px] font-semibold text-gold-light">R$ 27</span>
         </div>
-        <BuyButton className="!h-12 flex-none !px-6 !text-[16px] !shadow-none">Quero o meu</BuyButton>
+        <BuyButton position="barra" className="!h-12 flex-none !px-6 !text-[16px] !shadow-none">Quero o meu</BuyButton>
       </div>
     </div>
   )

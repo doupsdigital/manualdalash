@@ -5,7 +5,7 @@ export function Privacy() {
   const mail = <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
   return (
     <LegalLayout title="Política de Privacidade">
-      <p className="text-[14px] text-white/60">Última atualização: 13 de novembro de 2026</p>
+      <p className="text-[14px] text-white/60">Última atualização: 16 de novembro de 2026</p>
 
       <p>
         Esta política explica quais dados o <b>Manual da Lash Designer</b> coleta, para que usa e quais são os seus
@@ -48,6 +48,14 @@ export function Privacy() {
         pixel. Como qualquer site, o servidor de hospedagem registra dados técnicos de acesso (como endereço IP e
         navegador) para segurança e funcionamento.
       </p>
+      <h3>Análise de uso</h3>
+      <p>
+        Usamos o <b>PostHog</b> para entender como a página de vendas e o app são usados: páginas e telas visitadas,
+        até onde a página foi rolada, botões clicados, lições abertas e concluídas e buscas feitas no app. Na página de
+        vendas, também gravamos a navegação (movimentos e cliques na tela) para encontrar o que está confuso.{' '}
+        <b>Nada do que você digita é gravado</b>. No app, o uso fica ligado a um código interno da sua conta, nunca ao
+        seu e-mail. Até você clicar em “Ok” no aviso de cookies, o PostHog não guarda nada no seu aparelho.
+      </p>
 
       <h2>3. Para que usamos os dados</h2>
       <ul>
@@ -56,6 +64,7 @@ export function Privacy() {
         <li>Salvar o seu progresso para você continuar de onde parou, em qualquer aparelho.</li>
         <li>Responder aos seus pedidos de suporte.</li>
         <li>Medir e melhorar os nossos anúncios (Pixel da Meta na página de vendas).</li>
+        <li>Entender como a página e o app são usados, para melhorar o conteúdo e a navegação (PostHog).</li>
         <li>Cumprir obrigações legais e prevenir fraudes.</li>
       </ul>
       <p>Não vendemos nem alugamos os seus dados para ninguém, e não enviamos mensagens de propaganda de terceiros.</p>
@@ -84,6 +93,9 @@ export function Privacy() {
         </li>
         <li>
           <b>Meta</b>: medição e otimização dos anúncios no Facebook e no Instagram (Pixel da Meta).
+        </li>
+        <li>
+          <b>PostHog</b>: análise de uso da página de vendas e do app.
         </li>
       </ul>
       <p>

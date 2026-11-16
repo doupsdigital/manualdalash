@@ -1,6 +1,7 @@
 import type { Session, User } from '@supabase/supabase-js'
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 import { supabase } from '../lib/supabase'
+import { identify, resetIdentity } from '../lib/analytics'
 
 export const NO_PURCHASE_MSG =
   'Não encontramos uma compra com este e-mail. Use o mesmo e-mail da compra na Kiwify.'
@@ -77,11 +78,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
       setUser(session.user)
       setStatus('ready')
+      identify(session.user.id)
     }
 
     supabase.auth.getSession().then(({ data }) => apply(data.session))
     const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
       // Só reage a entrada/saída; renovação de token não precisa reconferir
+      if (event === 'SIGNED_OUT') resetIdentity()
       if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
         // fora do callback, como recomenda o supabase-js
         setTimeout(() => apply(session), 0)

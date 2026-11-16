@@ -5,6 +5,7 @@ import { PriceBoard } from '../../components/art/PriceBoard'
 import { ScaledBoard } from '../../components/art/ScaledBoard'
 import { PALETTES, type PaletteId } from '../../lib/artPalettes'
 import { exportNodeToPng, shareOrDownloadPng } from '../../lib/exportBoard'
+import { track } from '../../lib/analytics'
 
 const STORAGE_KEY = 'manual-lash:tabela-precos:board:v1'
 
@@ -75,6 +76,7 @@ export default function PriceBuilder() {
     try {
       const blob = await exportNodeToPng(exportRef.current, width, height)
       await shareOrDownloadPng(blob, 'tabela-de-precos.png')
+      track('price_table_exported', { format: state.post ? 'post' : 'story', palette: state.palette, items: state.rows.filter((r) => r[0].trim() && r[1].trim()).length })
     } catch (e) {
       console.error('export tabela', e)
     } finally {

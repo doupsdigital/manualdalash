@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getLesson, getModule } from '../content'
 import { useProgress, FONT_SIZES_PX } from '../state/progress'
+import { track } from '../lib/analytics'
 
 export default function Lesson() {
   const { id } = useParams<{ id: string }>()
@@ -13,7 +14,10 @@ export default function Lesson() {
   const lesson = id ? getLesson(id) : undefined
 
   useEffect(() => {
-    if (lesson) setLastLesson(lesson.id)
+    if (lesson) {
+      setLastLesson(lesson.id)
+      track('lesson_opened', { lesson_id: lesson.id, title: lesson.title })
+    }
     scrollRef.current?.scrollTo({ top: 0 })
     setScrollPct(0)
   }, [lesson, setLastLesson])
@@ -29,7 +33,11 @@ export default function Lesson() {
   const fsPx = FONT_SIZES_PX[fontSize]
 
   const finish = useMemo(() => {
-    if (!done) return { label: 'Concluir lição ✓', bg: 'bg-rose', action: () => markLessonDone(lesson.id) }
+    if (!done) return { label: 'Concluir lição ✓', bg: 'bg-rose', action: () => {
+          markLessonDone(lesson.id)
+          track('lesson_completed', { lesson_id: lesson.id, module_id: module.id })
+        },
+      }
     if (nextInModule) return { label: 'Próxima lição →', bg: 'bg-green', action: () => navigate(`/licao/${nextInModule.id}`) }
     if (isLast) return { label: 'Voltar ao Início 🎉', bg: 'bg-green', action: () => navigate('/inicio?concluido=1') }
     if (nextModule) return { label: 'Próximo módulo →', bg: 'bg-green', action: () => navigate(`/modulo/${nextModule.id}`) }

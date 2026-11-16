@@ -33,7 +33,7 @@ export default function PriceTable() {
               {section.text && (
                 <MarkerText text={section.text} className="mt-2.5 text-[15px] leading-[1.6] text-white/85" />
               )}
-              {isReadyText && <CopyButton text={section.text!} className="mt-3" />}
+              {isReadyText && <CopyButton text={section.text!} item={`tabela-precos:${section.heading}`} className="mt-3" />}
 
               {section.steps && (
                 <div className="mt-2.5 flex flex-col gap-3">

@@ -5,6 +5,7 @@ import { useProgress } from '../state/progress'
 import { useAuth } from '../state/auth'
 import { usePurchases, type ExtraKey } from '../state/purchases'
 import { EXTRAS_CHECKOUT_URLS, EXTRAS_PRICE_LABELS } from '../lib/config'
+import { track } from '../lib/analytics'
 
 const EXTRAS: { key: ExtraKey; title: string; desc: string; route: string }[] = [
   {
@@ -117,7 +118,10 @@ export default function Bonus() {
                     target="_blank"
                     rel="noopener"
                     aria-disabled={!checkoutUrl}
-                    onClick={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      track('extra_unlock_clicked', { extra: x.key })
+                    }}
                     className="press mt-3.5 flex h-12 items-center justify-center rounded-full bg-white/10 text-[15.5px] font-semibold text-white"
                   >
                     Desbloquear · {EXTRAS_PRICE_LABELS[x.key]}

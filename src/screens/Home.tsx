@@ -1,4 +1,4 @@
-import { useMemo, useState, type MouseEvent } from 'react'
+import { useEffect, useMemo, useState, type MouseEvent } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Screen, ProgressBar } from '../components/ui'
 import { modules, getLesson, allLessons, totalLessons, moduleCoverUrl } from '../content'
@@ -6,6 +6,7 @@ import { useProgress } from '../state/progress'
 import { useAuth } from '../state/auth'
 import { searchLessons } from '../lib/search'
 import { SUPPORT_EMAIL } from '../lib/config'
+import { track } from '../lib/analytics'
 
 function Avatar({ name, onClick }: { name: string | null; onClick: (e: MouseEvent) => void }) {
   const initials = name
@@ -73,6 +74,13 @@ export default function Home() {
 
   const results = useMemo(() => searchLessons(q), [q])
   const searching = q.trim().length >= 2
+
+  // PostHog: registra a busca quando ela para de digitar por 1,2s (não a cada letra).
+  useEffect(() => {
+    if (!searching) return
+    const t = window.setTimeout(() => track('search', { query: q.trim().toLowerCase(), results: results.length }), 1200)
+    return () => window.clearTimeout(t)
+  }, [q, searching, results.length])
 
   return (
     <Screen className="px-5 pt-14 pb-[110px]" onClick={() => menuOpen && setMenuOpen(false)}>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { BackButton, ProgressBar, Screen } from '../components/ui'
 import { checklistBonus, checklistTotal, checklistKey } from '../content'
 import { useProgress } from '../state/progress'
+import { track } from '../lib/analytics'
 
 export default function Checklist() {
   const navigate = useNavigate()
@@ -42,7 +43,10 @@ export default function Checklist() {
                 return (
                   <button
                     key={key}
-                    onClick={() => toggleCheck(key)}
+                    onClick={() => {
+                      if (!on) track('checklist_item_checked', { item: key })
+                      toggleCheck(key)
+                    }}
                     className="flex w-full items-start gap-3.5 py-3 text-left"
                   >
                     <div

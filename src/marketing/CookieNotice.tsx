@@ -1,33 +1,17 @@
 import { useEffect, useState } from 'react'
 import { META_PIXEL_ID } from '../lib/config'
-
-const KEY = 'manual-lash:cookie-notice:v1'
-
-function readChoice(): boolean {
-  try {
-    return localStorage.getItem(KEY) === '1'
-  } catch {
-    return false
-  }
-}
-
-function saveChoice() {
-  try {
-    localStorage.setItem(KEY, '1')
-  } catch {
-    // localStorage indisponível (modo privado etc.): só não mostra de novo nesta visita.
-  }
-}
+import { hasConsent, saveConsent } from '../lib/consent'
+import { analyticsEnabled, enableAnalyticsPersistence } from '../lib/analytics'
 
 /**
- * Aviso discreto de cookies (Pixel da Meta), fixo embaixo, que não bloqueia a página.
- * Sem pixel configurado não há cookie de anúncio, então o aviso nem aparece.
+ * Aviso discreto de cookies (Pixel da Meta e PostHog), fixo embaixo, que não bloqueia a página.
+ * Sem pixel e sem PostHog ligados não há cookie de medição, então o aviso nem aparece.
  */
 export function CookieNotice() {
   const [dismissed, setDismissed] = useState(true)
 
   useEffect(() => {
-    setDismissed(!META_PIXEL_ID || readChoice())
+    setDismissed((!META_PIXEL_ID && !analyticsEnabled) || hasConsent())
   }, [])
 
   if (dismissed) return null
@@ -45,7 +29,8 @@ export function CookieNotice() {
       <button
         type="button"
         onClick={() => {
-          saveChoice()
+          saveConsent()
+          enableAnalyticsPersistence()
           setDismissed(true)
         }}
         className="press ml-1 h-9 cursor-pointer rounded-full bg-white px-5 font-semibold text-ink"
