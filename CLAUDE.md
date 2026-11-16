@@ -311,7 +311,11 @@ modo real, o que mostrar à dona e regras de decisão). Resumo:
 - **Carregamento:** `posthog-js` vai num pacote separado (~118 KB gzip), importado só depois do `load`
   da página (requestIdleCallback). Eventos chamados antes disso ficam numa fila.
 - **/ingest:** `vercel.json` repassa `/ingest/static/*` → `us-assets.i.posthog.com` e `/ingest/*` →
-  `us.i.posthog.com` (contra bloqueador de anúncio). Esses rewrites têm de ficar **antes** do rewrite de SPA.
+  `us.i.posthog.com` (contra bloqueador de anúncio). Esses rewrites têm de ficar **antes** do rewrite de SPA
+  e usar `(.*)`/`$1`, **não** `:path*` — com `:path*`, endereços com barra no fim (`/ingest/e/`,
+  `/ingest/flags/`, que são os que o posthog-js usa) caíam no index.html e nada chegava ao PostHog
+  (bug de 16/11/2026). Para conferir: `curl -X POST https://manualdalash.com.br/ingest/e/` deve
+  responder JSON do PostHog, nunca HTML.
 - **Cookies (LGPD):** sem o "Ok" do aviso (`lib/consent.ts`, mesma chave do aviso do Pixel), a
   persistência é `memory` — registra, mas não guarda nada no aparelho. Com o "Ok", passa a
   `localStorage+cookie` (`enableAnalyticsPersistence`), e a mesma pessoa é reconhecida da /lp até o app.
