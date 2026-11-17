@@ -164,10 +164,11 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
 - **Secrets:** `CAKTO_WEBHOOK_SECRET` (+ `CAKTO_WEBHOOK_SECRET_OLD` opcional numa troca),
   `CAKTO_PRODUCT_MAP` (`id:product_key,...`, aceita o UUID ou o `short_id` do produto),
   `RESEND_API_KEY`.
-- **⚠️ Order bumps:** a Cakto não documenta o formato. A função aceita bump como pedido próprio
-  (`offer_type` ≠ `main` + `parent_order`) **ou** numa lista dentro do pedido (`orderbumps`,
-  `order_bumps`, `bumps`, `products`, `items`). Confirmar no `webhook_logs` na primeira venda real
-  com bump e ajustar `extractProducts()` se precisar.
+- **Order bumps (✅ confirmado numa compra real Pix em 17/11/2026, webhook "Individual"):** cada bump
+  chega como **pedido próprio** (`data.id` longo diferente, `offer_type: 'orderbump'`) com
+  `parent_order` = **referência curta** (`refId`, ex.: `81fLii7`) do pedido do manual — não o UUID.
+  O reembolso do principal revoga por `kiwify_order_id = data.id` **ou** `parent_order_id IN (data.id,
+  data.refId)`. A função também aceita bumps numa lista dentro do pedido, por garantia.
 - **Produtos na Cakto** (ids em `CAKTO_PRODUCT_MAP`):
   - Manual da Lash Designer: `38474868-f034-438b-8fb8-c8f3c7a1999b` → `manual` (checkout `https://pay.cakto.com.br/3e3cmco_1335254`)
   - Mensagens que Fecham Horário: `594634ed-7481-40cd-94df-29c40a9efabb` → `mensagens` (`https://pay.cakto.com.br/u8vpr5i_1335395`)
@@ -231,9 +232,12 @@ desativadas na Kiwify depois da migração.
 1. Testar uma compra real com os order bumps marcados juntos (seção 6) — ou simplesmente
    aguardar a primeira venda de verdade com bump e conferir o `webhook_logs` nesse momento.
 2. Revisão final de conteúdo/preços antes de abrir para tráfego pago, se for o caso.
-3. **Migração para a Cakto** (seção 6, `docs/configurar-cakto.md`): criar os 2 extras e os bumps,
-   webhook + secrets + migration no Supabase, pixel na Cakto, links de checkout em `config.ts`,
-   compra real com bumps + reembolso para conferir, e desativar as vendas na Kiwify.
+3. **Cakto** (seção 6): ✅ migração feita e testada em 17/11/2026 com compra real (Pix, manual + 2
+   bumps → 3 liberados + e-mail de boas-vindas; reembolso → 3 revogados). Kiwify: vendas **não** foram desativadas (o painel só oferece excluir, e excluir
+   não é recomendado); sem risco, porque nenhum canal aponta mais para ela e o `kiwify-webhook` ainda
+   libera o acesso se alguém comprar por link antigo. Falta: **ativar a API de Conversões** do pixel na Cakto (token gerado no Gerenciador
+   de Eventos, no computador de casa — sem isso, Pix pago depois com a página fechada não chega à Meta).
+   Domínio do pixel `pixels.manualdalash.com.br` (CNAME → `pixels.cakto.com.br`, Hostinger) já ativo.
 
 ## 10. Página de vendas (/lp), termos e privacidade
 

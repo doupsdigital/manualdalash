@@ -13,10 +13,10 @@
 // tudo fica em webhook_logs (com o payload, sem o secret) para conferir e corrigir à mão.
 //
 // Order bumps: a Cakto não documenta o formato. Tratamos os dois jeitos possíveis:
-//   1. bump como pedido próprio: data.offer_type != 'main' e data.parent_order = id do pedido
-//      principal → grava com parent_order_id, e o reembolso do principal revoga o bump junto;
+//   1. bump como pedido próprio (CONFIRMADO numa compra real em 17/11/2026, webhook "Individual"):
+//      data.offer_type = 'orderbump' e data.parent_order = refId (curto) do pedido principal →
+//      grava com parent_order_id, e o reembolso do principal revoga o bump junto;
 //   2. bump dentro do mesmo pedido, numa lista (orderbumps, order_bumps, bumps, products...).
-// Confirmar no webhook_logs na primeira venda real com bump.
 //
 // Segredos (Edge Functions → Secrets):
 //   CAKTO_WEBHOOK_SECRET      a chave secreta do webhook na Cakto (obrigatório)
@@ -58,8 +58,12 @@ export interface Deps {
   productMap: Record<string, string>
   findPurchase: (orderId: string, productKey: string) => Promise<{ status: string } | null>
   upsertPurchase: (row: PurchaseRow) => Promise<void>
-  /** Revoga as linhas do pedido e as dos bumps ligados a ele (parent_order_id). Devolve quantas mudaram. */
-  revokeOrder: (orderId: string) => Promise<number>
+  /**
+   * Revoga as linhas do pedido e as dos bumps ligados a ele. O bump guarda em parent_order_id a
+   * referência CURTA do pedido principal (data.refId, ex.: 81fLii7 — confirmado numa compra real),
+   * então a busca usa o id longo e o refId. Devolve quantas linhas mudaram.
+   */
+  revokeOrder: (orderId: string, refId: string | null) => Promise<number>
   /** Cria a conta se precisar e manda o e-mail de boas-vindas (link fixo do app). */
   sendWelcomeEmail: (email: string, buyerName: string | null) => Promise<void>
   log: (row: LogRow) => Promise<void>
@@ -147,6 +151,7 @@ export async function handle(req: Request, deps: Deps): Promise<Response> {
   const eventType = pick(payload, ['event'])
   const orderStatus = pick(data, ['status'])
   const orderId = pick(data, ['id'])
+  const refId = pick(data, ['refId'])
   const emailRaw = pick(data, ['customer', 'email'])
   const email = emailRaw ? emailRaw.toLowerCase() : null
   const buyerName = pick(data, ['customer', 'name'])
@@ -194,7 +199,7 @@ export async function handle(req: Request, deps: Deps): Promise<Response> {
   try {
     if (isRevoke) {
       // Revoga o pedido e os bumps ligados a ele — vale também se o produto não estiver no mapa.
-      const count = await deps.revokeOrder(orderId)
+      const count = await deps.revokeOrder(orderId, refId)
       return done('processed', `acesso revogado (${eventType ?? orderStatus}), pedido ${orderId} (${count} produto[s])`)
     }
 
@@ -275,11 +280,15 @@ if (D) {
         .upsert({ ...row, updated_at: new Date().toISOString() }, { onConflict: 'kiwify_order_id,product_key' })
       if (error) throw error
     },
-    revokeOrder: async (orderId) => {
+    revokeOrder: async (orderId, refId) => {
+      // Só letras, números e hífen entram no filtro (ids da Cakto); o resto é descartado.
+      const ids = [orderId, refId].filter((x): x is string => !!x && /^[A-Za-z0-9-]+$/.test(x))
+      if (!ids.length) throw new Error(`id de pedido inesperado: ${orderId}`)
+      const filters = [`kiwify_order_id.eq.${ids[0]}`, ...ids.map((id) => `parent_order_id.eq.${id}`)]
       const { data, error } = await db
         .from('purchases')
         .update({ status: 'revoked', updated_at: new Date().toISOString() })
-        .or(`kiwify_order_id.eq.${orderId},parent_order_id.eq.${orderId}`)
+        .or(filters.join(','))
         .select('product_key')
       if (error) throw error
       return data?.length ?? 0

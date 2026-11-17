@@ -81,8 +81,7 @@ id-do-manual:manual,id-das-mensagens:mensagens,id-da-tabela:tabela-precos
 3. Confira:
    - os 3 produtos aparecem como `active`, e o e-mail de boas-vindas chegou;
    - depois do reembolso, os 3 ficam `revoked`.
-4. **Order bumps:** a Cakto não documenta como eles chegam.
-   - Se aparecer `produto(s) fora do CAKTO_PRODUCT_MAP` ou se faltar algum extra, veja o
-     `payload` em `webhook_logs` e ajuste `extractProducts()` na função.
-   - Se o bump chegar como pedido separado sem `parent_order`, o reembolso do principal não
-     revoga o bump sozinho. Nesse caso, ajuste a função.
+4. **Order bumps:** confirmado numa compra real (17/11/2026). Cada bump chega como um pedido
+   próprio, com `offer_type = 'orderbump'` e `parent_order` igual à referência curta (`refId`) do
+   pedido do Manual. Por isso o reembolso do Manual revoga os bumps junto. Para isso funcionar, o
+   tipo de disparo do webhook na Cakto precisa ser **Individual**.
