@@ -22,6 +22,8 @@ interface Auth {
   clearNotice: () => void
   requestLink: (email: string) => Promise<{ ok: true } | { ok: false; message: string }>
   verifyCode: (email: string, code: string) => Promise<{ ok: true } | { ok: false; message: string }>
+  /** Login principal: e-mail + a senha do e-mail de boas-vindas. O código fica como "Esqueci minha senha". */
+  signInWithPassword: (email: string, password: string) => Promise<{ ok: true } | { ok: false; message: string }>
   signOut: () => Promise<void>
 }
 
@@ -124,6 +126,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return { ok: true }
   }, [])
 
+  const signInWithPassword: Auth['signInWithPassword'] = useCallback(async (email, password) => {
+    if (!supabase) return { ok: false, message: FRIENDLY.server }
+    // As senhas geradas são sempre minúsculas; o teclado do celular costuma pôr a 1ª letra maiúscula.
+    const { error } = await supabase.auth.signInWithPassword({ email, password: password.trim().toLowerCase() })
+    if (!error) return { ok: true }
+    if (error.status === 400 || /invalid/i.test(error.message)) {
+      return { ok: false, message: 'E-mail ou senha não conferem. Confira o e-mail de boas-vindas ou toque em "Esqueci minha senha".' }
+    }
+    return { ok: false, message: 'Não conseguimos entrar agora. Confira a internet e tente de novo.' }
+  }, [])
+
   const signOut = useCallback(async () => {
     if (!supabase) return
     await supabase.auth.signOut()
@@ -139,6 +152,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         clearNotice: () => setNotice(null),
         requestLink,
         verifyCode,
+        signInWithPassword,
         signOut,
       }}
     >

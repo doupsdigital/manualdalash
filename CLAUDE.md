@@ -131,6 +131,15 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
   `product_key = 'manual'` → cria a conta (com `user_metadata.full_name` vindo do
   `buyer_name` da compra) → link mágico + código de 8 dígitos (OTP de 8 dígitos configurado
   no painel). Depois do login, `rpc('has_access')` confirma o acesso.
+- **Login principal: e-mail + senha (desde 17/11/2026, pedido da dona: o código era complicado
+  demais para um produto simples).** Na primeira aprovação do `manual`, o `cakto-webhook` gera a senha
+  com `makePassword()` = primeiro nome sem acento, minúsculo, só letras + 4 números aleatórios
+  (`bruna4827`; sem nome → `lash1234`). **Não precisa ser única** (o login é e-mail + senha). Cria a
+  conta já com ela; se a conta existir, troca a senha (acha o id por `admin.generateLink`, que não
+  manda e-mail). O e-mail de boas-vindas (`welcomeHtml()`) mostra e-mail + senha **antes** do botão.
+  `Login.tsx`: tela principal e-mail + senha (o app passa a senha para minúsculas, por causa do
+  teclado do celular); "Esqueci minha senha" → fluxo de código por e-mail (abaixo), que ficou como
+  recuperação. Contas antigas sem senha (vendas da Kiwify, contas de teste) entram pelo "Esqueci".
 - **Login aberto dentro do Gmail (ajuste de 17/11/2026):** o link do e-mail abre no navegador
   interno do Gmail, e voltar à caixa de entrada para ler o código fechava a tela. Correções: (1)
   assunto do Magic Link no Supabase = `Seu código de acesso: {{ .Token }}` (código visível na

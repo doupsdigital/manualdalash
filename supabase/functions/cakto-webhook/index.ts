@@ -131,6 +131,63 @@ export function extractProducts(data: Json): FoundProduct[] {
   return list
 }
 
+/**
+ * Senha de acesso enviada no e-mail de boas-vindas: primeiro nome (sem acento, minúsculo, só
+ * letras) + 4 números. Ex.: "Bruna Souza" → "bruna4827". Não precisa ser única: o login é
+ * e-mail + senha. Sem nome, usa "lash". O app converte o que for digitado para minúsculas.
+ */
+export function makePassword(buyerName: string | null, rand: () => number = randomDigit): string {
+  const first = (buyerName ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // tira os acentos
+    .toLowerCase()
+    .trim()
+    .split(/\s+/)[0]
+    .replace(/[^a-z]/g, '')
+    .slice(0, 12)
+  const digits = Array.from({ length: 4 }, () => rand()).join('')
+  return (first.length >= 2 ? first : 'lash') + digits
+}
+
+function randomDigit(): number {
+  const b = new Uint8Array(1)
+  // 250 = maior múltiplo de 10 abaixo de 256: sem viés para nenhum dígito
+  do crypto.getRandomValues(b)
+  while (b[0] >= 250)
+  return b[0] % 10
+}
+
+/** E-mail de boas-vindas: a senha vem ANTES do botão, para ela guardar antes de abrir o app (que
+ * pode abrir dentro do Gmail e esconder o e-mail). */
+export function welcomeHtml(email: string, password: string): string {
+  return `<div style="background:#FBE8EE;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;color:#2A1E27">
+  <div style="max-width:440px;margin:0 auto;background:#ffffff;border-radius:24px;padding:28px 24px;text-align:center">
+    <div style="font-size:20px;font-weight:900;margin-bottom:18px;color:#5B2A4E">Manual da Lash Designer</div>
+    <div style="font-size:24px;font-weight:900;line-height:1.2;margin-bottom:10px">Sua compra foi aprovada 🎉</div>
+    <div style="font-size:16px;line-height:1.5;color:#5E5468;margin-bottom:20px">
+      Você já tem acesso completo ao manual, direto do seu celular. Para entrar, use estes dados:
+    </div>
+    <div style="background:#FBE8EE;border-radius:18px;padding:16px 14px;margin-bottom:22px;text-align:left">
+      <div style="font-size:13px;color:#5E5468">E-mail</div>
+      <div style="font-size:16px;font-weight:800;color:#2A1E27;word-break:break-all;margin-bottom:12px">${email}</div>
+      <div style="font-size:13px;color:#5E5468">Senha</div>
+      <div style="font-size:26px;font-weight:900;letter-spacing:1px;color:#A3335A">${password}</div>
+    </div>
+    <div style="font-size:14px;line-height:1.5;color:#5E5468;margin-bottom:20px">Anote a senha ou tire um print desta tela antes de abrir o app.</div>
+    <a href="${ENTRAR_URL}" style="display:inline-block;background:#E07A9B;color:#ffffff;text-decoration:none;font-weight:800;font-size:17px;padding:16px 32px;border-radius:999px">Abrir o Manual</a>
+    <div style="font-size:14px;line-height:1.55;color:#5E5468;margin:22px 0 8px">
+      Se o botão abrir dentro do Gmail, toque nos 3 pontinhos (⋮) e escolha <b>Abrir no Chrome</b>
+      (no iPhone, <b>Abrir no Safari</b>). Ou copie este link e cole no navegador:
+    </div>
+    <a href="${ENTRAR_URL}" style="display:block;background:#FBE8EE;border-radius:14px;padding:12px 10px;color:#A3335A;font-weight:800;font-size:16px;text-decoration:none;word-break:break-all">manualdalash.com.br/entrar</a>
+    <div style="font-size:14px;line-height:1.6;color:#5E5468;margin:24px 0 0">
+      Esqueceu a senha? Na tela de entrar, toque em <b>Esqueci minha senha</b> e enviamos um código para o seu e-mail.
+    </div>
+    <div style="font-size:12px;color:#8A7F92;margin-top:24px">Dúvidas? Responda este e-mail.</div>
+  </div>
+</div>`
+}
+
 const respond = (status: number, body: Record<string, unknown>) =>
   new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } })
 
@@ -296,46 +353,34 @@ if (D) {
       return data?.length ?? 0
     },
     sendWelcomeEmail: async (email: string, buyerName: string | null) => {
-      // Cria a conta se ainda não existir (igual ao request-login, sem mandar nenhum e-mail
-      // de login — isso só acontece quando ela mesma pedir, em /entrar).
+      // Cria a conta já com a senha gerada. Se a conta já existir (comprou antes, ou entrou pelo
+      // código), troca a senha pela nova — o e-mail de boas-vindas sempre traz a senha que vale.
+      const password = makePassword(buyerName)
       const { error: cErr } = await db.auth.admin.createUser({
         email,
+        password,
         email_confirm: true,
         user_metadata: buyerName ? { full_name: buyerName } : undefined,
       })
-      if (cErr && cErr.code !== 'email_exists' && !/already/i.test(cErr.message)) throw cErr
+      if (cErr) {
+        if (cErr.code !== 'email_exists' && !/already/i.test(cErr.message)) throw cErr
+        // generateLink devolve o usuário pelo e-mail sem mandar nenhum e-mail.
+        const { data: link, error: lErr } = await db.auth.admin.generateLink({ type: 'magiclink', email })
+        if (lErr || !link?.user) throw lErr ?? new Error('usuário não encontrado para trocar a senha')
+        const { error: uErr } = await db.auth.admin.updateUserById(link.user.id, { password })
+        if (uErr) throw uErr
+      }
 
       const apiKey = env('RESEND_API_KEY')
       if (!apiKey) throw new Error('RESEND_API_KEY não configurado')
-      const html = `<div style="background:#FBE8EE;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;color:#2A1E27">
-  <div style="max-width:440px;margin:0 auto;background:#ffffff;border-radius:24px;padding:28px 24px;text-align:center">
-    <div style="font-size:20px;font-weight:900;margin-bottom:18px;color:#5B2A4E">Manual da Lash Designer</div>
-    <div style="font-size:24px;font-weight:900;line-height:1.2;margin-bottom:10px">Sua compra foi aprovada 🎉</div>
-    <div style="font-size:16px;line-height:1.5;color:#5E5468;margin-bottom:24px">
-      A partir de agora você tem acesso completo ao manual, direto do seu celular. Toque no
-      botão abaixo e guarde este link — é por ele que você sempre vai entrar.
-    </div>
-    <a href="${ENTRAR_URL}" style="display:inline-block;background:#E07A9B;color:#ffffff;text-decoration:none;font-weight:800;font-size:17px;padding:16px 32px;border-radius:999px">Abrir o Manual</a>
-    <div style="font-size:14px;line-height:1.55;color:#5E5468;margin:22px 0 8px">
-      Se o botão abrir dentro do Gmail, toque nos 3 pontinhos (⋮) e escolha <b>Abrir no Chrome</b>
-      (no iPhone, <b>Abrir no Safari</b>). Ou copie este link e cole no navegador:
-    </div>
-    <a href="${ENTRAR_URL}" style="display:block;background:#FBE8EE;border-radius:14px;padding:12px 10px;color:#A3335A;font-weight:800;font-size:16px;text-decoration:none;word-break:break-all">manualdalash.com.br/entrar</a>
-    <div style="font-size:14px;line-height:1.6;color:#5E5468;margin:24px 0 0">
-      Para entrar, digite o e-mail da sua compra (<b>${email}</b>). A gente manda um código na
-      hora, sem senha para decorar. O código também aparece no assunto do e-mail.
-    </div>
-    <div style="font-size:12px;color:#8A7F92;margin-top:24px">Dúvidas? Responda este e-mail.</div>
-  </div>
-</div>`
       const res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           from: 'Manual da Lash Designer <acesso@manualdalash.com.br>',
           to: [email],
-          subject: 'Sua compra foi aprovada 🎉',
-          html,
+          subject: 'Sua compra foi aprovada 🎉 Sua senha de acesso está aqui',
+          html: welcomeHtml(email, password),
         }),
       })
       if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`)

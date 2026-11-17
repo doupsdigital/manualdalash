@@ -3,7 +3,9 @@ import { Screen, PrimaryButton } from '../components/ui'
 import { useAuth } from '../state/auth'
 import { SUPPORT_EMAIL } from '../lib/config'
 
-type Step = 'email' | 'code'
+// password: tela principal (e-mail + senha do e-mail de boas-vindas).
+// email → code: "Esqueci minha senha", entra com um código por e-mail.
+type Step = 'password' | 'email' | 'code'
 
 // Lembra que o código já foi pedido (e para qual e-mail) por 1 hora, o mesmo prazo do código.
 // Assim, quem abre o app pelo Gmail, volta para a caixa de entrada para ler o código e depois abre
@@ -33,10 +35,12 @@ function savePending(email: string | null) {
 }
 
 export default function Login() {
-  const { requestLink, verifyCode, notice, clearNotice } = useAuth()
+  const { requestLink, verifyCode, signInWithPassword, notice, clearNotice } = useAuth()
   const [pendingEmail] = useState(readPending)
-  const [step, setStep] = useState<Step>(pendingEmail ? 'code' : 'email')
+  const [step, setStep] = useState<Step>(pendingEmail ? 'code' : 'password')
   const [email, setEmail] = useState(pendingEmail ?? '')
+  const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [resent, setResent] = useState(false)
   const [code, setCode] = useState('')
   const [sending, setSending] = useState(false)
@@ -55,6 +59,24 @@ export default function Login() {
     } else {
       setError(result.message)
     }
+  }
+
+  const enterWithPassword = async () => {
+    if (!email.trim() || !password.trim()) return
+    setError(null)
+    clearNotice()
+    setSending(true)
+    const result = await signInWithPassword(email.trim().toLowerCase(), password)
+    setSending(false)
+    if (!result.ok) setError(result.message)
+  }
+
+  const goTo = (next: Step) => {
+    savePending(null)
+    setStep(next)
+    setCode('')
+    setError(null)
+    setResent(false)
   }
 
   const enter = async () => {
@@ -101,10 +123,73 @@ export default function Login() {
         Manual da <span className="text-rose">Lash Designer</span>
       </div>
 
-      {step === 'email' ? (
+      {step === 'password' ? (
+        <form
+          className="flex flex-col"
+          onSubmit={(e) => {
+            e.preventDefault()
+            enterWithPassword()
+          }}
+        >
+          <div className="mt-3 text-[16px] leading-snug text-white/85">
+            Entre com o e-mail da compra e a senha que enviamos no e-mail de boas-vindas.
+          </div>
+          <label htmlFor="login-email" className="mt-9 text-[13px] font-semibold tracking-wide text-white/60 uppercase">
+            Seu e-mail
+          </label>
+          <input
+            id="login-email"
+            type="email"
+            autoComplete="email"
+            autoCapitalize="none"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="voce@email.com"
+            className="mt-2 h-14 rounded-[18px] border border-white/20 bg-white/[0.08] px-[18px] text-[17px] font-medium text-white outline-none"
+          />
+          <label htmlFor="login-senha" className="mt-5 text-[13px] font-semibold tracking-wide text-white/60 uppercase">
+            Senha
+          </label>
+          <div className="relative mt-2">
+            <input
+              id="login-senha"
+              type={showPassword ? 'text' : 'password'}
+              autoComplete="current-password"
+              autoCapitalize="none"
+              autoCorrect="off"
+              spellCheck={false}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="ex.: bruna4827"
+              className="h-14 w-full rounded-[18px] border border-white/20 bg-white/[0.08] pr-[84px] pl-[18px] text-[17px] font-medium text-white outline-none"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((v) => !v)}
+              className="absolute top-1/2 right-2 h-10 -translate-y-1/2 rounded-full px-3 text-[13px] font-semibold text-white/70"
+            >
+              {showPassword ? 'Ocultar' : 'Mostrar'}
+            </button>
+          </div>
+          {error && (
+            <div className="mt-3 text-[14px] leading-snug text-rose">
+              {error}{' '}
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="underline">
+                Falar com o suporte
+              </a>
+            </div>
+          )}
+          <PrimaryButton type="submit" disabled={sending || !email.trim() || !password.trim()} className="mt-6">
+            {sending ? 'Entrando…' : 'Entrar'}
+          </PrimaryButton>
+          <button type="button" onClick={() => goTo('email')} className="mt-2 h-11 text-[14px] font-semibold text-white/70">
+            Esqueci minha senha
+          </button>
+        </form>
+      ) : step === 'email' ? (
         <>
           <div className="mt-3 text-[16px] leading-snug text-white/85">
-            Digite seu e-mail da compra. Enviaremos um código para você entrar.
+            Esqueceu a senha? Digite o e-mail da compra e enviamos um código para você entrar.
           </div>
           <label className="mt-9 text-[13px] font-semibold tracking-wide text-white/60 uppercase">Seu e-mail</label>
           <input
@@ -125,6 +210,9 @@ export default function Login() {
           <PrimaryButton onClick={sendCode} disabled={sending || !email.trim()} className="mt-5">
             {sending ? 'Enviando…' : 'Receber código'}
           </PrimaryButton>
+          <button type="button" onClick={() => goTo('password')} className="mt-2 h-11 text-[13px] text-white/60">
+            Voltar e entrar com a senha
+          </button>
         </>
       ) : (
         <>
@@ -174,17 +262,8 @@ export default function Login() {
             <button onClick={resend} disabled={sending} className="h-11 text-[13px] text-white/60">
               Reenviar código
             </button>
-            <button
-              onClick={() => {
-                savePending(null)
-                setStep('email')
-                setCode('')
-                setError(null)
-                setResent(false)
-              }}
-              className="h-11 text-[13px] text-white/60"
-            >
-              Usar outro e-mail
+            <button onClick={() => goTo('password')} className="h-11 text-[13px] text-white/60">
+              Entrar com a senha
             </button>
           </div>
         </>
