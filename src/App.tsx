@@ -58,6 +58,9 @@ function AppRoutes() {
         }
       />
       <Route path="/para-voce" element={<ForYou />} />
+      {/* /entrar é o link do e-mail de boas-vindas: depois do login, vai para o início. Qualquer
+          outra rota desconhecida também (sem isso a tela ficava vazia). */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
 }

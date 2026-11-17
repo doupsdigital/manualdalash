@@ -5,10 +5,39 @@ import { SUPPORT_EMAIL } from '../lib/config'
 
 type Step = 'email' | 'code'
 
+// Lembra que o código já foi pedido (e para qual e-mail) por 1 hora, o mesmo prazo do código.
+// Assim, quem abre o app pelo Gmail, volta para a caixa de entrada para ler o código e depois abre
+// o link de novo cai direto na tela do código, sem digitar o e-mail nem pedir outro código.
+const PENDING_KEY = 'manual-lash:login-pending:v1'
+const PENDING_MS = 60 * 60 * 1000
+
+function readPending(): string | null {
+  try {
+    const raw = localStorage.getItem(PENDING_KEY)
+    if (!raw) return null
+    const p = JSON.parse(raw) as { email?: string; at?: number }
+    if (!p.email || !p.at || Date.now() - p.at > PENDING_MS) return null
+    return p.email
+  } catch {
+    return null
+  }
+}
+
+function savePending(email: string | null) {
+  try {
+    if (email) localStorage.setItem(PENDING_KEY, JSON.stringify({ email, at: Date.now() }))
+    else localStorage.removeItem(PENDING_KEY)
+  } catch {
+    // Sem localStorage (modo privado etc.): só não lembra.
+  }
+}
+
 export default function Login() {
   const { requestLink, verifyCode, notice, clearNotice } = useAuth()
-  const [step, setStep] = useState<Step>('email')
-  const [email, setEmail] = useState('')
+  const [pendingEmail] = useState(readPending)
+  const [step, setStep] = useState<Step>(pendingEmail ? 'code' : 'email')
+  const [email, setEmail] = useState(pendingEmail ?? '')
+  const [resent, setResent] = useState(false)
   const [code, setCode] = useState('')
   const [sending, setSending] = useState(false)
   const [error, setError] = useState<string | null>(notice)
@@ -17,9 +46,11 @@ export default function Login() {
     setError(null)
     clearNotice()
     setSending(true)
-    const result = await requestLink(email.trim().toLowerCase())
+    const clean = email.trim().toLowerCase()
+    const result = await requestLink(clean)
     setSending(false)
     if (result.ok) {
+      savePending(clean)
       setStep('code')
     } else {
       setError(result.message)
@@ -32,7 +63,22 @@ export default function Login() {
     setSending(true)
     const result = await verifyCode(email.trim().toLowerCase(), code)
     setSending(false)
-    if (!result.ok) setError(result.message)
+    if (result.ok) savePending(null)
+    else setError(result.message)
+  }
+
+  const resend = async () => {
+    setError(null)
+    setSending(true)
+    const result = await requestLink(email.trim().toLowerCase())
+    setSending(false)
+    if (result.ok) {
+      savePending(email.trim().toLowerCase())
+      setCode('')
+      setResent(true)
+    } else {
+      setError(result.message)
+    }
   }
 
   const boxes = Array.from({ length: 8 }, (_, i) => ({
@@ -85,6 +131,11 @@ export default function Login() {
           <div className="mt-3 text-[16px] leading-snug text-white/85">
             Enviamos um código de 8 dígitos para <b className="text-white">{email}</b>.
           </div>
+          <div className="mt-3 rounded-[16px] bg-white/[0.08] px-4 py-3 text-[14px] leading-snug text-white/80">
+            O código aparece no <b className="text-white">assunto do e-mail</b>. Se preferir, abra o e-mail e toque em{' '}
+            <b className="text-white">Entrar no Manual</b> para entrar direto.
+            {resent && <span className="mt-1.5 block font-semibold text-gold">Enviamos um código novo.</span>}
+          </div>
           <label className="mt-9 text-[13px] font-semibold tracking-wide text-white/60 uppercase">Código</label>
           <div className="relative mt-2.5">
             <div className="grid grid-cols-8 gap-1.5">
@@ -119,16 +170,23 @@ export default function Login() {
           <PrimaryButton onClick={enter} disabled={sending || code.length < 8} className="mt-6">
             {sending ? 'Entrando…' : 'Entrar'}
           </PrimaryButton>
-          <button
-            onClick={() => {
-              setStep('email')
-              setCode('')
-              setError(null)
-            }}
-            className="mt-2 h-11 text-[13px] text-white/60"
-          >
-            Usar outro e-mail
-          </button>
+          <div className="mt-2 flex justify-center gap-5">
+            <button onClick={resend} disabled={sending} className="h-11 text-[13px] text-white/60">
+              Reenviar código
+            </button>
+            <button
+              onClick={() => {
+                savePending(null)
+                setStep('email')
+                setCode('')
+                setError(null)
+                setResent(false)
+              }}
+              className="h-11 text-[13px] text-white/60"
+            >
+              Usar outro e-mail
+            </button>
+          </div>
         </>
       )}
     </Screen>

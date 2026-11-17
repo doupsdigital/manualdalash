@@ -131,6 +131,13 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
   `product_key = 'manual'` → cria a conta (com `user_metadata.full_name` vindo do
   `buyer_name` da compra) → link mágico + código de 8 dígitos (OTP de 8 dígitos configurado
   no painel). Depois do login, `rpc('has_access')` confirma o acesso.
+- **Login aberto dentro do Gmail (ajuste de 17/11/2026):** o link do e-mail abre no navegador
+  interno do Gmail, e voltar à caixa de entrada para ler o código fechava a tela. Correções: (1)
+  assunto do Magic Link no Supabase = `Seu código de acesso: {{ .Token }}` (código visível na
+  notificação/lista); (2) `Login.tsx` lembra por 1h que o código foi pedido e para qual e-mail
+  (`manual-lash:login-pending:v1`) e reabre direto na tela do código, com "Reenviar código";
+  (3) e-mail de boas-vindas (no `cakto-webhook`) com dica "Abrir no Chrome/Safari" e o link visível
+  `manualdalash.com.br/entrar`. Rota `*` → `/` no `App.tsx` (antes, /entrar ficava em branco após o login).
 - **Tabelas** (`supabase/migrations/`): `purchases` (email, kiwify_order_id, product_key,
   status, buyer_name — único em `kiwify_order_id, product_key`, só o service role acessa),
   `profiles`, `progress`, `webhook_logs`. RLS em tudo, gated por `has_access()`.

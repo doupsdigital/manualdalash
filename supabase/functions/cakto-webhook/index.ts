@@ -27,6 +27,8 @@
 //   RESEND_API_KEY            chave de API do Resend, para o e-mail de boas-vindas
 
 const APP_URL = 'https://manualdalash.com.br/'
+/** Link do e-mail de boas-vindas (botão e link visível para copiar e abrir no navegador). */
+const ENTRAR_URL = APP_URL + 'entrar'
 
 export interface PurchaseRow {
   email: string
@@ -313,10 +315,15 @@ if (D) {
       A partir de agora você tem acesso completo ao manual, direto do seu celular. Toque no
       botão abaixo e guarde este link — é por ele que você sempre vai entrar.
     </div>
-    <a href="${APP_URL}" style="display:inline-block;background:#E07A9B;color:#ffffff;text-decoration:none;font-weight:800;font-size:17px;padding:16px 32px;border-radius:999px">Abrir o Manual</a>
-    <div style="font-size:14px;line-height:1.6;color:#5E5468;margin:28px 0 0">
-      Sempre que quiser entrar, abra esse link e digite o e-mail da sua compra
-      (<b>${email}</b>) — a gente manda um código na hora, sem senha para decorar.
+    <a href="${ENTRAR_URL}" style="display:inline-block;background:#E07A9B;color:#ffffff;text-decoration:none;font-weight:800;font-size:17px;padding:16px 32px;border-radius:999px">Abrir o Manual</a>
+    <div style="font-size:14px;line-height:1.55;color:#5E5468;margin:22px 0 8px">
+      Se o botão abrir dentro do Gmail, toque nos 3 pontinhos (⋮) e escolha <b>Abrir no Chrome</b>
+      (no iPhone, <b>Abrir no Safari</b>). Ou copie este link e cole no navegador:
+    </div>
+    <a href="${ENTRAR_URL}" style="display:block;background:#FBE8EE;border-radius:14px;padding:12px 10px;color:#A3335A;font-weight:800;font-size:16px;text-decoration:none;word-break:break-all">manualdalash.com.br/entrar</a>
+    <div style="font-size:14px;line-height:1.6;color:#5E5468;margin:24px 0 0">
+      Para entrar, digite o e-mail da sua compra (<b>${email}</b>). A gente manda um código na
+      hora, sem senha para decorar. O código também aparece no assunto do e-mail.
     </div>
     <div style="font-size:12px;color:#8A7F92;margin-top:24px">Dúvidas? Responda este e-mail.</div>
   </div>

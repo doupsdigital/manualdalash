@@ -2,10 +2,16 @@
   <div style="max-width:440px;margin:0 auto;background:#ffffff;border-radius:24px;padding:28px 24px;text-align:center">
     <div style="font-size:20px;font-weight:900;margin-bottom:18px;color:#5B2A4E">Manual da Lash Designer</div>
     <div style="font-size:24px;font-weight:900;line-height:1.2;margin-bottom:10px">Seu acesso chegou ✨</div>
-    <div style="font-size:16px;line-height:1.5;color:#5E5468;margin-bottom:24px">Toque no botão abaixo para entrar no app.</div>
+    <div style="font-size:16px;line-height:1.5;color:#5E5468;margin-bottom:24px">Toque no botão abaixo para entrar direto no app.</div>
     <a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#E07A9B;color:#ffffff;text-decoration:none;font-weight:800;font-size:17px;padding:16px 32px;border-radius:999px">Entrar no Manual</a>
-    <div style="font-size:14px;line-height:1.5;color:#5E5468;margin:28px 0 8px">Está usando o app instalado na tela inicial? Digite este código no app:</div>
+    <div style="font-size:14px;line-height:1.5;color:#5E5468;margin:28px 0 8px">Ou digite este código na tela do app:</div>
     <div style="font-size:30px;font-weight:900;letter-spacing:6px;color:#A3335A">{{ .Token }}</div>
     <div style="font-size:12px;color:#8A7F92;margin-top:24px">O link e o código valem por 1 hora. Se você não pediu este acesso, ignore este e-mail.</div>
   </div>
 </div>
+<!--
+  Assunto (Supabase → Authentication → Emails → Magic Link → Subject heading):
+    Seu código de acesso: {{ .Token }}
+  Com o código no assunto, ele aparece na notificação do celular e na lista da caixa de entrada,
+  sem precisar abrir o e-mail (quem abre o app dentro do Gmail perdia a tela ao voltar para ler o código).
+-->
