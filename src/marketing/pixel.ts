@@ -1,7 +1,7 @@
 // Pixel da Meta — só é importado pelas páginas de marketing (/lp, /termos, /privacidade), nunca
 // pelo app. Com META_PIXEL_ID vazio, nada é carregado e os eventos não fazem nada.
 // Eventos: PageView (ao carregar), ViewContent (1x, quando a oferta aparece na tela) e AddToCart
-// (ao clicar em comprar). InitiateCheckout e Purchase ficam com a Kiwify, no checkout.
+// (ao clicar em comprar). InitiateCheckout e Purchase ficam com a Cakto, no checkout.
 import { META_PIXEL_ID, PRODUCT_PRICE } from '../lib/config'
 
 declare global {

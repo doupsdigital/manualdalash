@@ -4,7 +4,7 @@ import { LEGAL_OWNER, LegalLayout } from './LegalLayout'
 export function Terms() {
   return (
     <LegalLayout title="Termos de Uso">
-      <p className="text-[14px] text-white/60">Última atualização: 13 de novembro de 2026</p>
+      <p className="text-[14px] text-white/60">Última atualização: 17 de novembro de 2026</p>
 
       <p>
         Estes termos explicam as regras de compra, acesso e uso do <b>{LEGAL_OWNER}</b>. Ao comprar ou usar o app, você
@@ -20,7 +20,7 @@ export function Terms() {
 
       <h2>2. Compra e acesso</h2>
       <ul>
-        <li>A compra é feita pela Kiwify, por pagamento único, sem mensalidade.</li>
+        <li>A compra é feita pela Cakto, por pagamento único, sem mensalidade.</li>
         <li>
           O acesso é liberado automaticamente para o <b>e-mail usado na compra</b>. Para entrar, você recebe um link ou
           código nesse e-mail.
@@ -44,7 +44,7 @@ export function Terms() {
       <h2>4. Garantia e reembolso</h2>
       <p>
         Você tem <b>7 dias</b> a partir da compra para pedir o reembolso, sem precisar explicar o motivo, como garante o
-        Código de Defesa do Consumidor. O pedido é feito pela Kiwify ou pelo e-mail{' '}
+        Código de Defesa do Consumidor. O pedido é feito pela Cakto ou pelo e-mail{' '}
         <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>. Depois do reembolso, ou em caso de estorno no cartão, o
         acesso ao produto reembolsado é encerrado automaticamente.
       </p>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
-import { KIWIFY_CHECKOUT_URL, SUPPORT_EMAIL } from '../lib/config'
+import { CHECKOUT_URL, SUPPORT_EMAIL } from '../lib/config'
 import { withForwardedParams } from '../lib/checkoutUrl'
 import { trackAddToCart, trackViewContentOnceVisible } from './pixel'
 import { track, trackBeforeLeave } from '../lib/analytics'
@@ -122,7 +122,7 @@ function BuyButton({
   /** Qual botão foi clicado, no PostHog: topo, oferta, final ou barra. */
   position: 'topo' | 'oferta' | 'final' | 'barra'
 }) {
-  const url = withForwardedParams(KIWIFY_CHECKOUT_URL)
+  const url = withForwardedParams(CHECKOUT_URL)
   const ownRef = useRef<HTMLAnchorElement>(null)
   const ref = btnRef ?? ownRef
   const [onScreen, setOnScreen] = useState(false)

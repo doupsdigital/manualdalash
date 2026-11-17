@@ -11,8 +11,9 @@ continuar o trabalho em qualquer computador.
   lições curtas (2 a 4 min cada), 2 bônus (Checklist do Atendimento, Guia Visual de Fios e
   Curvaturas) e 2 extras avulsos (Mensagens que Fecham Horário, Tabela de Preços da Lash).
   Princípio do projeto: simples, bonito, elegante e funcional — é uma apostila, não um SaaS.
-- **Como é vendido:** Kiwify, produto **"Manual da Lash Designer"**, pagamento único de
-  **R$ 27,00**. Dois order bumps avulsos, R$ 12,90 cada: **Mensagens que Fecham Horário** e
+- **Como é vendido:** **Cakto** (desde 17/11/2026; antes era a Kiwify — seção 6), produto **"Manual da
+  Lash Designer"**, pagamento único de **R$ 27,00** (+ taxa de serviço da Cakto de R$ 0,99 no checkout,
+  mantida de propósito: total R$ 27,99; os textos seguem dizendo R$ 27). Dois order bumps avulsos, R$ 12,90 cada: **Mensagens que Fecham Horário** e
   **Tabela de Preços da Lash** — vinculados ao checkout do produto principal, mas também
   compráveis depois, pelo botão "Desbloquear" dentro do app.
 - **Situação:** **no ar em produção** em https://manualdalash.com.br — GitHub, Supabase,
@@ -78,11 +79,12 @@ src/
   lib/                    supabase.ts, config.ts (links externos, preços, vitrine),
                           search.ts, clipboard.ts, onboarding.ts, artPalettes.ts, exportBoard.ts,
                           analytics.ts + consent.ts (PostHog, seção 12)
-supabase/                 migrations/ (aplicadas), functions/ (request-login e
-                          kiwify-webhook, publicadas), templates/ (link-magico.html,
+supabase/                 migrations/, functions/ (request-login, cakto-webhook e
+                          kiwify-webhook — este só para vendas antigas), templates/ (link-magico.html,
                           boas-vindas.html)
 scripts/                  gerar-icones.mjs, icon-master.svg, icon-master-maskable.svg
-docs/                     configurar-supabase.md, configurar-kiwify.md, configurar-vercel.md
+docs/                     configurar-supabase.md, configurar-cakto.md, configurar-kiwify.md (legado),
+                          configurar-vercel.md
 vercel.json               /ingest → PostHog US (seção 12) e rewrite de SPA (toda rota cai no index.html — sem isso, abrir uma
                           rota direto pela URL, como /entrar vindo da Kiwify, dava 404)
 ```
@@ -143,7 +145,40 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
     app (não expira, ao contrário do link mágico) + explicação de como entrar depois.
   - SMTP customizado no Supabase (Auth → SMTP Settings) com a mesma chave do Resend.
 
-## 6. Kiwify → webhook
+## 6. Cakto → webhook (checkout atual)
+
+- **Por que mudou (17/11/2026):** a Kiwify não deixava o Pix como padrão (abria no cartão, "6x de
+  5,07"), não mostrava valor cheio nos bumps e mostrava o nome pessoal da dona no rodapé. Primeiro
+  dia de anúncio: 24 cliques, 5 InitiateCheckout, 0 compras.
+- **Passo a passo completo:** `docs/configurar-cakto.md`.
+- **Função:** `supabase/functions/cakto-webhook/index.ts` (colada no painel do Supabase, JWT
+  desligado). Recebe `{ secret, event, data }`; confere o `secret` do corpo (a Cakto não tem HMAC)
+  em tempo constante; `purchase_approved` libera, `refund`/`chargeback` revogam o pedido **e os
+  bumps ligados a ele** (`parent_order_id`). Outros eventos (`pix_gerado`, `purchase_refused`...)
+  só vão para o log. O `secret` é tirado do payload antes de gravar em `webhook_logs`.
+- **A Cakto não reenvia em caso de erro** (qualquer resposta conta como entregue): a função
+  responde 200 sempre (exceto secret errado, 401) e tudo fica em `webhook_logs` com `source = 'cakto'`.
+- **Banco:** migration `20261117000000_cakto.sql` → `purchases.provider` ('kiwify' | 'cakto') e
+  `purchases.parent_order_id`. A coluna `kiwify_order_id` **mantém o nome** por histórico e guarda o
+  código do pedido de qualquer plataforma (na Cakto, `data.id`, UUID).
+- **Secrets:** `CAKTO_WEBHOOK_SECRET` (+ `CAKTO_WEBHOOK_SECRET_OLD` opcional numa troca),
+  `CAKTO_PRODUCT_MAP` (`id:product_key,...`, aceita o UUID ou o `short_id` do produto),
+  `RESEND_API_KEY`.
+- **⚠️ Order bumps:** a Cakto não documenta o formato. A função aceita bump como pedido próprio
+  (`offer_type` ≠ `main` + `parent_order`) **ou** numa lista dentro do pedido (`orderbumps`,
+  `order_bumps`, `bumps`, `products`, `items`). Confirmar no `webhook_logs` na primeira venda real
+  com bump e ajustar `extractProducts()` se precisar.
+- **Produtos na Cakto** (ids em `CAKTO_PRODUCT_MAP`):
+  - Manual da Lash Designer: `38474868-f034-438b-8fb8-c8f3c7a1999b` → `manual` (checkout `https://pay.cakto.com.br/3e3cmco_1335254`)
+  - Mensagens que Fecham Horário: `594634ed-7481-40cd-94df-29c40a9efabb` → `mensagens` (`https://pay.cakto.com.br/u8vpr5i_1335395`)
+  - Tabela de Preços da Lash: `f76447c0-7ee1-485b-bf60-76110ea74727` → `tabela-precos` (`https://pay.cakto.com.br/39k9qvx_1335399`)
+- **Checkouts:** `CHECKOUT_URL` (manual, usado pela /lp) e `EXTRAS_CHECKOUT_URLS` (botão
+  "Desbloquear") em `src/lib/config.ts`.
+
+## 6b. Kiwify (legado)
+
+O `kiwify-webhook` continua publicado só para reembolsos de vendas feitas antes da troca. Vendas
+desativadas na Kiwify depois da migração.
 
 - **Produtos** (ids em `KIWIFY_PRODUCT_MAP`, no Supabase):
   - Manual da Lash Designer: `b1f380b0-df4c-11f1-a60d-abb9b485ba7d` → `manual`
@@ -196,8 +231,9 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
 1. Testar uma compra real com os order bumps marcados juntos (seção 6) — ou simplesmente
    aguardar a primeira venda de verdade com bump e conferir o `webhook_logs` nesse momento.
 2. Revisão final de conteúdo/preços antes de abrir para tráfego pago, se for o caso.
-3. **/lp:** preencher `META_PIXEL_ID` quando tiver o pixel; na Kiwify, apontar a página de vendas
-   do produto para `https://manualdalash.com.br/lp`.
+3. **Migração para a Cakto** (seção 6, `docs/configurar-cakto.md`): criar os 2 extras e os bumps,
+   webhook + secrets + migration no Supabase, pixel na Cakto, links de checkout em `config.ts`,
+   compra real com bumps + reembolso para conferir, e desativar as vendas na Kiwify.
 
 ## 10. Página de vendas (/lp), termos e privacidade
 
@@ -227,14 +263,14 @@ as rotas do app — sem login, mas com os extras sempre bloqueados.
   pagamento único; responsável: "Manual da Lash Designer - Um produto Doup - Soluções Digitais";
   `noindex`), `pixel.ts`, `CookieNotice.tsx`, `MarketingLayout.tsx`, `LashMark.tsx` (o cílio
   dourado do ícone).
-- **Checkout:** `KIWIFY_CHECKOUT_URL` em `src/lib/config.ts` (`https://pay.kiwify.com.br/Ug94J6b`),
+- **Checkout:** `CHECKOUT_URL` em `src/lib/config.ts` (link da Cakto),
   com a query string da página (UTMs, fbclid) colada no final (`src/lib/checkoutUrl.ts`).
 - **Pixel da Meta:** `META_PIXEL_ID` em `config.ts`, **vazio por enquanto** — vazio, nada é
   carregado e o aviso de cookies nem aparece (não há cookie de anúncio). Eventos: `PageView`;
   `ViewContent` uma vez quando a seção `#oferta` aparece; `AddToCart` (value 27, BRL) no clique
   de qualquer botão de compra, com no máximo 250ms antes de ir ao checkout. `InitiateCheckout`
-  e `Purchase` ficam com a Kiwify. Ao preencher o ID: cadastrar o mesmo pixel no produto na
-  Kiwify com "Disparar Purchase ao gerar Pix" **desligado** (mesma regra do LashBox).
+  e `Purchase` ficam com a Cakto (pixel cadastrado no produto, Purchase só no pagamento aprovado,
+  nunca ao gerar o Pix — mesma regra do LashBox).
 - **Lista dos 11 módulos:** título dourado "Tudo o que tem dentro do manual" (mesmo estilo do "Não é
   um PDF") e cards com miniatura da capa (`public/lp/modulos/`, 144×144, ~3 KB cada,
   gerados por `npm run lp-imagens` a partir de `public/modulos/`), número em Bodoni dourado, título e,
@@ -294,10 +330,10 @@ modo real, o que mostrar à dona e regras de decisão). Resumo:
 - **`marketing/campanha-manual/resultado.json`:** IDs criados pelo script; no `.gitignore`.
 - **Pendente antes do modo real:** pixel novo "Manual da Lash" (ID em `campanha.json` → `pixel.id`
   e em `META_PIXEL_ID` no `src/lib/config.ts`), domínio verificado no Business Manager e pixel
-  cadastrado na Kiwify com "Disparar Purchase ao gerar Pix" desligado.
+  cadastrado na Cakto com Purchase só no pagamento aprovado (não ao gerar o Pix).
 - **Fora do build e do deploy:** `marketing/` não está em `public/` nem é importada pelo app, e o
   `.vercelignore` tem `/marketing/` (com a barra no início, para não excluir `src/marketing/`).
-- **Preço:** os textos citam **R$ 27**. Se o preço mudar na Kiwify, atualizar junto: `campanha.json`
+- **Preço:** os textos citam **R$ 27**. Se o preço mudar na Cakto, atualizar junto: `campanha.json`
   e os criativos, `PRODUCT_PRICE` em `src/lib/config.ts` (Pixel), os textos da /lp
   (`src/marketing/LandingPage.tsx`: oferta, FAQ, barra fixa) e a meta description do `index.html`.
 

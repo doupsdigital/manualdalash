@@ -1,8 +1,8 @@
 // Links externos editáveis sem precisar tocar nas telas.
 export const SUPPORT_EMAIL = 'suporte@manualdalash.com.br'
 
-/** Checkout do produto principal (Manual da Lash Designer), usado pela página de vendas /lp. */
-export const KIWIFY_CHECKOUT_URL = 'https://pay.kiwify.com.br/Ug94J6b'
+/** Checkout do produto principal (Manual da Lash Designer, na Cakto), usado pela página de vendas /lp. */
+export const CHECKOUT_URL = 'https://pay.cakto.com.br/3e3cmco_1335254'
 
 /** Preço do manual, usado no evento AddToCart do Pixel. */
 export const PRODUCT_PRICE = 27
@@ -10,10 +10,10 @@ export const PRODUCT_PRICE = 27
 /** Pixel da Meta da /lp. Vazio = o pixel não é carregado. */
 export const META_PIXEL_ID = '1015955554886103'
 
-/** Link de checkout de cada extra (order bump). Vazio até serem cadastrados na Kiwify. */
+/** Link de checkout de cada extra (order bump, na Cakto) — botão "Desbloquear" do app. Vazio = sem botão. */
 export const EXTRAS_CHECKOUT_URLS: Record<'mensagens' | 'tabela-precos', string> = {
-  mensagens: 'https://pay.kiwify.com.br/VfTSLBk',
-  'tabela-precos': 'https://pay.kiwify.com.br/MOXPj2G',
+  mensagens: 'https://pay.cakto.com.br/u8vpr5i_1335395',
+  'tabela-precos': 'https://pay.cakto.com.br/39k9qvx_1335399',
 }
 
 /** Preço mostrado no botão "Desbloquear" de cada extra. */

@@ -5,7 +5,7 @@ export function Privacy() {
   const mail = <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>
   return (
     <LegalLayout title="Política de Privacidade">
-      <p className="text-[14px] text-white/60">Última atualização: 16 de novembro de 2026</p>
+      <p className="text-[14px] text-white/60">Última atualização: 17 de novembro de 2026</p>
 
       <p>
         Esta política explica quais dados o <b>Manual da Lash Designer</b> coleta, para que usa e quais são os seus
@@ -22,9 +22,9 @@ export function Privacy() {
       <h2>2. Quais dados coletamos</h2>
       <h3>Na compra</h3>
       <p>
-        O pagamento é feito pela Kiwify. Depois da compra, a Kiwify nos envia os dados do pedido: nome, e-mail, telefone e
+        O pagamento é feito pela Cakto. Depois da compra, a Cakto nos envia os dados do pedido: nome, e-mail, telefone e
         documento (quando informados), número do pedido, produto e situação do pagamento.{' '}
-        <b>Não recebemos nem guardamos dados do seu cartão</b>: eles ficam apenas com a Kiwify.
+        <b>Não recebemos nem guardamos dados do seu cartão</b>: eles ficam apenas com a Cakto.
       </p>
       <h3>No app</h3>
       <ul>
@@ -41,7 +41,7 @@ export function Privacy() {
       <h3>Na página de vendas</h3>
       <p>
         A página de vendas pode usar o <b>Pixel da Meta</b> (empresa dona do Facebook e do Instagram). Ele registra visitas
-        à página e cliques no botão de compra e, no checkout da Kiwify, o início da compra e a compra concluída. Com isso,
+        à página e cliques no botão de compra e, no checkout da Cakto, o início da compra e a compra concluída. Com isso,
         medimos quais anúncios funcionam e mostramos anúncios para pessoas com interesse parecido. O pixel usa cookies e
         identificadores do seu navegador. Você pode limitar o uso desses dados nas configurações de anúncios da sua conta
         do Facebook ou do Instagram e bloquear cookies de terceiros no seu navegador. O app, depois do login, não usa o
@@ -80,7 +80,7 @@ export function Privacy() {
       <p>Usamos empresas que nos ajudam a operar o produto e que tratam os dados apenas para isso:</p>
       <ul>
         <li>
-          <b>Kiwify</b>: pagamento e emissão de documentos da compra.
+          <b>Cakto</b>: pagamento e emissão de documentos da compra.
         </li>
         <li>
           <b>Supabase</b>: banco de dados e sistema de login do app.

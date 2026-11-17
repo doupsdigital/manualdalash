@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabase'
 import { identify, resetIdentity } from '../lib/analytics'
 
 export const NO_PURCHASE_MSG =
-  'Não encontramos uma compra com este e-mail. Use o mesmo e-mail da compra na Kiwify.'
+  'Não encontramos uma compra com este e-mail. Use o mesmo e-mail que você usou na compra.'
 
 type Status =
   | 'local' // sem Supabase configurado (desenvolvimento)
@@ -15,7 +15,7 @@ type Status =
 interface Auth {
   status: Status
   user: User | null
-  /** Primeiro nome da compradora, vindo da Kiwify (user_metadata.full_name). Null se não houver. */
+  /** Primeiro nome da compradora, vindo do checkout (user_metadata.full_name). Null se não houver. */
   firstName: string | null
   /** Mensagem mostrada na tela de login (ex.: acesso revogado). */
   notice: string | null

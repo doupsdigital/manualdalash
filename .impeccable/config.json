@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "arial",
+        "createdAt": "2026-11-17T12:45:27.875Z",
+        "reason": "Claude: e-mail HTML transacional (Resend) precisa de fonte segura de e-mail; mesmo template já usado no kiwify-webhook"
+      }
+    ]
+  }
+}

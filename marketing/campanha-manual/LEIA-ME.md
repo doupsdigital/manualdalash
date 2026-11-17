@@ -25,8 +25,9 @@ Não rode o modo real antes destes 4 itens. O script recusa rodar com o pixel em
    PageView/ViewContent/AddToCart aparecendo em "Testar eventos".
 3. **Domínio `manualdalash.com.br` verificado** no Business Manager (meta tag no `index.html`
    ou registro TXT na Hostinger).
-4. **Pixel na Kiwify:** produto "Manual da Lash Designer" → pixel cadastrado, com "Disparar
-   Purchase ao gerar Pix" DESLIGADO. Os 2 order bumps não precisam de pixel próprio.
+4. **Pixel na Cakto** (checkout desde 17/11/2026): produto "Manual da Lash Designer" → pixel
+   cadastrado, com o Purchase só no pagamento aprovado (nunca ao gerar o Pix). Os 2 order bumps
+   não precisam de pixel próprio.
 
 ## 1. Token
 

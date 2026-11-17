@@ -15,7 +15,7 @@
   "pixel": {
     "id": "1015955554886103",
     "nome": "Manual da Lash",
-    "observacao": "Pixel NOVO, só do Manual. Criado no Gerenciador de Eventos, instalado na /lp (META_PIXEL_ID em src/lib/config.ts) e cadastrado no produto da Kiwify. O script não roda em modo real enquanto este campo estiver com PREENCHER."
+    "observacao": "Pixel NOVO, só do Manual. Criado no Gerenciador de Eventos, instalado na /lp (META_PIXEL_ID em src/lib/config.ts) e cadastrado no produto da Cakto (checkout desde 17/11/2026). O script não roda em modo real enquanto este campo estiver com PREENCHER."
   },
 
   "campanha": {
@@ -129,6 +129,6 @@
     "Escrever sempre 'Lash' com L maiúsculo.",
     "Não usar termos de saúde: alergia, irritação, inflamação, infecção, doença, remédio, paciente, diagnóstico.",
     "Sem promessa de renda, sem depoimentos inventados, sem contador regressivo e sem preço 'de/por'.",
-    "Se o preço mudar (Kiwify e /lp), trocar todos os 'R$ 27' deste arquivo antes de criar ou editar anúncios."
+    "Se o preço mudar (Cakto e /lp), trocar todos os 'R$ 27' deste arquivo antes de criar ou editar anúncios."
   ]
 }
